@@ -1,0 +1,76 @@
+﻿@using VladislavAntonyuk.Shared.Monetization
+@using Ads = VladislavAntonyuk.Shared.Monetization.Ads
+@inherits LayoutComponentBase
+
+<PageTitle>@Constants.ProductName</PageTitle>
+
+<MudThemeProvider @ref="mudThemeProvider" @bind-IsDarkMode="isDarkMode" Theme="theme"/>
+<ErrorBoundary @ref="errorBoundary">
+	<ChildContent>
+		<MudDialogProvider CloseButton="true"
+		                   CloseOnEscapeKey="true"
+		                   DisableBackdropClick="true"
+		                   Position="DialogPosition.Center"/>
+	</ChildContent>
+	<ErrorContent>
+		<MudText Typo="Typo.h1">Error has occurred</MudText>
+		<MudButton OnClick="ResetError">Go To The Homepage</MudButton>
+	</ErrorContent>
+</ErrorBoundary>
+<MudSnackbarProvider/>
+
+<MudLayout>
+	<MudAppBar Elevation="1">
+		<MudHidden Breakpoint="Breakpoint.SmAndDown">
+			<MudLink Href="/">
+				<MudImage Src="https://avatars2.githubusercontent.com/u/33021114" Alt="@Constants.ProductName"
+				          Class="mud-icon-root mud-icon-size-large"/>
+			</MudLink>
+		</MudHidden>
+		<MudHidden Breakpoint="Breakpoint.MdAndUp">
+			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle"/>
+		</MudHidden>
+		<MudHidden Breakpoint="Breakpoint.Xs">
+			<MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
+		</MudHidden>
+		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+			<MudLink Href="/" Typo="Typo.subtitle2" Color="Color.Inherit">@Constants.ProductName</MudLink>
+		</MudHidden>
+		<MudSpacer/>
+		<MudIconButton Href="/rss" Target="_blank" Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit"></MudIconButton>
+	</MudAppBar>
+
+	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
+		<NavMenu/>
+		<NavCategories/>
+		<MudStack Row="true" Justify="Justify.Center">
+			<MudIconButton Href="https://www.youtube.com/c/VladislavAntonyuk" Target="_blank" Icon="@Icons.Custom.Brands.YouTube"></MudIconButton>
+			<MudIconButton Href="https://github.com/VladislavAntonyuk" Target="_blank" Icon="@Icons.Custom.Brands.GitHub"></MudIconButton>
+			<MudIconButton Href="https://www.linkedin.com/in/vladislav-antonyuk/" Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"></MudIconButton>
+		</MudStack>
+		<BuyMeACoffee/>
+		<MudSpacer/>
+		<MudImage Src="https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7"/>
+		<Ads Slot="1005616791"/>
+	</MudDrawer>
+	<MudMainContent>
+		<MudContainer MaxWidth="MaxWidth.False">
+			
+			<CookieConsents/>
+
+			<ErrorBoundary @ref="errorBoundary">
+				<ChildContent>
+					@Body
+				</ChildContent>
+				<ErrorContent>
+					<MudText Typo="Typo.h1">Error has occurred</MudText>
+					<MudButton OnClick="ResetError">Go To The Homepage</MudButton>
+				</ErrorContent>
+			</ErrorBoundary>
+
+			<MudScrollToTop Style="width:64px;height:64px;bottom:96px;">
+                <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" Style="width:64px;height:64px" />
+            </MudScrollToTop>
+		</MudContainer>
+	</MudMainContent>
+</MudLayout>

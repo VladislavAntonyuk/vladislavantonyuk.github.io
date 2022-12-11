@@ -1,0 +1,116 @@
+@page "/articles/{id}"
+@inherits VladislavAntonyukBaseComponent
+
+@if (article is null)
+{
+    @*if (error is null)
+    {*@
+        <MudText Typo="Typo.h1" Align="Align.Center">Loading</MudText>
+        <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+   @* }
+    else
+    {
+        <Head Title="@UrlCreator.DecodeArticleUrl(Id)" />
+        <Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code" />
+    }*@
+}
+else
+{
+    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.ImageUrl" />
+    
+    <div class="article">
+        @if (!string.IsNullOrWhiteSpace(article.ImageUrl))
+        {
+            <MudImage Src="@article.ImageUrl" Alt="@article.Name" Fluid="true" />
+        }
+        <MudText Typo="Typo.h1">@article.Name</MudText>
+        <MudStack Row="true" Justify="Justify.SpaceBetween">
+            <MudText>
+                <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
+                @article.Created.ToString("dd MMMM yyyy")
+            </MudText>
+            <MudHidden Breakpoint="Breakpoint.Xs">
+                <MudStack Row="true">
+                    @{
+                        var url = UrlCreator.CreateArticleUrl("articles", article.Name);
+                    }
+                    <MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
+                                   Target="_blank"
+                                   Icon="@Icons.Custom.Brands.Twitter" Title="Tweet"
+                                   Size="Size.Large" />
+
+                    <MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.Facebook"
+                                   Title="Facebook"
+                                   Size="Size.Large" />
+                    <MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"
+                                   Title="LinkedIn"
+                                   Size="Size.Large" />
+                </MudStack>
+            </MudHidden>
+            <MudText Align="Align.End">
+                <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
+                @article.Category.Name
+            </MudText>
+        </MudStack>
+        <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+            <MudStack Row="true" Justify="Justify.Center">
+                @{
+                    var url = UrlCreator.CreateArticleUrl("articles", article.Name);
+                }
+                <MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
+                               Target="_blank"
+                               Icon="@Icons.Custom.Brands.Twitter" Title="Tweet"
+                               Size="Size.Large" />
+
+                <MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.Facebook"
+                               Title="Facebook"
+                               Size="Size.Large" />
+                <MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"
+                               Title="LinkedIn"
+                               Size="Size.Large" />
+            </MudStack>
+        </MudHidden>
+        <BuyMeACoffee />
+        <MudText Align="Align.Justify">
+            <ArticleRenderer Content="@(article.Content ?? string.Empty)"></ArticleRenderer>
+        </MudText>
+        <BuyMeACoffee />
+    </div>
+}
+
+<Ads Slot="1656353485" />
+
+@if (suggestions?.Any() ?? false)
+{
+    <MudText Typo="Typo.h4">Related:</MudText>
+
+    <MudGrid>
+        @foreach (var suggestion in suggestions)
+        {
+            var url = UrlCreator.CreateArticleUrl("articles", suggestion.Name);
+            <MudItem sm="6">
+                <MudCard Style="height: 100%">
+                    @if (!string.IsNullOrWhiteSpace(suggestion.ImageUrl))
+                    {
+                        <MudCardMedia Image="@suggestion.ImageUrl"
+                                      Style="background-size: contain" />
+                    }
+                    <MudCardContent>
+                        <MudText Typo="Typo.h4">@suggestion.Name</MudText>
+                        <MudText>@suggestion.Description</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudLink Href="@url">Read full article</MudLink>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+@if (article is not null)
+{
+    <MudPaper Class="mt-4">
+        <Comments Id="Id" Title="article.Name" />
+    </MudPaper>
+}
