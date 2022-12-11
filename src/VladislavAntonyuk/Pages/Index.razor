@@ -1,0 +1,61 @@
+﻿@page "/"
+@page "/articles"
+@using VladislavAntonyuk.Shared.Monetization
+@using VladislavAntonyuk.Models
+@inherits VladislavAntonyukBaseComponent
+
+<Head Title="Vladislav Antonyuk - Articles" Description="Vladislav Antonyuk - Articles"/>
+<BaseNavigationComponent T="Article" Title="Articles" Page="Page ?? 1" Action="(page, searchParameter) => LoadArticles(page, searchParameter)">
+	<ChildContent Context="articles">
+		<MudGrid>
+			@for (var i = 0; i < articles.Count; i++)
+			{
+				var article = articles[i];
+				var i1 = i;
+				<MudItem xs="12">
+					@if (i1 % 4 == 3)
+					{
+						<Ads Slot="7356538192" Format="fluid" LayoutKey="-5a+7r-my-rh+29p"/>
+					}
+				</MudItem>
+
+				<MudItem xs="12">
+					@{
+					    var url = UrlCreator.CreateArticleUrl("articles", article.Name);
+					}
+					<MudCard>
+						@if (!string.IsNullOrWhiteSpace(article.ImageUrl))
+						{
+							<MudLink Href="@url">
+								<MudImage Src="@article.ImageUrl"
+								          Style="max-height: 55vh; margin: auto; display: block;"
+								          Fluid="true"
+								          Alt="@article.Name"/>
+							</MudLink>
+						}
+
+						<MudCardContent>
+							<MudText Typo="Typo.h4">@article.Name</MudText>
+							<MudText>@article.Description</MudText>
+							<MudStack Row="true" Justify="Justify.SpaceBetween">
+								<MudText>
+									<MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
+									@article.Created.ToString("dd MMMM yyyy")
+								</MudText>
+								<MudText>
+									<MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small"/>
+									@article.Category.Name
+								</MudText>
+							</MudStack>
+						</MudCardContent>
+						<MudCardActions>
+							<MudStack AlignItems="AlignItems.Center" Style="width: 100%">
+								<MudLink Href="@url">Read full article</MudLink>
+							</MudStack>
+						</MudCardActions>
+					</MudCard>
+				</MudItem>
+			}
+		</MudGrid>
+	</ChildContent>
+</BaseNavigationComponent>

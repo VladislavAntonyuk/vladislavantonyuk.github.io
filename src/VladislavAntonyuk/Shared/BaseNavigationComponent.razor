@@ -1,0 +1,43 @@
+﻿@typeparam T
+@inherits VladislavAntonyukBaseComponent
+
+<MudText Typo="Typo.h1">@Title</MudText>
+
+<MudTextField @bind-Value="searchFilter"
+              Label="Search"
+              Variant="Variant.Outlined"
+              Adornment="Adornment.End"
+              AdornmentIcon="@Icons.Filled.Search"
+              AdornmentColor="Color.Secondary"
+              OnAdornmentClick="LoadData"
+              OnClearButtonClick="LoadData"
+              Clearable="true"
+              Immediate="true"
+              Margin="Margin.Normal"/>
+
+@if (isLoading)
+{
+	<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+		<MudProgressCircular Indeterminate="true" Size="Size.Large"/>
+		<MudText Typo="Typo.h3">Loading</MudText>
+	</MudStack>
+}
+else if (data is not null && items is not null && data.TotalCount > 0)
+{
+	@ChildContent(items)
+
+	@if (data.TotalPages > 1)
+	{
+		<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+			<MudText>Total items: @data.TotalCount</MudText>
+			<MudPagination BoundaryCount="2" MiddleCount="2" Count="@data.TotalPages" Selected="Page" SelectedChanged="SetPage"/>
+		</MudStack>
+	}
+}
+else
+{
+	<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+		<MudIcon Icon="@Icons.Material.Filled.NoCell" Title="NotFound" Style="font-size: 10rem"/>
+		<MudText Typo="Typo.h3">No items found</MudText>
+	</MudStack>
+}

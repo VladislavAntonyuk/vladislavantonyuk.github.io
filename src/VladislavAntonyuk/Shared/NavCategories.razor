@@ -1,0 +1,9 @@
+﻿@inherits VladislavAntonyukBaseComponent
+
+<MudText Typo="Typo.h5" Align="Align.Center">Categories</MudText>
+<MudNavMenu>
+	@foreach (var category in categories)
+	{
+		<MudNavLink OnClick="() => FilterCategory(category.Name)" Icon="@Icons.Material.Outlined.Tag">@category.Name (@category.Articles.Count)</MudNavLink>
+	}
+</MudNavMenu>
