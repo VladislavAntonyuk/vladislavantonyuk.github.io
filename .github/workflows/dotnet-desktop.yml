@@ -23,9 +23,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish VladislavAntonyuk.csproj -c Release -o release --nologo
     
-    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to VladislavAntonyuk
-      run: sed -i 's/<base href="\/" \/>/<base href="\/VladislavAntonyuk\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'vladislavantonyuk.github.io' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to vladislavantonyuk.github.io
+      run: sed -i 's/<base href="\/" \/>/<base href="\/vladislavantonyuk.github.io\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
