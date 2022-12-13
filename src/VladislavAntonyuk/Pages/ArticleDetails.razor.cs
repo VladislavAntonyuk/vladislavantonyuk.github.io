@@ -29,6 +29,7 @@ public partial class ArticleDetails : VladislavAntonyukBaseComponent
     {
         article = null;
         error = null;
+        suggestions = null;
         var articleName = UrlCreator.DecodeArticleUrl(Id);
         if (string.IsNullOrEmpty(articleName))
         {
