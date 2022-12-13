@@ -3,16 +3,16 @@
 
 @if (article is null)
 {
-    @*if (error is null)
-    {*@
+    if (error is null)
+    {
         <MudText Typo="Typo.h1" Align="Align.Center">Loading</MudText>
         <MudProgressCircular Color="Color.Default" Indeterminate="true" />
-   @* }
+    }
     else
     {
         <Head Title="@UrlCreator.DecodeArticleUrl(Id)" />
         <Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code" />
-    }*@
+    }
 }
 else
 {
@@ -49,7 +49,7 @@ else
             </MudHidden>
             <MudText Align="Align.End">
                 <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
-                @article.Category.Name
+                @article.CategoryName
             </MudText>
         </MudStack>
         <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">

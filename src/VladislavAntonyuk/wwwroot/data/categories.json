@@ -1,12 +1,23 @@
 ﻿[
   {
     "id": 1,
-    "created": "2022-01-06",
-    "name": "Freezing"
+    "name": ".NET MAUI/Xamarin",
+    "description": ".NET MAUI/Xamarin",
+    "articles": [
+      {
+        "id": 1,
+        "created": "2022-01-06",
+        "name": "Replicate a bank application UI using .NET MAUI"
+      },
+      {
+        "id": 2,
+        "created": "2022-01-07",
+        "name": "Creating dynamic floating action button"
+      }
+    ]
   },
   {
     "id": 2,
-    "created": "2022-01-07",
     "name": "Bracing"
   }
 ]

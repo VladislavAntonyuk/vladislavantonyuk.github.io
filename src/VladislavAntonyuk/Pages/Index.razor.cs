@@ -21,35 +21,17 @@ public partial class Index : VladislavAntonyukBaseComponent
 	public required IUrlCreator UrlCreator { get; set; }
 
 	[Inject]
-	public required HttpClient HttpClient { get; set; }
+	public required IArticlesService ArticlesService { get; set; }
 
 	[Inject]
 	public required ISnackbar Snackbar { get; set; }
 
-	//[Inject]
-	//public required ICache Cache { get; set; }
-	
-	private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
-	{
-		var result = await HttpClient.GetFromJsonAsync<Article[]>("data/articles.json");
-        //var result = await Cache.GetOrSetAsync($"Articles_{page}_{CategoryName}_{searchParameter}",
-        //                                       () => QueryDispatcher
-        //	                                       .SendAsync<GetArticleByFilterResponse, GetArticleQuery>(
-        //		                                       new GetArticleQuery
-        //		                                       {
-        //			                                       Offset = page - 1,
-        //			                                       Limit = 10,
-        //			                                       Name = searchParameter,
-        //			                                       CategoryName = CategoryName,
-        //			                                       AllowInactive = isAuthenticated
-        //		                                       }, CancellationToken.None), TimeSpan.FromHours(1));
-
-        //if (result.IsSuccessful)
-        //{
-        //	return new PaginatedList<Article>(result.Value.Items, result.Value.TotalCount, result.Value.PageIndex, 10);
-        //}
-
-        //Snackbar.Add(string.Join(Environment.NewLine, result.Errors));
-        return new PaginatedList<Article>(result, result.Length, 0, 10);
+    private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
+    {
+        var articles = await ArticlesService.GetArticles(CategoryName, searchParameter);
+        
+        var result = articles.Skip(page - 1).Take(10).ToList();
+       
+        return new PaginatedList<Article>(result, result.Count, 0, 10);
 	}
 }

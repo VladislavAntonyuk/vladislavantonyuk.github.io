@@ -2,6 +2,7 @@
 
 using System.Net;
 using System.Text;
+
 public interface IUrlCreator
 {
     string CreateArticleUrl(string url, string? encodedPart = null);

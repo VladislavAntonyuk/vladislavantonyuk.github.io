@@ -1,0 +1,13 @@
+@inherits VladislavAntonyukBaseComponent
+
+<Head Title="@ErrorTitle" Description="@ErrorText"/>
+
+<MudText Typo="Typo.h1">@ErrorTitle</MudText>
+@if (ErrorCode != 0)
+{
+	<MudText Typo="Typo.h2">@ErrorCode</MudText>
+}
+<MudText>@ErrorText</MudText>
+<MudButton Href="/">Go To The Homepage</MudButton>
+
+<Ads Slot="4634952188"/>

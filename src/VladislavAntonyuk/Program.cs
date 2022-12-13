@@ -7,6 +7,7 @@ using VladislavAntonyuk.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.Services.AddSingleton<IUrlCreator, UrlCreator>();
+builder.Services.AddScoped<IArticlesService, ArticlesService>();
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddMudServices();

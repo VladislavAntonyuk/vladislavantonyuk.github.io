@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Net.Http.Json;
+using Microsoft.AspNetCore.Components;
+using MudBlazor;
+using VladislavAntonyuk.Application.UseCases;
 using VladislavAntonyuk.Models;
 using VladislavAntonyuk.Services;
 
@@ -7,7 +10,7 @@ namespace VladislavAntonyuk.Pages;
 public partial class ArticleDetails : VladislavAntonyukBaseComponent
 {
     private Article? article;
-    //private ErrorModel? error;
+    private ErrorModel? error;
     private IReadOnlyCollection<Article>? suggestions;
 
     [Parameter]
@@ -18,75 +21,32 @@ public partial class ArticleDetails : VladislavAntonyukBaseComponent
 
     [Inject]
     public required NavigationManager Navigation { get; set; }
-    
+
     [Inject]
-    public required HttpClient HttpClient { get; set; }
-
-    //[Inject]
-    //public required IQueryDispatcher QueryDispatcher { get; set; }
-
-    //[Inject]
-    //public required ICache Cache { get; set; }
+    public required IArticlesService ArticlesService { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
-        try
+        var articleName = UrlCreator.DecodeArticleUrl(Id);
+        if (string.IsNullOrEmpty(articleName))
         {
-            var urlId = UrlCreator.DecodeArticleUrl(Id);
-            if (string.IsNullOrEmpty(urlId))
-            {
-                Navigation.NavigateTo("/");
-                return;
-            }
-
-            article = new Article()
-            {
-                Content = await HttpClient.GetStringAsync("./data/" + urlId + ".md"),
-                Name = urlId
-            };
-            //var result = await Cache.GetOrSetAsync($"ArticleDetails_{urlId}", () =>
-            //	                                       QueryDispatcher
-            //		                                       .SendAsync<DetailedArticleDto, GetArticleByNameQuery>(
-            //			                                       new GetArticleByNameQuery(urlId)
-            //			                                       {
-            //				                                       AllowInactive = isAuthenticated
-            //			                                       }, CancellationToken.None), TimeSpan.FromMinutes(30));
-
-            //if (result.IsSuccessful)
-            //{
-            //	article = result.Value;
-            //}
-            //else
-            //{
-            //error = new ErrorModel
-            //{
-            //	Message = "Page Not Found",
-            //	Code = 404
-            //};
-            //}
-
-            //var suggestionsResult = await Cache.GetOrSetAsync($"ArticleDetails_Suggestions_{isAuthenticated}_{urlId}",
-            //                                                  () => QueryDispatcher
-            //	                                                  .SendAsync<GetArticleByFilterResponse,
-            //		                                                  GetSuggestionsQuery>(new GetSuggestionsQuery
-            //	                                                  {
-            //		                                                  Limit = 2,
-            //		                                                  Name = result.Value?.Name,
-            //		                                                  CategoryName = result.Value?.Category.Name,
-            //		                                                  AllowInactive = isAuthenticated
-            //	                                                  }, CancellationToken.None), TimeSpan.FromHours(1));
-            //if (suggestionsResult.IsSuccessful)
-            //{
-            //	suggestions = suggestionsResult.Value.Items;
-            //}
+            Navigation.NavigateTo("/");
+            return;
         }
-        catch (Exception e)
+
+        suggestions = await ArticlesService.GetSuggestions(articleName, 2);
+        var result = await ArticlesService.GetArticle(articleName);
+        if (result is null)
         {
-            //error = new ErrorModel
-            //{
-            //	Message = e.Message,
-            //	Code = 500
-            //};
+            error = new ErrorModel
+            {
+                Message = "Page Not Found",
+                Code = 404
+            };
+        }
+        else
+        {
+            article = result;
         }
     }
 }
