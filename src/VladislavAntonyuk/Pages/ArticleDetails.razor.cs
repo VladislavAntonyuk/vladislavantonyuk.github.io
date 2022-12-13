@@ -14,7 +14,7 @@ public partial class ArticleDetails : VladislavAntonyukBaseComponent
     private IReadOnlyCollection<Article>? suggestions;
 
     [Parameter]
-    public string Id { get; set; } = string.Empty;
+    public required string Id { get; set; }
 
     [Inject]
     public required IUrlCreator UrlCreator { get; set; }
@@ -27,6 +27,8 @@ public partial class ArticleDetails : VladislavAntonyukBaseComponent
 
     protected override async Task OnParametersSetAsync()
     {
+        article = null;
+        error = null;
         var articleName = UrlCreator.DecodeArticleUrl(Id);
         if (string.IsNullOrEmpty(articleName))
         {

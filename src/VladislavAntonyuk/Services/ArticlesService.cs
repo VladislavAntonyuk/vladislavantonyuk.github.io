@@ -77,12 +77,7 @@ class ArticlesService : IArticlesService
         }
 
         var category = categories.FirstOrDefault(x => x.Articles.FirstOrDefault(y => y.Name == articleName) != null);
-        if (category is null)
-        {
-            return new List<Article>();
-        }
-
-        var articles = string.IsNullOrEmpty(category.Name) ?
+        var articles = string.IsNullOrEmpty(category?.Name) ?
             categories.SelectMany(x => x.Articles) :
             category.Articles;
 
