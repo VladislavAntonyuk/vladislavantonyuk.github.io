@@ -120,73 +120,73 @@
         "id": 24,
         "created": "2022-08-06",
         "name": "Secure .NET MAUI application",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "The article describes how to add secure surfaces to prevent content rendered into those surfaces by applications from appearing in screenshots or from being viewed on non-secure displays.",
+        "keywords": "dotnet, maui, secure, flag, overlay, subview, screenshot, safeguard, protect, FLAG_SECURE",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/24/dotnet-maui-bank-secure.gif"
       },
       {
         "id": 25,
         "created": "2022-08-09",
         "name": "Extend .NET MAUI application with iOS Extensions",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "Extend the .NET MAUI application with iOS App Extension in 5 steps.",
+        "keywords": "ios, extensions, dotnet, maui, .net, extend, app extensions, apple",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/25/logo.gif"
       },
       {
         "id": 26,
         "created": "2022-09-02",
         "name": "Creating a bottom sheet using .NET MAUI",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "Creating a bottom sheet using native dialogs.",
+        "keywords": "dotnet, maui, .net, bottom sheet, alert",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/26/logo.gif"
       },
       {
         "id": 27,
         "created": "2022-09-14",
         "name": "Create custom animations using .NET MAUI CommunityToolkit",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "This article describes how to leverage .NET MAUI CommunityToolkit BaseAnimation and AnimationBehavior to create and apply animation.",
+        "keywords": "dotnet, maui, animation, community, toolkit, CommunityToolkit, BaseAnimation, VisualElement, AnimationBehavior, scale, fade, rotation, transitionX, transitionY",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/27/dotnet-maui-animation.gif"
       },
       {
         "id": 28,
         "created": "2022-09-29",
         "name": "Migrate the deprecated OnBackPressed function in .NET MAUI Android application",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "This article is devoted to the new API added in Android 13, that adds support to predictive back gestures.",
+        "keywords": "OnBackPressed, deprecated, Android, Android 13, Android 33",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/28/1.png"
       },
       {
         "id": 29,
         "created": "2022-10-04",
         "name": "Prepare .NET MAUI application with CommunityToolkit.MAUI to release",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "The article describes how to configure .NET MAUI CommunityToolkit to avoid crashes at runtime.",
+        "keywords": "CommunityToolkit, dotnet, maui, options, release, configuration",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/29/29.png"
       },
       {
         "id": 30,
         "created": "2022-10-10",
         "name": "Customize map pins in .NET MAUI",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "Customize map pins in .NET MAUI.",
+        "keywords": "dotnet, .net, maui, map, pin, customization",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/30/android-pins.png"
       },
       {
         "id": 31,
         "created": "2022-11-09",
         "name": "Creating dynamic floating action button",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "Create a dynamic floating action button using an Expander control.",
+        "keywords": "dynamic, floating, action, button, fab, dotnet, .net, maui, expander",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/31/android.gif"
       },
       {
         "id": 32,
         "created": "2022-11-13",
         "name": "Speech recognition with .NET MAUI",
-        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
-        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
-        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+        "description": "Using a Speech recognizer to convert speech to text.",
+        "keywords": "dotnet, .net, maui, speech-to-text, speech, recognizer, recognition, speech recognition",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/32/speech_to_text.png"
       },
       {
         "id": 33,
