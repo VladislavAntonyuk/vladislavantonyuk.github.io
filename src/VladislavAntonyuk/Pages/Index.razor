@@ -23,10 +23,10 @@
 					    var url = UrlCreator.CreateArticleUrl("articles", article.Name);
 					}
 					<MudCard>
-						@if (!string.IsNullOrWhiteSpace(article.ImageUrl))
+						@if (!string.IsNullOrWhiteSpace(article.Image))
 						{
 							<MudLink Href="@url">
-								<MudImage Src="@article.ImageUrl"
+								<MudImage Src="@article.Image"
 								          Style="max-height: 55vh; margin: auto; display: block;"
 								          Fluid="true"
 								          Alt="@article.Name"/>

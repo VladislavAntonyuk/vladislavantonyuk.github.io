@@ -16,12 +16,12 @@
 }
 else
 {
-    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.ImageUrl" />
+    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image" />
     
     <div class="article">
-        @if (!string.IsNullOrWhiteSpace(article.ImageUrl))
+        @if (!string.IsNullOrWhiteSpace(article.Image))
         {
-            <MudImage Src="@article.ImageUrl" Alt="@article.Name" Fluid="true" />
+            <MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
         }
         <MudText Typo="Typo.h1">@article.Name</MudText>
         <MudStack Row="true" Justify="Justify.SpaceBetween">
@@ -90,9 +90,9 @@ else
             var url = UrlCreator.CreateArticleUrl("articles", suggestion.Name);
             <MudItem sm="6">
                 <MudCard Style="height: 100%">
-                    @if (!string.IsNullOrWhiteSpace(suggestion.ImageUrl))
+                    @if (!string.IsNullOrWhiteSpace(suggestion.Image))
                     {
-                        <MudCardMedia Image="@suggestion.ImageUrl"
+                        <MudCardMedia Image="@suggestion.Image"
                                       Style="background-size: contain" />
                     }
                     <MudCardContent>
