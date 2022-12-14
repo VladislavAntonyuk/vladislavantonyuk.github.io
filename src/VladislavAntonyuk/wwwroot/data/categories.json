@@ -2,22 +2,299 @@
   {
     "id": 1,
     "name": ".NET MAUI/Xamarin",
-    "description": ".NET MAUI/Xamarin",
+    "description": ".NET MAUI, .NET MAUI Blazor, Xamarin",
     "articles": [
       {
-        "id": 1,
-        "created": "2022-01-06",
-        "name": "Replicate a bank application UI using .NET MAUI"
+        "id": 4,
+        "created": "2021-03-15",
+        "name": "How to show SnackBar and Toast using Xamarin Community Toolkit",
+        "description": "Demonstrate how to configure SnackBar and Toast using Xamarin Community Toolkit.",
+        "keywords": "xamarin, community, toolkit, snackbar, toast",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/4/5.png"
       },
       {
-        "id": 2,
-        "created": "2022-01-07",
-        "name": "Creating dynamic floating action button"
+        "id": 5,
+        "created": "2021-04-22",
+        "name": "Creating Kanban Board using Xamarin.Forms",
+        "description": "This article describes how to create Kanban Board using Xamarin Forms (.NET MAUI) only. Drag & Drop Cards, Set Column WIP, Store data in Local Db.",
+        "keywords": "kanban, board, xamarin, collection, view, drag and drop, maui, dotnet",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/5/kanban1.png"
+      },
+      {
+        "id": 7,
+        "created": "2021-05-21",
+        "name": "Drawing View in Xamarin Community Toolkit",
+        "description": "The SignaturePad successor is now available in XCT. This article describes how to add it to your project.",
+        "keywords": "xamarin, drawing, view, signature, signaturepad, drawgo, community toolkit",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/7/paint-dotnet.png"
+      },
+      {
+        "id": 8,
+        "created": "2021-06-14",
+        "name": "The first project with .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 13,
+        "created": "2021-11-13",
+        "name": "Azure Active Directory authentication in .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 14,
+        "created": "2021-12-11",
+        "name": "Adding SQLite to the .NET MAUI application",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 15,
+        "created": "2021-12-30",
+        "name": ".NET MAUI Multi Window support",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 16,
+        "created": "2022-01-14",
+        "name": "Create a gallery app using .NET MAUI Blazor",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 17,
+        "created": "2022-02-11",
+        "name": "How to show SnackBar and Toast in .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 19,
+        "created": "2022-04-02",
+        "name": "Interactive app tutorial in .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 20,
+        "created": "2022-05-26",
+        "name": "Localize .NET MAUI application",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 21,
+        "created": "2022-06-28",
+        "name": "Creating a card stack layout using .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 22,
+        "created": "2022-07-10",
+        "name": "Creating beautiful image effects using .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 23,
+        "created": "2022-07-21",
+        "name": "Replicate a bank application UI using .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 24,
+        "created": "2022-08-06",
+        "name": "Secure .NET MAUI application",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 25,
+        "created": "2022-08-09",
+        "name": "Extend .NET MAUI application with iOS Extensions",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 26,
+        "created": "2022-09-02",
+        "name": "Creating a bottom sheet using .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 27,
+        "created": "2022-09-14",
+        "name": "Create custom animations using .NET MAUI CommunityToolkit",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 28,
+        "created": "2022-09-29",
+        "name": "Migrate the deprecated OnBackPressed function in .NET MAUI Android application",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 29,
+        "created": "2022-10-04",
+        "name": "Prepare .NET MAUI application with CommunityToolkit.MAUI to release",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 30,
+        "created": "2022-10-10",
+        "name": "Customize map pins in .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 31,
+        "created": "2022-11-09",
+        "name": "Creating dynamic floating action button",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 32,
+        "created": "2022-11-13",
+        "name": "Speech recognition with .NET MAUI",
+        "description": "How to migrate Xamarin.Forms app to .NET MAUI step by step.",
+        "keywords": ".net, maui, dotnet, xamarin, migration, forms, first project",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/8/dotnetbotmaui.png"
+      },
+      {
+        "id": 33,
+        "created": "2022-12-01",
+        "name": "AppIcon Badge with .NET MAUI",
+        "description": "The article demonstrates how to add the AppIcon badge number with .NET MAUI.",
+        "keywords": "dotnet, maui, .net, appicon, icon, badge, notification, badgenumber, number, android, ios, maccatalyst, windows, tizen",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/33/icon.png"
       }
     ]
   },
   {
     "id": 2,
-    "name": "Bracing"
+    "name": ".NET",
+    "description": "https://dot.net",
+    "articles": [
+      {
+        "id": 3,
+        "created": "2021-02-14",
+        "name": "Creating screen brightness service with .NET",
+        "description": "Creating WindowsService to adjust screen brightness on laptops.",
+        "keywords": "windows service, bug, error, screen, brightness, adjust, dotnet, .net",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/3/screen-brightness-service.png"
+      },
+      {
+        "id": 9,
+        "created": "2021-07-21",
+        "name": "Onion architecture in the development of cross platform applications. Part 1. Overview",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      },
+      {
+        "id": 10,
+        "created": "2021-08-21",
+        "name": "Onion architecture in the development of cross platform applications. Part 2. Domain and Application",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      },
+      {
+        "id": 11,
+        "created": "2021-09-21",
+        "name": "Onion architecture in the development of cross platform applications. Part 3. Infrastructure",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      },
+      {
+        "id": 12,
+        "created": "2021-10-04",
+        "name": "Onion architecture in the development of cross platform applications. Part 4. UI",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Blazor",
+    "description": "https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor",
+    "articles": [
+      {
+        "id": 6,
+        "created": "2021-05-08",
+        "name": "Identity and Dynamic routing in Blazor",
+        "description": "The Identity of the user in DynamicRouteValueTransformer.",
+        "keywords": "dynamic route, blazor, identity, slug",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/6/44E6443E-0A47-4209-BDD2-D46AB88B66A2.webp"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Azure",
+    "description": "portal.azure.com",
+    "articles": [
+      {
+        "id": 18,
+        "created": "2022-03-10",
+        "name": "Built in authentication for specific pages in Azure App Service",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "General",
+    "articles": [
+      {
+        "id": 1,
+        "created": "2021-01-11",
+        "name": "How to automatically keep your code clean",
+        "description": "The article is dedicated to setting git hooks and using code inspectors.",
+        "keywords": "Clean code, git hooks, resharper",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/1/git-commit-error.png"
+      },
+      {
+        "id": 2,
+        "created": "2021-01-18",
+        "name": "Secrets of successful interview",
+        "description": "Some base recommendations which might help you to successfully pass the interview.",
+        "keywords": "interview, recommendations, success, get to project, IT company",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/2/offer.png"
+      }
+    ]
   }
 ]
