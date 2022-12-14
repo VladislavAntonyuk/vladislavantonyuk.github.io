@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-using Microsoft.AspNetCore.Components;
-using MudBlazor;
+﻿using Microsoft.AspNetCore.Components;
 using VladislavAntonyuk.Application.UseCases;
 using VladislavAntonyuk.Models;
 using VladislavAntonyuk.Services;
@@ -23,15 +21,12 @@ public partial class Index : VladislavAntonyukBaseComponent
 	[Inject]
 	public required IArticlesService ArticlesService { get; set; }
 
-	[Inject]
-	public required ISnackbar Snackbar { get; set; }
-
     private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
     {
         var articles = await ArticlesService.GetArticles(CategoryName, searchParameter);
         
         var result = articles.Skip(page - 1).Take(10).ToList();
        
-        return new PaginatedList<Article>(result, result.Count, 0, 10);
+        return new PaginatedList<Article>(result, articles.Count, page - 1, 10);
 	}
 }

@@ -1,6 +1,4 @@
 ﻿using System.Net.Http.Json;
-using MudBlazor;
-using VladislavAntonyuk.Application.UseCases;
 using VladislavAntonyuk.Models;
 
 namespace VladislavAntonyuk.Services;
@@ -30,11 +28,11 @@ class ArticlesService : IArticlesService
 
         var articles = string.IsNullOrEmpty(categoryName) ?
             categories.SelectMany(x => x.Articles) :
-            categories.Where(x => x.Name == categoryName).SelectMany(x => x.Articles);
+            categories.Where(x => x.Name.Equals(categoryName, StringComparison.OrdinalIgnoreCase)).SelectMany(x => x.Articles);
 
         if (!string.IsNullOrEmpty(searchParameter))
         {
-            articles = articles.Where(x => x.Name.Contains(searchParameter));
+            articles = articles.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
         }
 
         return articles.ToList();
@@ -44,14 +42,14 @@ class ArticlesService : IArticlesService
     {
         var categories = await _httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
 
-        var category = categories?.FirstOrDefault(x => x.Articles.FirstOrDefault(y => y.Name == articleName) != null);
+        var category = categories?.FirstOrDefault(x => x.Articles.FirstOrDefault(y => y.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase)) != null);
 
         if (category is null)
         {
             return null;
         }
 
-        var article = category.Articles.SingleOrDefault(x => x.Name == articleName);
+        var article = category.Articles.SingleOrDefault(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
         if (article is null)
         {
             return null;
@@ -76,12 +74,12 @@ class ArticlesService : IArticlesService
             return new List<Article>();
         }
 
-        var category = categories.FirstOrDefault(x => x.Articles.FirstOrDefault(y => y.Name == articleName) != null);
+        var category = categories.FirstOrDefault(x => x.Articles.FirstOrDefault(y => y.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase)) != null);
         var articles = string.IsNullOrEmpty(category?.Name) ?
             categories.SelectMany(x => x.Articles) :
             category.Articles;
 
-        var allSuggestions = articles.Where(x => x.Name != articleName).OrderBy(q => q.Id).ToList();
+        var allSuggestions = articles.Where(x => !x.Name.EndsWith(articleName, StringComparison.OrdinalIgnoreCase)).OrderBy(q => q.Id).ToList();
 
         if (allSuggestions.Count == 0)
         {

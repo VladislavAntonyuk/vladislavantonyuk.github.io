@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Net.Http;
-
-namespace VladislavAntonyuk.Models;
+﻿namespace VladislavAntonyuk.Models;
 
 public class Article : BaseEntity
 {
