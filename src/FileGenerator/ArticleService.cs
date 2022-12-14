@@ -15,8 +15,7 @@ public class ArticlesService : IArticlesService
     public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
     {
         var content = await File.ReadAllTextAsync(_path);
-        
-        var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content);
+        var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         if (categories is null)
         {
             return new List<Article>();

@@ -25,8 +25,7 @@ jobs:
     - name: Generate RSS and Sitemap
       run: |
         dotnet build src/FileGenerator/FileGenerator.csproj -c Release -o file-generator
-        cd file-generator
-        dotnet FileGenerator.dll "../release"
+        dotnet file-generator/FileGenerator.dll "/release"
         cp file-generator/rss.xml release/wwwroot/rss.xml
         cp file-generator/sitemap.xml release/wwwroot/sitemap.xml
 

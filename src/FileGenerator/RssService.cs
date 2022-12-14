@@ -51,7 +51,7 @@ public class RssService : IRssService
 			}
 		};
         var articles = await _articlesService.GetArticles();
-		if (articles.Count == 0)
+        if (articles.Count == 0)
 		{
 			return string.Empty;
 		}
