@@ -26,7 +26,7 @@ jobs:
       run: |
         dotnet build src/FileGenerator/FileGenerator.csproj -c Release -o file-generator
         cd file-generator
-        FileGenerator "../release"
+        dotnet FileGenerator.dll "../release"
         cp file-generator/rss.xml release/wwwroot/rss.xml
         cp file-generator/sitemap.xml release/wwwroot/sitemap.xml
 
