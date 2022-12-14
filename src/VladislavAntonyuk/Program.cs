@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 using StardustDL.RazorComponents.Markdown;
 using VladislavAntonyuk;
-using VladislavAntonyuk.Services;
+using Shared;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.Services.AddSingleton<IUrlCreator, UrlCreator>();
+builder.Services.AddShared();
 builder.Services.AddScoped<IArticlesService, ArticlesService>();
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");

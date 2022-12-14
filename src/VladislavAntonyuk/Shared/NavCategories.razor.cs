@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using VladislavAntonyuk.Models;
+using Shared.Models;
 
 namespace VladislavAntonyuk.Shared;
 

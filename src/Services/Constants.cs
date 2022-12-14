@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk;
+﻿namespace Shared;
 
 public static class Constants
 {

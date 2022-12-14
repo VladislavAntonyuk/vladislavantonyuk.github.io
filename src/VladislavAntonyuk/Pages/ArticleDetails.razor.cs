@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
-using VladislavAntonyuk.Models;
-using VladislavAntonyuk.Services;
+using Shared;
+using Shared.Models;
 
 namespace VladislavAntonyuk.Pages;
 

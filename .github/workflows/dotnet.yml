@@ -17,10 +17,18 @@ jobs:
         include-prerelease: true
     
     - name: Change constants
-      run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/VladislavAntonyuk/Constants.cs
-
+      run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
+      
     - name: Publish .NET Project
       run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -o release --nologo
+      
+    - name: Generate RSS and Sitemap
+      run: |
+        dotnet build src/FileGenerator/FileGenerator.csproj -c Release -o file-generator
+        cd file-generator
+        dotnet run FileGenerator "../release"
+        cp file-generator/rss.xml release/wwwroot/rss.xml
+        cp file-generator/sitemap.xml release/wwwroot/sitemap.xml
 
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html

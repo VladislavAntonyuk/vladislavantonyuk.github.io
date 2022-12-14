@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
-using VladislavAntonyuk.Models;
+using Shared.Models;
 
-namespace VladislavAntonyuk.Services;
+namespace Shared;
 
 public interface IArticlesService
 {

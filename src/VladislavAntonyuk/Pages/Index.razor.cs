@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
-using VladislavAntonyuk.Application.UseCases;
-using VladislavAntonyuk.Models;
-using VladislavAntonyuk.Services;
+using Shared;
+using Shared.Models;
 
 namespace VladislavAntonyuk.Pages;
 
@@ -23,10 +22,11 @@ public partial class Index : VladislavAntonyukBaseComponent
 
     private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
     {
+        const int pageSize = 10;
         var articles = await ArticlesService.GetArticles(CategoryName, searchParameter);
         
-        var result = articles.Skip(page - 1).Take(10).ToList();
+        var result = articles.Skip((page - 1) * pageSize).Take(pageSize).ToList();
        
-        return new PaginatedList<Article>(result, articles.Count, page - 1, 10);
+        return new PaginatedList<Article>(result, articles.Count, page - 1, pageSize);
 	}
 }

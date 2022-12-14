@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Application.UseCases;
+﻿namespace VladislavAntonyuk;
 
 public class PaginatedList<T>
 {

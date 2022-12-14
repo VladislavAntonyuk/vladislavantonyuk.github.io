@@ -1,7 +1,7 @@
-﻿namespace VladislavAntonyuk.Services;
-
-using System.Net;
+﻿using System.Net;
 using System.Text;
+
+namespace Shared;
 
 public interface IUrlCreator
 {

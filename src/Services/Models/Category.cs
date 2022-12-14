@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Models;
+﻿namespace Shared.Models;
 
 public class Category : BaseEntity
 {
