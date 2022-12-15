@@ -48,7 +48,7 @@ public class SitemapService : ISitemapService
 			                 article => CreateUrl("articles", priority, article.Created.ToDateTime(TimeOnly.MinValue),
 			                                      ChangeFrequency.Monthly, article.Name)));
 
-		await sitemap.SaveAsync(FilePath);
+		await sitemap.SaveAsync(Environment.CurrentDirectory + "/" + FilePath);
 		return await ParseSitemap();
 	}
 

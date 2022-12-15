@@ -26,8 +26,8 @@ jobs:
       run: |
         dotnet build src/FileGenerator/FileGenerator.csproj -c Release -o file-generator
         dotnet file-generator/FileGenerator.dll "/release"
-        cp file-generator/rss.xml release/wwwroot/rss.xml
-        cp file-generator/sitemap.xml release/wwwroot/sitemap.xml
+        cp rss.xml release/wwwroot/rss.xml
+        cp sitemap.xml release/wwwroot/sitemap.xml
 
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
