@@ -14,7 +14,7 @@ public class ArticlesService : IArticlesService
     }
     public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
     {
-        var content = await File.ReadAllTextAsync(_path);
+        var content = await File.ReadAllTextAsync(_path + "categories.json");
         var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         if (categories is null)
         {
@@ -29,6 +29,7 @@ public class ArticlesService : IArticlesService
         var articles = categories.SelectMany(x => x.Articles, (category, article) =>
         {
             article.CategoryName = category.Name;
+            article.Content = File.ReadAllText(_path + article.Name + ".md"); 
             return article;
         });
 
