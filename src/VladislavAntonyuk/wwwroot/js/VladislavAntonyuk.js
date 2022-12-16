@@ -62,7 +62,7 @@ window.DisqusFunctions = {
 		const dsq = document.createElement('script');
 		dsq.type = 'text/javascript';
 		dsq.async = true;
-		dsq.src = 'https://vladislavantonyuk.disqus.com/embed.js';
+		dsq.src = 'https://vladislavantonyuk-githubpages.disqus.com/embed.js';
 		dsq.disqus_container_id = 'disqus_thread';
 		disqusThreadElement.appendChild(dsq);
 		disqusThreadElement.style.display = "block";
