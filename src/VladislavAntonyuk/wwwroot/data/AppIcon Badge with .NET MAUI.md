@@ -89,7 +89,7 @@ public class NotificationCounterImplementation : INotificationCounter
 }
 ```
 
-![Android](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/33/android.png)
+![Android](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/33/android.jpg)
 
 ## iOS/MacCatalyst
 
