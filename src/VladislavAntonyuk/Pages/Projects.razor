@@ -1,0 +1,34 @@
+﻿@page "/projects"
+@using global::Shared.Models
+@inherits VladislavAntonyukBaseComponent
+
+<Head Title="Vladislav Antonyuk - Projects" Description="Vladislav Antonyuk - Projects">
+</Head>
+
+<BaseNavigationComponent T="Project" Title="Projects" Page="Page ?? 1" Action="(page, searchParameter) => LoadProjects(page, searchParameter)">
+	<ChildContent Context="projects">
+		<MudGrid>
+			@foreach (var project in projects)
+			{
+				<MudItem sm="6">
+					<MudCard Style="height: 100%">
+						@if (!string.IsNullOrWhiteSpace(project.Image))
+						{
+							<MudLink Href="@project.Link" Target="_blank">
+								<MudCardMedia Image="@project.Image"
+								              Style="background-size: contain"/>
+							</MudLink>
+						}
+						<MudCardContent>
+							<MudText Typo="Typo.h4">@project.Name</MudText>
+							<MudText>@project.Description</MudText>
+						</MudCardContent>
+						<MudCardActions>
+							<MudLink Href="@project.Link" Target="_blank">Go To Details</MudLink>
+						</MudCardActions>
+					</MudCard>
+				</MudItem>
+			}
+		</MudGrid>
+	</ChildContent>
+</BaseNavigationComponent>

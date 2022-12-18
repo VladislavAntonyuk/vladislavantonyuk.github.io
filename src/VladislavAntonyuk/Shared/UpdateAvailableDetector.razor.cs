@@ -1,36 +1,34 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿namespace VladislavAntonyuk.Shared;
 
-namespace VladislavAntonyuk.Shared;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public partial class UpdateAvailableDetector : VladislavAntonyukBaseComponent
 {
-    private bool _newVersionAvailable;
+	private bool _newVersionAvailable;
 
-    [Inject]
-    public required IJSRuntime JsRuntime { get; set; }
-    
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        await RegisterForUpdateAvailableNotification();
-    }
+	[Inject]
+	public required IJSRuntime JsRuntime { get; set; }
 
-    private async Task RegisterForUpdateAvailableNotification()
-    {
-        await JsRuntime.InvokeAsync<object>(
-            identifier: "registerForUpdateAvailableNotification",
-            DotNetObjectReference.Create(this),
-            nameof(OnUpdateAvailable));
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		await RegisterForUpdateAvailableNotification();
+	}
 
-    [JSInvokable(nameof(OnUpdateAvailable))]
-    public Task OnUpdateAvailable()
-    {
-        _newVersionAvailable = true;
+	private async Task RegisterForUpdateAvailableNotification()
+	{
+		await JsRuntime.InvokeAsync<object>("registerForUpdateAvailableNotification",
+		                                    DotNetObjectReference.Create(this), nameof(OnUpdateAvailable));
+	}
 
-        StateHasChanged();
+	[JSInvokable(nameof(OnUpdateAvailable))]
+	public Task OnUpdateAvailable()
+	{
+		_newVersionAvailable = true;
 
-        return Task.CompletedTask;
-    }
+		StateHasChanged();
+
+		return Task.CompletedTask;
+	}
 }

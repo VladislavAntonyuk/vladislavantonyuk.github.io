@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace VladislavAntonyuk.Shared.Layouts;
+
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
-
-namespace VladislavAntonyuk.Shared.Layouts;
 
 public partial class MainLayout : LayoutComponentBase
 {
@@ -21,7 +21,7 @@ public partial class MainLayout : LayoutComponentBase
 	private ErrorBoundary? errorBoundary;
 	private bool isDarkMode = true;
 	private MudThemeProvider? mudThemeProvider;
-	
+
 	[Inject]
 	public required IDialogService DialogService { get; set; }
 
@@ -53,18 +53,22 @@ public partial class MainLayout : LayoutComponentBase
 					StateHasChanged();
 				}
 			}
-
-			//var isForbiddenLocation = await LocationVerifier.IsForbidden(ApplicationInfo.UserInfo.RemoteIpAddress);
-			//if (isForbiddenLocation)
-			//{
-			//	await DialogService.ShowAsync<War>("War in Ukraine");
-			//}
 		}
+		//var isForbiddenLocation = await LocationVerifier.IsForbidden(ApplicationInfo.UserInfo.RemoteIpAddress);
+		//if (isForbiddenLocation)
+		//{
+		//	await DialogService.ShowAsync<War>("War in Ukraine");
+		//}
 	}
 
 	private void ResetError()
 	{
 		errorBoundary?.Recover();
 		NavigationManager.NavigateTo("/");
+	}
+
+	private void RssClicked()
+	{
+		NavigationManager.NavigateTo("/rss.xml", true);
 	}
 }

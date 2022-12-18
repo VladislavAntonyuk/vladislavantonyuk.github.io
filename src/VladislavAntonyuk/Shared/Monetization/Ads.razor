@@ -3,23 +3,23 @@
 @if (isEnabled)
 {
 	@if (string.IsNullOrEmpty(LayoutKey))
-    {
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="@ClientId"
-             data-ad-slot="@Slot"
-             data-ad-format="@Format"
-             data-full-width-responsive="true">
-        </ins>
-    }
-    else
-    {
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="@ClientId"
-             data-ad-slot="@Slot"
-             data-ad-format="@Format"
-             data-ad-layout-key="@LayoutKey">
-        </ins>
-    }
+	{
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="@ClientId"
+		     data-ad-slot="@Slot"
+		     data-ad-format="@Format"
+		     data-full-width-responsive="true">
+		</ins>
+	}
+	else
+	{
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="@ClientId"
+		     data-ad-slot="@Slot"
+		     data-ad-format="@Format"
+		     data-ad-layout-key="@LayoutKey">
+		</ins>
+	}
 }

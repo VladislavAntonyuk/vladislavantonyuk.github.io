@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace VladislavAntonyuk;
+
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
-
-namespace VladislavAntonyuk;
 
 public class EditorBaseComponent : VladislavAntonyukBaseComponent
 {

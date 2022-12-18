@@ -1,30 +1,30 @@
-﻿using System.Xml.Linq;
+﻿namespace FileGenerator;
+
+using System.Xml.Linq;
 using System.Xml.Serialization;
-using FileGenerator.Models;
 using Markdig;
 using Markdig.Extensions.MediaLinks;
+using Models;
 using Shared;
 using Shared.Models;
 
-namespace FileGenerator;
-
 public interface IRssService
 {
-    ValueTask<string> ParseRss();
-    Task<string> GenerateRss();
+	ValueTask<string> ParseRss();
+	Task<string> GenerateRss();
 }
 
 public class RssService : IRssService
 {
-    private readonly IArticlesService _articlesService;
-    private readonly IUrlCreator _urlCreator;
-    private const string FilePath = "rss.xml";
+	private const string FilePath = "rss.xml";
+	private readonly IArticlesService _articlesService;
+	private readonly IUrlCreator _urlCreator;
 
 	public RssService(IArticlesService articlesService, IUrlCreator urlCreator)
-    {
-        _articlesService = articlesService;
-        _urlCreator = urlCreator;
-    }
+	{
+		_articlesService = articlesService;
+		_urlCreator = urlCreator;
+	}
 
 	public async ValueTask<string> ParseRss()
 	{
@@ -50,8 +50,8 @@ public class RssService : IRssService
 				Items = new List<Item>()
 			}
 		};
-        var articles = await _articlesService.GetArticles();
-        if (articles.Count == 0)
+		var articles = await _articlesService.GetArticles();
+		if (articles.Count == 0)
 		{
 			return string.Empty;
 		}
@@ -98,28 +98,28 @@ public class RssService : IRssService
 
 	private static MarkdownPipeline GetPipeline()
 	{
-		MediaOptions mediaOptions = new MediaOptions();
+		var mediaOptions = new MediaOptions();
 
 		var builder = new MarkdownPipelineBuilder();
 		builder.UseAbbreviations()
-			.UseAutoIdentifiers()
-			.UseCitations()
-			.UseCustomContainers()
-			.UseDefinitionLists()
-			.UseEmphasisExtras()
-			.UseFigures()
-			.UseFooters()
-			.UseFootnotes()
-			.UseGridTables()
-			.UseMediaLinks(mediaOptions)
-			.UsePipeTables()
-			.UseListExtras()
-			.UseTaskLists()
-			.UseAutoLinks()
-			.UseSmartyPants()
-			.UseEmojiAndSmiley();
-			builder.UseMathematics();
-			builder.UseDiagrams();
+		       .UseAutoIdentifiers()
+		       .UseCitations()
+		       .UseCustomContainers()
+		       .UseDefinitionLists()
+		       .UseEmphasisExtras()
+		       .UseFigures()
+		       .UseFooters()
+		       .UseFootnotes()
+		       .UseGridTables()
+		       .UseMediaLinks(mediaOptions)
+		       .UsePipeTables()
+		       .UseListExtras()
+		       .UseTaskLists()
+		       .UseAutoLinks()
+		       .UseSmartyPants()
+		       .UseEmojiAndSmiley();
+		builder.UseMathematics();
+		builder.UseDiagrams();
 
 		builder.UseGenericAttributes(); // Must be last as it is one parser that is modifying other parsers
 		return builder.Build();

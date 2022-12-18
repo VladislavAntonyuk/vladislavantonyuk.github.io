@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using Shared.Models;
+﻿namespace VladislavAntonyuk.Shared;
 
-namespace VladislavAntonyuk.Shared;
+using global::Shared;
+using global::Shared.Models;
+using Microsoft.AspNetCore.Components;
 
 public partial class NavCategories : VladislavAntonyukBaseComponent
 {
@@ -10,26 +11,14 @@ public partial class NavCategories : VladislavAntonyukBaseComponent
 	[Inject]
 	public required NavigationManager Navigation { get; set; }
 
-	//[Inject]
-	//public required IQueryDispatcher QueryDispatcher { get; set; }
-
-	//[Inject]
-	//public required ICache Cache { get; set; }
+	[Inject]
+	public required IArticlesService ArticleService { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
-		
-		//var categoriesResponse = await Cache.GetOrSetAsync($"Categories", () =>
-		//	                                                   QueryDispatcher
-		//		                                                   .SendAsync<IEnumerable<DetailedCategoryDto>,
-		//			                                                   GetAllCategoriesWithArticlesQuery>(
-		//			                                                   new GetAllCategoriesWithArticlesQuery(), CancellationToken.None),
-		//                                                   TimeSpan.FromHours(1));
-		//if (categoriesResponse.IsSuccessful)
-		//{
-		//	categories = categoriesResponse.Value.ToList();
-		//}
+
+		categories = await ArticleService.GetCategories();
 	}
 
 	private void FilterCategory(string categoryName)

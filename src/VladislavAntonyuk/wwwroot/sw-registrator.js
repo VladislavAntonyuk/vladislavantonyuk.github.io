@@ -12,7 +12,7 @@ window.updateAvailable = new Promise((resolve, reject) => {
             setInterval(() => {
                 registration.update();
             }, 60 * 1000); // 60000ms -> check each minute
-            
+
             registration.onupdatefound = () => {
                 const installingServiceWorker = registration.installing;
                 installingServiceWorker.onstatechange = () => {

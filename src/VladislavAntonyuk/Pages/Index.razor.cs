@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using Shared;
-using Shared.Models;
+﻿namespace VladislavAntonyuk.Pages;
 
-namespace VladislavAntonyuk.Pages;
+using global::Shared;
+using global::Shared.Models;
+using Microsoft.AspNetCore.Components;
 
 public partial class Index : VladislavAntonyukBaseComponent
 {
@@ -20,13 +20,13 @@ public partial class Index : VladislavAntonyukBaseComponent
 	[Inject]
 	public required IArticlesService ArticlesService { get; set; }
 
-    private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
-    {
-        const int pageSize = 10;
-        var articles = await ArticlesService.GetArticles(CategoryName, searchParameter);
-        
-        var result = articles.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-       
-        return new PaginatedList<Article>(result, articles.Count, page - 1, pageSize);
+	private async Task<PaginatedList<Article>> LoadArticles(int page, string? searchParameter)
+	{
+		const int pageSize = 10;
+		var articles = await ArticlesService.GetArticles(CategoryName, searchParameter);
+
+		var result = articles.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+		return new PaginatedList<Article>(result, articles.Count, page - 1, pageSize);
 	}
 }

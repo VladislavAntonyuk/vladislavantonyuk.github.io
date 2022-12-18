@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿namespace VladislavAntonyuk.Services;
 
-namespace VladislavAntonyuk.Services;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public static class DisqusInterop
 {

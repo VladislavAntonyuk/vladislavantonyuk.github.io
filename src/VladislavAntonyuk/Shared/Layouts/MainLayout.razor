@@ -1,5 +1,4 @@
-﻿@using Ads = VladislavAntonyuk.Shared.Monetization.Ads
-@using global::Shared
+﻿@using global::Shared
 @inherits LayoutComponentBase
 
 <PageTitle>@Constants.ProductName</PageTitle>
@@ -37,7 +36,15 @@
 			<MudLink Href="/" Typo="Typo.subtitle2" Color="Color.Inherit">@Constants.ProductName</MudLink>
 		</MudHidden>
 		<MudSpacer/>
-		<MudIconButton Href="/rss.xml" Target="_blank" Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit"></MudIconButton>
+
+		<MudButton Color="Color.Primary"
+		           Variant="Variant.Filled"
+		           Href="https://github.com/VladislavAntonyuk/vladislavantonyuk.github.io/issues"
+		           Target="_blank">
+			Submit Proposal/Issue
+		</MudButton>
+
+		<MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked"></MudIconButton>
 	</MudAppBar>
 
 	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
@@ -55,9 +62,9 @@
 	</MudDrawer>
 	<MudMainContent>
 		<MudContainer MaxWidth="MaxWidth.False">
-			
-            <UpdateAvailableDetector/>
-            <CookieConsents/>
+
+			<UpdateAvailableDetector/>
+			<CookieConsents/>
 
 			<ErrorBoundary @ref="errorBoundary">
 				<ChildContent>
@@ -70,8 +77,8 @@
 			</ErrorBoundary>
 
 			<MudScrollToTop Style="width:64px;height:64px;bottom:96px;">
-                <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" Style="width:64px;height:64px" />
-            </MudScrollToTop>
+				<MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" Style="width:64px;height:64px"/>
+			</MudScrollToTop>
 		</MudContainer>
 	</MudMainContent>
 </MudLayout>

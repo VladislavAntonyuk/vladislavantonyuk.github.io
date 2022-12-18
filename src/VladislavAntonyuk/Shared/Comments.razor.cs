@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using VladislavAntonyuk.Services;
+﻿namespace VladislavAntonyuk.Shared;
 
-namespace VladislavAntonyuk.Shared;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using Services;
 
 public partial class Comments : VladislavAntonyukBaseComponent
 {

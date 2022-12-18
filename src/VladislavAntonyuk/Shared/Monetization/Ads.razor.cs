@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿namespace VladislavAntonyuk.Shared.Monetization;
 
-namespace VladislavAntonyuk.Shared.Monetization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public partial class Ads : VladislavAntonyukBaseComponent
 {
+	private bool isEnabled;
+
 	[Inject]
 	public required IJSRuntime JsRuntime { get; set; }
 
@@ -20,8 +22,6 @@ public partial class Ads : VladislavAntonyukBaseComponent
 
 	[Parameter]
 	public string ClientId { get; set; } = "ca-pub-2260920996164852";
-
-	private bool isEnabled;
 
 	protected override void OnInitialized()
 	{

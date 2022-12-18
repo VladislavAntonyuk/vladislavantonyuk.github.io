@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace VladislavAntonyuk;
 
-namespace VladislavAntonyuk;
+using Microsoft.AspNetCore.Components;
 
 public abstract class VladislavAntonyukBaseComponent : ComponentBase
 {

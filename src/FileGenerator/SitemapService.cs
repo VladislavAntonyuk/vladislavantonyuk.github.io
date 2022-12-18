@@ -1,27 +1,27 @@
-﻿using System.Xml.Linq;
+﻿namespace FileGenerator;
+
+using System.Xml.Linq;
 using Shared;
 using X.Web.Sitemap;
 
-namespace FileGenerator;
-
 public interface ISitemapService
 {
-    ValueTask<string> ParseSitemap();
-    Task<string> GenerateSitemap();
+	ValueTask<string> ParseSitemap();
+	Task<string> GenerateSitemap();
 }
 
 public class SitemapService : ISitemapService
 {
-    private readonly IArticlesService _articlesService;
-    private readonly IUrlCreator _urlCreator;
-    private const string FilePath = "sitemap.xml";
+	private const string FilePath = "sitemap.xml";
+	private readonly IArticlesService _articlesService;
+	private readonly IUrlCreator _urlCreator;
 	private Sitemap? sitemap = new();
 
 	public SitemapService(IArticlesService articlesService, IUrlCreator urlCreator)
-    {
-        _articlesService = articlesService;
-        _urlCreator = urlCreator;
-    }
+	{
+		_articlesService = articlesService;
+		_urlCreator = urlCreator;
+	}
 
 	public async ValueTask<string> ParseSitemap()
 	{
@@ -44,15 +44,19 @@ public class SitemapService : ISitemapService
 			CreateUrl("projects", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly)
 		};
 		var articles = await _articlesService.GetArticles();
-		sitemap.AddRange(articles.Select(
-			                 article => CreateUrl("articles", priority, article.Created.ToDateTime(TimeOnly.MinValue),
-			                                      ChangeFrequency.Monthly, article.Name)));
+		sitemap.AddRange(articles.Select(article => CreateUrl("articles", priority,
+		                                                      article.Created.ToDateTime(TimeOnly.MinValue),
+		                                                      ChangeFrequency.Monthly, article.Name)));
 
 		await sitemap.SaveAsync(Environment.CurrentDirectory + "/" + FilePath);
 		return await ParseSitemap();
 	}
 
-	private Url CreateUrl(string url, double priority, DateTime timestamp, ChangeFrequency changeFrequency, string? encodedPart = null)
+	private Url CreateUrl(string url,
+		double priority,
+		DateTime timestamp,
+		ChangeFrequency changeFrequency,
+		string? encodedPart = null)
 	{
 		return new Url
 		{

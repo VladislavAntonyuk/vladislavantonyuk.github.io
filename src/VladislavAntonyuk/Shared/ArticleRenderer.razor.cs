@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿namespace VladislavAntonyuk.Shared;
 
-namespace VladislavAntonyuk.Shared;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public partial class ArticleRenderer : VladislavAntonyukBaseComponent
 {
@@ -22,7 +22,7 @@ public partial class ArticleRenderer : VladislavAntonyukBaseComponent
 		}
 	}
 
-	ValueTask EmbedCopyToClipboardCode()
+	private ValueTask EmbedCopyToClipboardCode()
 	{
 		return JsRuntime.InvokeVoidAsync("JsFunctions.embedCopyToClipboardCode");
 	}

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace VladislavAntonyuk.Shared;
 
-namespace VladislavAntonyuk.Shared;
+using Microsoft.AspNetCore.Components;
 
 public partial class Head : VladislavAntonyukBaseComponent
 {

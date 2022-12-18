@@ -1,53 +1,62 @@
-﻿using Shared;
-using Shared.Models;
+﻿namespace FileGenerator;
+
 using System.Text.Json;
+using Shared;
+using Shared.Models;
 
-namespace FileGenerator;
-
-public class ArticlesService : IArticlesService
+internal class ArticlesService : IArticlesService
 {
-    private readonly string _path;
+	private readonly string _path;
 
-    public ArticlesService(string path)
-    {
-        _path = path;
-    }
-    public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
-    {
-        var content = await File.ReadAllTextAsync(_path + "categories.json");
-        var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        if (categories is null)
-        {
-            return new List<Article>();
-        }
+	public ArticlesService(string path)
+	{
+		_path = path;
+	}
 
-        if (!string.IsNullOrEmpty(categoryName))
-        {
-            categories = categories.Where(x => x.Name.Equals(categoryName, StringComparison.OrdinalIgnoreCase));
-        }
+	public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
+	{
+		var content = await File.ReadAllTextAsync(_path + "categories.json");
+		var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, new JsonSerializerOptions
+		{
+			PropertyNameCaseInsensitive = true
+		});
+		if (categories is null)
+		{
+			return new List<Article>();
+		}
 
-        var articles = categories.SelectMany(x => x.Articles, (category, article) =>
-        {
-            article.CategoryName = category.Name;
-            article.Content = File.ReadAllText(_path + article.Name + ".md"); 
-            return article;
-        });
+		if (!string.IsNullOrEmpty(categoryName))
+		{
+			categories = categories.Where(x => x.Name.Equals(categoryName, StringComparison.OrdinalIgnoreCase));
+		}
 
-        if (!string.IsNullOrEmpty(searchParameter))
-        {
-            articles = articles.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
-        }
+		var articles = categories.SelectMany(x => x.Articles, (category, article) =>
+		{
+			article.CategoryName = category.Name;
+			article.Content = File.ReadAllText(_path + article.Name + ".md");
+			return article;
+		});
 
-        return articles.OrderByDescending(x => x.Created).ToList();
-    }
+		if (!string.IsNullOrEmpty(searchParameter))
+		{
+			articles = articles.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
+		}
 
-    public Task<Article?> GetArticle(string articleName)
-    {
-        throw new NotImplementedException();
-    }
+		return articles.OrderByDescending(x => x.Created).ToList();
+	}
 
-    public Task<IReadOnlyCollection<Article>?> GetSuggestions(string articleName, int limit)
-    {
-        throw new NotImplementedException();
-    }
+	public Task<Article?> GetArticle(string articleName)
+	{
+		throw new NotImplementedException();
+	}
+
+	public Task<IReadOnlyCollection<Article>?> GetSuggestions(string articleName, int limit)
+	{
+		throw new NotImplementedException();
+	}
+
+	public Task<List<Category>> GetCategories()
+	{
+		throw new NotImplementedException();
+	}
 }
