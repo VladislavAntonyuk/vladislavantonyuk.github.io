@@ -3,16 +3,46 @@
 using global::Shared;
 using global::Shared.Models;
 using Microsoft.AspNetCore.Components;
+using Shared;
 
 public partial class Index : VladislavAntonyukBaseComponent
 {
-	[Parameter]
-	[SupplyParameterFromQuery]
-	public int? Page { get; set; }
+	private BaseNavigationComponent<Article>? baseNav;
 
 	[Parameter]
 	[SupplyParameterFromQuery]
-	public string? CategoryName { get; set; }
+	public int? Page { get; set; }
+	
+	bool categoryNameUpdated = true;
+	string? categoryName;
+
+	[Parameter]
+	[SupplyParameterFromQuery]
+	public string? CategoryName
+	{
+		get => categoryName;
+		set
+		{
+			if (categoryName != value)
+			{
+				categoryName = value;
+				categoryNameUpdated = true;
+			}
+		}
+	}
+
+	protected override async Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		if (categoryNameUpdated)
+		{
+			categoryNameUpdated = false;
+			if (baseNav != null)
+			{
+				await baseNav.LoadData();
+			}
+		}
+	}
 
 	[Inject]
 	public required IUrlCreator UrlCreator { get; set; }

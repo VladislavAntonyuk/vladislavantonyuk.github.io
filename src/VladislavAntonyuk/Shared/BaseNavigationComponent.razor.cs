@@ -27,7 +27,7 @@ public partial class BaseNavigationComponent<T> : VladislavAntonyukBaseComponent
 	[Inject]
 	public required NavigationManager Navigation { get; set; }
 
-	private async Task LoadData()
+	public async Task LoadData()
 	{
 		isLoading = true;
 		data = await Action(Page, searchFilter);

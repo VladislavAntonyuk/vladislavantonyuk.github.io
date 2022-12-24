@@ -49,12 +49,8 @@ code[class*="language-"], pre[class*="language-"] {
     list-style: initial;
 }
 
-#components-reconnect-modal, #blazor-error-ui {
-    color: black;
-}
-
-#components-reconnect-modal > h5 > a, #blazor-error-ui > a {
-    color: red;
+.adsbygoogle > div, .adsbygoogle > div > iframe {
+	width: 100% !important;
 }
 
 .loading-progress {

@@ -23,6 +23,6 @@ public partial class NavCategories : VladislavAntonyukBaseComponent
 
 	private void FilterCategory(string categoryName)
 	{
-		Navigation.NavigateTo($"{Navigation.BaseUri}articles?categoryName={categoryName}", true);
+		Navigation.NavigateTo($"{Navigation.BaseUri}articles?categoryName={categoryName}");
 	}
 }
