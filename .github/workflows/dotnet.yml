@@ -20,7 +20,7 @@ jobs:
       run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
       
     - name: Update version
-      run: sed -i 's/{#CACHE_VERSION#}/${{ github.run_id }}/";/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
+      run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
       
     - name: Publish .NET Project
       run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -o release --nologo
