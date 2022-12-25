@@ -1,4 +1,5 @@
-﻿@inherits VladislavAntonyukBaseComponent
+﻿@using global::Shared
+@inherits VladislavAntonyukBaseComponent
 
 <PageTitle>@Title</PageTitle>
 <HeadContent>
@@ -10,10 +11,10 @@
 	<meta Property="og:image" Content="@Image"/>
 	<meta Property="og:image:url" Content="@Image"/>
 	<meta Property="og:url" Content="@NavigationManager.Uri"/>
-	<meta Property="og:site_name" Content="VladislavAntonyuk"/>
+	<meta Property="og:site_name" Content="@Constants.ProductName"/>
 
 	<meta Property="twitter:card" Content="summary"/>
-	<meta Property="twitter:site" Content="VladislavAntonyuk"/>
+	<meta Property="twitter:site" Content="@Constants.ProductName"/>
 	<meta Property="twitter:description" Content="@Description"/>
 	<meta Property="twitter:image" Content="@Image"/>
 	<meta Property="twitter:image:url" Content="@Image"/>
