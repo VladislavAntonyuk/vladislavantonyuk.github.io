@@ -50,7 +50,7 @@ The main issue was in the configuration. You have to understand how ASP.NET Core
 
 So the default order looks like this:
 
-![Middleware pipeline](https://vladislavantonyuk.sirv.com/vladislavantonyuk/articles/6/middleware-pipeline.svg)
+![Middleware pipeline](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/6/middleware-pipeline.svg)
 
 As you can see the `Routing middleware` executes before `Authentication middleware`, where actually User sets. So to fix the issue you just need to put `Authentication middleware` before `Routing middleware`:
 

@@ -14,7 +14,7 @@ So let's start!
 1. Create a new .NET MAUI project.
 2. Create a new Xamarin iOS Application.
 3. Create a new App Extension and select your Xamarin iOS app from step 2.
-![Create iOS Extension](https://vladislavantonyuk.sirv.com/vladislavantonyuk/articles/25/create-iOS-extension.png)
+![Create iOS Extension](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/25/create-iOS-extension.png)
 4. Open App Extension csproj file and replace the content:
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
