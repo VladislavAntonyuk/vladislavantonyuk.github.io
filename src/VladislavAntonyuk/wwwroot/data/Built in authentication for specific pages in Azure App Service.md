@@ -26,7 +26,7 @@ In the treeview select `subscriptions->your subscription->resourceGroups->your r
 This file contains all settings related to authentication. You can set session duration, identity provider configurations, etc.
 
 We are interested in `globalValidation` section. Find this section and add the new property `excludedPaths`. It's an array of strings with paths that should be excluded from the global rule. **`excludedPaths` is a list of "allowed" paths - the paths, which don't require authentication.**
-![GlobalValidation settings](https://vladislavantonyuk.sirv.com/vladislavantonyuk/articles/18/14-4.png)
+![GlobalValidation settings](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/18/14-4.png)
 
 Your `globalValidation` section may look like this:
 ```json
