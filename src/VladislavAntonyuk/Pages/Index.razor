@@ -4,7 +4,7 @@
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Articles" Description="Vladislav Antonyuk - Articles"/>
-<BaseNavigationComponent T="Article" @ref="baseNav" Title="Articles" Page="Page ?? 1" Action="(page, searchParameter) => LoadArticles(page, searchParameter)">
+<BaseNavigationComponent T="Article" @ref="baseNav" Title="Articles" Action="(page, searchParameter) => LoadArticles(page, searchParameter)">
 	<ChildContent Context="articles">
 		<MudGrid>
 			@for (var i = 0; i < articles.Count; i++)

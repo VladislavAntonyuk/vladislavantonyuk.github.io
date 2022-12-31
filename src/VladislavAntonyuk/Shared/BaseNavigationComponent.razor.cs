@@ -12,7 +12,6 @@ public partial class BaseNavigationComponent<T> : VladislavAntonyukBaseComponent
 
 	private string? searchFilter;
 
-	[Parameter]
 	public int Page { get; set; }
 
 	[Parameter]

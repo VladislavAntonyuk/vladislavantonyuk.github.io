@@ -5,7 +5,7 @@
 <Head Title="Vladislav Antonyuk - Projects" Description="Vladislav Antonyuk - Projects">
 </Head>
 
-<BaseNavigationComponent T="Project" Title="Projects" Page="Page ?? 1" Action="(page, searchParameter) => LoadProjects(page, searchParameter)">
+<BaseNavigationComponent T="Project" @ref="baseNav" Title="Projects" Action="(page, searchParameter) => LoadProjects(page, searchParameter)">
 	<ChildContent Context="projects">
 		<MudGrid>
 			@foreach (var project in projects)

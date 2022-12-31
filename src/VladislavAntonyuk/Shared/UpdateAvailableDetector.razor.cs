@@ -1,34 +1,30 @@
 ﻿namespace VladislavAntonyuk.Shared;
 
+using System;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using MudBlazor;
+using Toolbelt.Blazor.PWA.Updater.Service;
 
-public partial class UpdateAvailableDetector : VladislavAntonyukBaseComponent
+public partial class UpdateAvailableDetector : VladislavAntonyukBaseComponent, IDisposable
 {
 	private bool newVersionAvailable;
 	private MudDialog? dialog;
 
 	[Inject]
-	public required IJSRuntime JsRuntime { get; set; }
+	public required IPWAUpdaterService PWAUpdaterService { get; set; }
 
-	protected override async Task OnInitializedAsync()
+	protected override void OnAfterRender(bool firstRender)
 	{
-		await base.OnInitializedAsync();
-		await RegisterForUpdateAvailableNotification();
+		if (firstRender)
+		{
+			this.PWAUpdaterService.NextVersionIsWaiting += PWAUpdaterService_NextVersionIsWaiting;
+		}
 	}
 
-	private async Task RegisterForUpdateAvailableNotification()
-	{
-		await JsRuntime.InvokeVoidAsync("registerForUpdateAvailableNotification",
-		                                DotNetObjectReference.Create(this), nameof(OnUpdateAvailable));
-	}
-
-	[JSInvokable(nameof(OnUpdateAvailable))]
-	public Task OnUpdateAvailable()
+	private void PWAUpdaterService_NextVersionIsWaiting(object? sender, EventArgs e)
 	{
 		newVersionAvailable = true;
-		StateHasChanged();
 		dialog?.Show("Update available", new DialogOptions()
 		{
 			CloseButton = false,
@@ -37,12 +33,15 @@ public partial class UpdateAvailableDetector : VladislavAntonyukBaseComponent
 			Position = DialogPosition.Center,
 			NoHeader = true
 		});
-
-		return Task.CompletedTask;
 	}
 
 	async Task Reload()
 	{
-		await JsRuntime.InvokeVoidAsync("location.reload");
+		await this.PWAUpdaterService.SkipWaitingAsync();
+	}
+
+	void IDisposable.Dispose()
+	{
+		this.PWAUpdaterService.NextVersionIsWaiting -= PWAUpdaterService_NextVersionIsWaiting;
 	}
 }

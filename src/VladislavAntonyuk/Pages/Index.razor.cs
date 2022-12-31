@@ -11,10 +11,22 @@ public partial class Index : VladislavAntonyukBaseComponent
 
 	[Parameter]
 	[SupplyParameterFromQuery]
-	public int? Page { get; set; }
-	
+	public int? Page
+	{
+		get => page;
+		set
+		{
+			page = value;
+			if (baseNav is not null)
+			{
+				baseNav.Page = value ?? 1;
+			}
+		}
+	}
+
 	bool categoryNameUpdated = true;
 	string? categoryName;
+	private int? page;
 
 	[Parameter]
 	[SupplyParameterFromQuery]
@@ -37,7 +49,7 @@ public partial class Index : VladislavAntonyukBaseComponent
 		if (categoryNameUpdated)
 		{
 			categoryNameUpdated = false;
-			if (baseNav != null)
+			if (baseNav is not null)
 			{
 				await baseNav.LoadData();
 			}

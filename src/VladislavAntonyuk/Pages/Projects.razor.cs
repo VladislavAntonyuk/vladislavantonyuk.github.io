@@ -3,12 +3,27 @@
 using global::Shared;
 using global::Shared.Models;
 using Microsoft.AspNetCore.Components;
+using Shared;
 
 public partial class Projects : VladislavAntonyukBaseComponent
 {
+	private BaseNavigationComponent<Project>? baseNav;
+	private int? page;
+
 	[Parameter]
 	[SupplyParameterFromQuery]
-	public int? Page { get; set; }
+	public int? Page
+	{
+		get => page;
+		set
+		{
+			page = value;
+			if (baseNav is not null)
+			{
+				baseNav.Page = value ?? 1;
+			}
+		}
+	}
 
 	[Inject]
 	public required IUrlCreator UrlCreator { get; set; }
