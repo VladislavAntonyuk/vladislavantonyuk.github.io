@@ -31,7 +31,11 @@ jobs:
         dotnet file-generator/FileGenerator.dll "/release"
         cp rss.xml release/wwwroot/rss.xml
         cp sitemap.xml release/wwwroot/sitemap.xml
-
+        
+    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to vladislavantonyuk.github.io
+      run: sed -i 's/<base href="\/"\/>/<base href="\/vladislavantonyuk.github.io\/" \/>/g' release/wwwroot/index.html
+      
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
 
