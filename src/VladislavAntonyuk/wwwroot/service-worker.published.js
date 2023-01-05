@@ -2,9 +2,6 @@
 // offline support. See https://aka.ms/blazor-offline-considerations
 
 self.importScripts('./service-worker-assets.js');
-self.addEventListener('message', event => {
-    if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
-});
 self.addEventListener('install', event => event.waitUntil(onInstall(event)));
 self.addEventListener('activate', event => event.waitUntil(onActivate(event)));
 self.addEventListener('fetch', event => event.respondWith(onFetch(event)));
@@ -12,7 +9,7 @@ self.addEventListener('fetch', event => event.respondWith(onFetch(event)));
 const CACHE_VERSION = 'CACHE_VERSION_VALUE';
 const cacheNamePrefix = 'offline-cache-';
 const cacheName = `${cacheNamePrefix}${CACHE_VERSION}`;
-const offlineAssetsInclude = [/\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.md$/, /\.br$/];
+const offlineAssetsInclude = [/\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.md$/];
 const offlineAssetsExclude = [/^service-worker\.js$/];
 
 async function onInstall(event) {
