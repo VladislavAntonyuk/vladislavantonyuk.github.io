@@ -16,6 +16,9 @@ jobs:
         dotnet-version: 7.0.x
         include-prerelease: true
     
+    - name: Install .NET WASM Build Tools
+      run: dotnet workload install wasm-tools
+    
     - name: Change constants
       run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
       
@@ -23,7 +26,7 @@ jobs:
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
       
     - name: Publish .NET Project
-      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -o release --nologo
+      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -p:GHPages=true -o release --nologo
       
     - name: Generate RSS and Sitemap
       run: |
@@ -31,12 +34,6 @@ jobs:
         dotnet file-generator/FileGenerator.dll "/release"
         cp rss.xml release/wwwroot/rss.xml
         cp sitemap.xml release/wwwroot/sitemap.xml
-
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
-
-    - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
       
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
