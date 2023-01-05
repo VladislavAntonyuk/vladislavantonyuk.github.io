@@ -54,4 +54,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch : gh-pages
         folder: Prerender/output/wwwroot
-        force_orphan: true
+        clean: true
