@@ -18,7 +18,7 @@ jobs:
         include-prerelease: true
     
     - name: Change constants
-      run: sed -i '' 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
+      run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
       
     # - name: Update version
     #   run: sed -i '' 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
