@@ -21,37 +21,21 @@ jobs:
       
     #- name: Update version
     #  run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
-
+      
     - name: Publish .NET Project
-      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release  -o Prerender/output --nologo
-    
-    # Use NodeJS react-snap utitility to prerender static website
-    - name: prerender Blazor client
-      working-directory: Prerender
-      run: npx react-snap
-    
-    # change base tag in all html files to include subfolder
-    - name: Change base tag
-      working-directory: Prerender/output/wwwroot
-      run: |
-        find . -name "*.html" | while read htmlFile; do
-            sed -i 's/<script type="text\/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;<\/script><script src="_framework\/dotnet.7.0.1.js" defer="" integrity="sha256-SWZOE2EsCqc\/7dPgJrcFqUvVvdeJ9cipeZ2NFMC9v2s=" crossorigin="anonymous"><\/script>//g' $htmlFile
-        done
-    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-    - name: Add .nojekyll file
-      run: touch Prerender/output/wwwroot/.nojekyll
-  
+      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -p:GHPages=true -P:GHPagesBase="/" -o release --nologo
+      
     - name: Generate RSS and Sitemap
       run: |
         dotnet build src/FileGenerator/FileGenerator.csproj -c Release -o file-generator
-        dotnet file-generator/FileGenerator.dll "/Prerender/output"
-        cp rss.xml Prerender/output/wwwroot/rss.xml
-        cp sitemap.xml Prerender/output/wwwroot/sitemap.xml
+        dotnet file-generator/FileGenerator.dll "/release"
+        cp rss.xml release/wwwroot/rss.xml
+        cp sitemap.xml release/wwwroot/sitemap.xml
       
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch : gh-pages
-        folder: Prerender/output/wwwroot
-        clean: true
+        folder: release/wwwroot
+        force_orphan: true
