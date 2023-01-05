@@ -23,7 +23,7 @@ jobs:
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
 
     - name: Change base url
-      run: sed -i 's/{BASE_URL}/https:\/\/vladislavantonyuk.github.io/g' **/*.html
+      run: sed -i 's/{BASE_URL}/https:\/\/vladislavantonyuk.github.io/g' src/VladislavAntonyuk/wwwroot/index.html
       
     - name: Publish .NET Project
       run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -o release --nologo
