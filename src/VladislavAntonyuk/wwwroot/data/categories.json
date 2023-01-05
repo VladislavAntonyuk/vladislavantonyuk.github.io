@@ -55,7 +55,7 @@
       {
         "id": 15,
         "created": "2021-12-30",
-        "name": "NET MAUI Multi Window support",
+        "name": ".NET MAUI Multi Window support",
         "description": "Add Multi-window support to your .NET MAUI application.",
         "keywords": "https://github.com/dotnet/maui/issues/1720",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/15/multi-window.webp"
