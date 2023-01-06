@@ -46,7 +46,7 @@ When I investigated the issue, I saw a lot of suggestions to inject `IHttpContex
 
 The solution for Blazor (and it works for ASP.NET Core as well) is much easier.
 
-The main issue was in the configuration. You have to understand how ASP.NET Core middlewares work and the responsibility of each of them ([Read More](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/){target="_blank"}).
+The main issue was in the configuration. You have to understand how ASP.NET Core middlewares work and the responsibility of each of them. You can read more on [Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/){target="_blank"}.
 
 So the default order looks like this:
 
