@@ -5,9 +5,44 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-        <BlazorWasmPrerenderingOutputStyle>AppendHtmlExtension</BlazorWasmPrerenderingOutputStyle>
         <BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
-        <BlazorWasmPrerenderingUrlPathToExplicitFetch>/articles</BlazorWasmPrerenderingUrlPathToExplicitFetch>
+        <BlazorWasmPrerenderingUrlPathToExplicitFetch>
+            /projects;
+            /articles;
+            /articles/AppIcon-Badge-with-.NET-MAUI;
+            /articles/Speech-recognition-with-.NET-MAUI;
+            /articles/Creating-dynamic-floating-action-button;
+            /articles/Customize-map-pins-in-.NET-MAUI;
+            /articles/Prepare-.NET-MAUI-application-with-CommunityToolkit.MAUI-to-release;
+            /articles/Migrate-the-deprecated-OnBackPressed-function-in-.NET-MAUI-Android-application;
+            /articles/Create-custom-animations-using-.NET-MAUI-CommunityToolkit;
+            /articles/Creating-a-bottom-sheet-using-.NET-MAUI;
+            /articles/Extend-.NET-MAUI-application-with-iOS-Extensions;
+            /articles/Secure-.NET-MAUI-application;
+            /articles/Replicate-a-bank-application-UI-using-.NET-MAUI;
+            /articles/Creating-beautiful-image-effects-using-.NET-MAUI;
+            /articles/Creating-a-card-stack-layout-using-.NET-MAUI;
+            /articles/Localize-.NET-MAUI-application;
+            /articles/Interactive-app-tutorial-in-.NET-MAUI;
+            /articles/Built-in-authentication-for-specific-pages-in-Azure-App-Service;
+            /articles/How-to-show-SnackBar-and-Toast-in-.NET-MAUI;
+            /articles/Create-a-gallery-app-using-.NET-MAUI-Blazor;
+            /articles/.NET-MAUI-Multi-Window-support;
+            /articles/Adding-SQLite-to-the-.NET-MAUI-application;
+            /articles/Azure-Active-Directory-authentication-in-.NET-MAUI;
+            /articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-4.-UI;
+            /articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure;
+            /articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application;
+            /articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-1.-Overview;
+            /articles/The-first-project-with-.NET-MAUI;
+            /articles/Drawing-View-in-Xamarin-Community-Toolkit;
+            /articles/Identity-and-Dynamic-routing-in-Blazor;
+            /articles/Creating-Kanban-Board-using-Xamarin.Forms;
+            /articles/How-to-show-SnackBar-and-Toast-using-Xamarin-Community-Toolkit;
+            /articles/Creating-screen-brightness-service-with-.NET;
+            /articles/Secrets-of-successful-interview;
+            /articles/How-to-automatically-keep-your-code-clean;
+        </BlazorWasmPrerenderingUrlPathToExplicitFetch>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,6 +51,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.1" PrivateAssets="all" />
         <PackageReference Include="MudBlazor" Version="6.1.7" />
         <PackageReference Include="StardustDL.RazorComponents.Markdown" Version="0.0.3.28" />
+        <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.0.2" />
     </ItemGroup>
 
     <ItemGroup>
