@@ -13,6 +13,24 @@ public partial class MainLayout : LayoutComponentBase
 			H1 = new H1
 			{
 				FontSize = "2.5rem"
+			},
+			H2 = new H2
+			{
+				FontSize = "2rem"
+			}
+			,
+			H3 = new H3
+			{
+				FontSize = "1.5rem"
+			},
+			H4 = new H4
+			{
+				FontSize = "1.5rem"
+			}
+			},
+			H5 = new H5
+			{
+				FontSize = "1.25rem"
 			}
 		}
 	};
