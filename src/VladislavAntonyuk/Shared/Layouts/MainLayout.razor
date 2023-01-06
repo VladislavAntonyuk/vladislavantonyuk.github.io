@@ -27,7 +27,7 @@
 			</MudLink>
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.MdAndUp">
-			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle"/>
+			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" aria-label="Menu"/>
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.Xs">
 			<MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
@@ -47,7 +47,7 @@
 		<MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked" aria-label="RSS"></MudIconButton>
 	</MudAppBar>
 
-	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always" aria-label="Menu">
+	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
 		<NavMenu/>
 		<NavCategories/>
 		<MudStack Row="true" Justify="Justify.Center">
