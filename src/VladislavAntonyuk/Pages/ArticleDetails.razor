@@ -32,7 +32,7 @@ else
 			<MudHidden Breakpoint="Breakpoint.Xs">
 				<MudStack Row="true">
 					@{
-						var url = UrlCreator.CreateArticleUrl("articles", article.Name);
+						var url = "{BASE_URL}/" + UrlCreator.CreateArticleUrl("articles", article.Name);
 					}
 					<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 					               Target="_blank"
