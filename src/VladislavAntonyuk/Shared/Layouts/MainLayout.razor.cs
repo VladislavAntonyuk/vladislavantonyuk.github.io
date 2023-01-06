@@ -21,7 +21,7 @@ public partial class MainLayout : LayoutComponentBase
 			,
 			H3 = new H3
 			{
-				FontSize = "1.5rem"
+				FontSize = "1.75rem"
 			},
 			H4 = new H4
 			{
