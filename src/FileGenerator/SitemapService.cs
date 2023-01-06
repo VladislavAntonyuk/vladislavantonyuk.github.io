@@ -41,6 +41,7 @@ public class SitemapService : ISitemapService
 		sitemap = new Sitemap
 		{
 			CreateUrl("", 1, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
+			CreateUrl("articles", priority, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
 			CreateUrl("projects", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly)
 		};
 		var articles = await _articlesService.GetArticles();

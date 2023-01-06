@@ -44,10 +44,10 @@
 			Submit Proposal/Issue
 		</MudButton>
 
-		<MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked"></MudIconButton>
+		<MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked" aria-label="RSS"></MudIconButton>
 	</MudAppBar>
 
-	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
+	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always" aria-label="Menu">
 		<NavMenu/>
 		<NavCategories/>
 		<MudStack Row="true" Justify="Justify.Center">
