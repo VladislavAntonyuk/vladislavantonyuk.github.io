@@ -36,15 +36,24 @@ else
 					}
 					<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 					               Target="_blank"
-					               Icon="@Icons.Custom.Brands.Twitter" Title="Tweet"
-					               Size="Size.Large"/>
+					               Icon="@Icons.Custom.Brands.Twitter"
+								   Title="Tweet"
+					               Size="Size.Large"
+								   aria-label="Twitter" />
 
-					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.Facebook"
+					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' 
+								   Target="_blank"
+								   Icon="@Icons.Custom.Brands.Facebook"
 					               Title="Facebook"
-					               Size="Size.Large"/>
-					<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"
+					               Size="Size.Large"
+								   aria-label="Facebook" />
+
+					<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")'
+								   Target="_blank"
+								   Icon="@Icons.Custom.Brands.LinkedIn"
 					               Title="LinkedIn"
-					               Size="Size.Large"/>
+					               Size="Size.Large"
+								   aria-label="LinkedIn" />
 				</MudStack>
 			</MudHidden>
 			<MudText Align="Align.End">
