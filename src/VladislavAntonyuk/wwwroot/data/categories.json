@@ -195,6 +195,14 @@
         "description": "The article demonstrates how to add the AppIcon badge number with .NET MAUI.",
         "keywords": "dotnet, maui, .net, appicon, icon, badge, notification, badgenumber, number, android, ios, maccatalyst, windows, tizen",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/33/icon.png"
+      },
+      {
+        "id": 35,
+        "created": "2022-12-01",
+        "name": "Creating Markdown control with .NET MAUI Graphics",
+        "description": "The article demonstrates how to render markdown with .NET MAUI Graphics.",
+        "keywords": "dotnet, maui, .net, markdown, android, ios, maccatalyst, windows, tizen",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/35/ios.png"
       }
     ]
   },

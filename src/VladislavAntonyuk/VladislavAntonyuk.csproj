@@ -9,7 +9,8 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
             /projects;
             /articles;
-            /articles/AppIcon-Badge-with-.NET-MAUI;
+            /articles/Creating-Markdown-control-with-.NET-MAUI-Graphics;
+		    /articles/AppIcon-Badge-with-.NET-MAUI;
             /articles/Speech-recognition-with-.NET-MAUI;
             /articles/Creating-dynamic-floating-action-button;
             /articles/Customize-map-pins-in-.NET-MAUI;
