@@ -83,7 +83,7 @@ public class CustomMapHandler : MapHandler
 		PlatformView.GetMapAsync(mapReady);
 	}
 
-	private static new async void MapPins(IMapHandler handler, IMap map)
+	private static new void MapPins(IMapHandler handler, IMap map)
 	{
 		if (handler is CustomMapHandler mapHandler)
 		{
@@ -97,11 +97,11 @@ public class CustomMapHandler : MapHandler
 				mapHandler.Markers = null;
 			}
 
-			await mapHandler.AddPins(map.Pins);
+			mapHandler.AddPins(map.Pins);
 		}
 	}
 
-	private async Task AddPins(IEnumerable<IMapPin> mapPins)
+	private void AddPins(IEnumerable<IMapPin> mapPins)
 	{
 		if (Map is null || MauiContext is null)
 		{
@@ -117,18 +117,29 @@ public class CustomMapHandler : MapHandler
 				var markerOption = mapPinHandler.PlatformView;
 				if (pin is CustomPin cp)
 				{
-					var imageSourceHandler = new ImageLoaderSourceHandler();
-					var bitmap = await imageSourceHandler.LoadImageAsync(cp.ImageSource, Application.Context);
-					markerOption?.SetIcon(bitmap is null
-						                      ? BitmapDescriptorFactory.DefaultMarker()
-						                      : BitmapDescriptorFactory.FromBitmap(bitmap));
-				}
+					cp.ImageSource.LoadImage(MauiContext, result =>
+					{
+						if (result?.Value is BitmapDrawable bitmapDrawable)
+						{
+							markerOption.SetIcon(BitmapDescriptorFactory.FromBitmap(bitmapDrawable.Bitmap));
+						}
 
-				var marker = Map.AddMarker(markerOption);
-				pin.MarkerId = marker.Id;
-				Markers.Add(marker);
+						AddMarker(Map, pin, Markers, markerOption);
+					});
+				}
+				else
+				{
+					AddMarker(Map, pin, Markers, markerOption);	
+				}
 			}
 		}
+	}
+
+	private static void AddMarker(GoogleMap map, IMapPin pin, List<Marker> markers, MarkerOptions markerOption)
+	{
+		var marker = map.AddMarker(markerOption);
+		pin.MarkerId = marker.Id;
+		markers.Add(marker);
 	}
 }
 ```
