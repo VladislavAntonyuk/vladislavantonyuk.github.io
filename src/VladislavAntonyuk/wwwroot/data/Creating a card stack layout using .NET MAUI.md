@@ -4,7 +4,7 @@ Today I am excited to share with you the guide on creating a card stack layout. 
 
 Some popular applications use it like this:
  
-![Tinder](https://i.gifer.com/origin/01/01fe4edd5c330cdaa2b3cd4b0539b44d.gif)
+![Tinder](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/21/tinder.gif)
 
 So let's start.
 First, we need to create our `CardLayout` class:
