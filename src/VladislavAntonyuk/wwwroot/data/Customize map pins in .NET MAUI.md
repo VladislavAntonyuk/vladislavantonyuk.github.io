@@ -136,17 +136,6 @@ class MapCallbackHandler : Java.Lang.Object, IOnMapReadyCallback
 }
 ```
 
-The final step is registering our handler:
-
-```csharp
-builder.ConfigureMauiHandlers(handlers=>
-		{
-#if ANDROID
-			handlers.AddHandler<Microsoft.Maui.Controls.Maps.Map, CustomMapHandler>();
-#endif
-		});
-```
-
 ## Customize pin on iOS/MacCatalyst
 
 iOS/MacCatalyst requires a bit more customization.
@@ -317,6 +306,27 @@ public class CustomMapHandler : MapHandler
 ```
 
 It's responsible for loading images and adding an annotation to the map. Later, when annotation should be displayed, the `GetViewForAnnotations` gets the annotation view and displays it on map.
+
+The final step is registering our handlers:
+
+```csharp
+public static class MauiProgram
+{
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder.UseMauiApp<App>().UseMauiMaps();
+		builder.ConfigureMauiHandlers(handlers =>
+		{
+#if ANDROID || IOS || MACCATALYST
+			handlers.AddHandler<Microsoft.Maui.Controls.Maps.Map, CustomMapHandler>();
+#endif
+		});
+
+		return builder.Build();
+	}
+}
+```
 
 That's all we need to customize .NET MAUI Map pins. Run the application and see the result:
 
