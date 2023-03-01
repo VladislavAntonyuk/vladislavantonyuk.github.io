@@ -13,39 +13,12 @@ First of all, we need to create a new control:
 ```csharp
 public class CustomPin : Pin
 {
-	public static readonly BindableProperty ImageSourceProperty =
-		BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(CustomPin),
-		                        propertyChanged: OnImageSourceChanged);
+	public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(CustomPin);
 
 	public ImageSource? ImageSource
 	{
 		get => (ImageSource?)GetValue(ImageSourceProperty);
 		set => SetValue(ImageSourceProperty, value);
-	}
-
-	public Microsoft.Maui.Maps.IMap? Map { get; set; }
-
-	static async void OnImageSourceChanged(BindableObject bindable, object oldValue, object newValue)
-	{
-		var control = (CustomPin)bindable;
-		if (control.Handler?.PlatformView is null)
-		{
-			// Workaround for when this executes the Handler and PlatformView is null
-			control.HandlerChanged += OnHandlerChanged;
-			return;
-		}
-
-#if IOS || MACCATALYST
-		await control.AddAnnotation();
-#else
-		await Task.CompletedTask;
-#endif
-
-		void OnHandlerChanged(object? s, EventArgs e)
-		{
-			OnImageSourceChanged(control, oldValue, newValue);
-			control.HandlerChanged -= OnHandlerChanged;
-		}
 	}
 }
 ```
@@ -189,36 +162,33 @@ public class CustomAnnotation : MKPointAnnotation
 }
 ```
 
-Then create the `MapExtensions` class with `AddAnnotation` method:
+Then create the `CustomMapHandler`:
 
 ```csharp
-public static partial class MapExtensions
+public class CustomMapHandler : MapHandler
 {
 	private static UIView? lastTouchedView;
-
-	public static async Task AddAnnotation(this CustomPin pin)
-	{
-		var imageSourceHandler = new ImageLoaderSourceHandler();
-		var image = await imageSourceHandler.LoadImageAsync(pin.ImageSource);
-		var annotation = new CustomAnnotation()
+	public static readonly IPropertyMapper<IMap, IMapHandler> CustomMapper =
+		new PropertyMapper<IMap, IMapHandler>(Mapper)
 		{
-			Identifier = pin.Id,
-			Image = image,
-			Title = pin.Label,
-			Subtitle = pin.Address,
-			Coordinate = new CLLocationCoordinate2D(pin.Location.Latitude, pin.Location.Longitude),
-			Pin = pin
+			[nameof(IMap.Pins)] = MapPins,
 		};
-		pin.MarkerId = annotation;
 
-		var nativeMap = (MauiMKMapView?)pin.Map?.Handler?.PlatformView;
-		if (nativeMap is not null)
-		{
-			var customAnnotations = nativeMap.Annotations.OfType<CustomAnnotation>().Where(x => x.Identifier == annotation.Identifier).ToArray();
-			nativeMap.RemoveAnnotations(customAnnotations);
-			nativeMap.GetViewForAnnotation += GetViewForAnnotations;
-			nativeMap.AddAnnotation(annotation);
-		}
+	public CustomMapHandler() : base(CustomMapper, CommandMapper)
+	{
+	}
+
+	public CustomMapHandler(IPropertyMapper? mapper = null, CommandMapper? commandMapper = null) : base(
+		mapper ?? CustomMapper, commandMapper ?? CommandMapper)
+	{
+	}
+
+	public List<IMKAnnotation>? Markers { get; private set; }
+
+	protected override void ConnectHandler(MauiMKMapView platformView)
+	{
+		base.ConnectHandler(platformView);
+		platformView.GetViewForAnnotation += GetViewForAnnotations;
 	}
 
 	private static void OnCalloutClicked(IMKAnnotation annotation)
@@ -279,10 +249,74 @@ public static partial class MapExtensions
 
 		return null;
 	}
+
+	private static new void MapPins(IMapHandler handler, IMap map)
+	{
+		if (handler is CustomMapHandler mapHandler)
+		{
+			if (mapHandler.Markers != null)
+			{
+				foreach (var marker in mapHandler.Markers)
+				{
+					mapHandler.PlatformView.RemoveAnnotation(marker);
+				}
+
+				mapHandler.Markers = null;
+			}
+
+			mapHandler.AddPins(map.Pins);
+		}
+	}
+
+	private void AddPins(IEnumerable<IMapPin> mapPins)
+	{
+		if (MauiContext is null)
+		{
+			return;
+		}
+
+		Markers ??= new List<IMKAnnotation>();
+		foreach (var pin in mapPins)
+		{
+			var pinHandler = pin.ToHandler(MauiContext);
+			if (pinHandler is IMapPinHandler mapPinHandler)
+			{
+				var markerOption = mapPinHandler.PlatformView;
+				if (pin is CustomPin cp)
+				{
+					cp.ImageSource.LoadImage(MauiContext, result =>
+					{
+						markerOption = new CustomAnnotation()
+						{
+							Identifier = cp.Id,
+							Image = result?.Value,
+							Title = pin.Label,
+							Subtitle = pin.Address,
+							Coordinate = new CLLocationCoordinate2D(pin.Location.Latitude, pin.Location.Longitude),
+							Pin = cp
+						};
+
+						AddMarker(PlatformView, pin, Markers, markerOption);
+					});
+				}
+				else
+				{
+					AddMarker(PlatformView, pin, Markers, markerOption);
+				}
+			}
+		}
+	}
+
+	private static void AddMarker(MauiMKMapView map, IMapPin pin, List<IMKAnnotation> markers, IMKAnnotation annotation)
+	{
+		map.AddAnnotation(annotation);
+		pin.MarkerId = annotation;
+		markers.Add(annotation);
+	}
 }
 ```
 
-It's responsible for loading images and adding an annotation to the map.
+It's responsible for loading images and adding an annotation to the map. Later, when annotation should be displayed, the `GetViewForAnnotations` gets the annotation view and displays it on map.
 
 That's all we need to customize .NET MAUI Map pins. Run the application and see the result:
 
