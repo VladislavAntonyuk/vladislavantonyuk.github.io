@@ -6,6 +6,14 @@ This article is devoted to the customization of standard map pins. We want to di
 
 Let's start!
 
+## Precondition
+
+Start with installing NuGet package:
+
+ ```xml
+ <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.59"/>
+ ```
+
 ## Custom Pin
 
 First of all, we need to create a new control:
