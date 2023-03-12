@@ -55,7 +55,7 @@ public class CustomMapHandler : MapHandler
 	{
 	}
 
-	public List<Marker>? Markers { get; private set; }
+	public List<Marker> Markers { get; } = new();
 
 	protected override void ConnectHandler(MapView platformView)
 	{
@@ -68,16 +68,7 @@ public class CustomMapHandler : MapHandler
 	{
 		if (handler is CustomMapHandler mapHandler)
 		{
-			if (mapHandler.Markers != null)
-			{
-				foreach (var marker in mapHandler.Markers)
-				{
-					marker.Remove();
-				}
-
-				mapHandler.Markers = null;
-			}
-
+			mapHandler.Markers.Clear();
 			mapHandler.AddPins(map.Pins);
 		}
 	}
@@ -89,7 +80,6 @@ public class CustomMapHandler : MapHandler
 			return;
 		}
 
-		Markers ??= new List<Marker>();
 		foreach (var pin in mapPins)
 		{
 			var pinHandler = pin.ToHandler(MauiContext);
@@ -110,7 +100,7 @@ public class CustomMapHandler : MapHandler
 				}
 				else
 				{
-					AddMarker(Map, pin, Markers, markerOption);	
+					AddMarker(Map, pin, Markers, markerOption);
 				}
 			}
 		}
@@ -180,7 +170,7 @@ public class CustomMapHandler : MapHandler
 	{
 	}
 
-	public List<IMKAnnotation>? Markers { get; private set; }
+	public List<IMKAnnotation> Markers { get; } = new();
 
 	protected override void ConnectHandler(MauiMKMapView platformView)
 	{
@@ -198,14 +188,23 @@ public class CustomMapHandler : MapHandler
 
 	private static MKAnnotationView GetViewForAnnotations(MKMapView mapView, IMKAnnotation annotation)
 	{
-		MKAnnotationView? annotationView = null;
-
+		MKAnnotationView annotationView;
 		if (annotation is CustomAnnotation customAnnotation)
 		{
 			annotationView = mapView.DequeueReusableAnnotation(customAnnotation.Identifier.ToString()) ??
 							 new MKAnnotationView(annotation, customAnnotation.Identifier.ToString());
 			annotationView.Image = customAnnotation.Image;
 			annotationView.CanShowCallout = true;
+		}
+		else if (annotation is MKPointAnnotation)
+		{
+			annotationView = mapView.DequeueReusableAnnotation("defaultPin") ??
+							 new MKMarkerAnnotationView(annotation, "defaultPin");
+			annotationView.CanShowCallout = true;
+		}
+		else
+		{
+			annotationView = new MKUserLocationView(annotation, null);
 		}
 
 		var result = annotationView ?? new MKAnnotationView(annotation, null);
@@ -251,16 +250,12 @@ public class CustomMapHandler : MapHandler
 	{
 		if (handler is CustomMapHandler mapHandler)
 		{
-			if (mapHandler.Markers != null)
+			foreach (var marker in mapHandler.Markers)
 			{
-				foreach (var marker in mapHandler.Markers)
-				{
-					mapHandler.PlatformView.RemoveAnnotation(marker);
-				}
-
-				mapHandler.Markers = null;
+				mapHandler.PlatformView.RemoveAnnotation(marker);
 			}
 
+			mapHandler.Markers.Clear();
 			mapHandler.AddPins(map.Pins);
 		}
 	}
@@ -272,7 +267,6 @@ public class CustomMapHandler : MapHandler
 			return;
 		}
 
-		Markers ??= new List<IMKAnnotation>();
 		foreach (var pin in mapPins)
 		{
 			var pinHandler = pin.ToHandler(MauiContext);
