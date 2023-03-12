@@ -144,6 +144,7 @@ private const string WebSecretKey = "YOUR-WEBSITE-SECRET-KEY-FROM-STEP-1";
 
 private async void BlazorWebView_OnUrlLoading(object? sender, UrlLoadingEventArgs e)
 {
+	e.UrlLoadingStrategy = UrlLoadingStrategy.OpenInWebView;
 	var query = System.Web.HttpUtility.ParseQueryString(e.Url.Query);
 	var token = query.Get("token");
 	if (!string.IsNullOrEmpty(token))
