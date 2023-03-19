@@ -9,6 +9,7 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/Drag-and-Drop-any-content-to-a-.NET-MAUI-application;
 			/articles/Integrating-captcha-into-a-.NET-MAUI-application;
 			/articles/Dynamic-configuration-in-.NET-MAUI-application;
 			/articles/Creating-Markdown-control-with-.NET-MAUI-Graphics;
