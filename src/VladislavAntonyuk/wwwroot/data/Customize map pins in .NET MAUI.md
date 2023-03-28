@@ -68,7 +68,11 @@ public class CustomMapHandler : MapHandler
 	{
 		if (handler is CustomMapHandler mapHandler)
 		{
-			mapHandler.Markers.Clear();
+			foreach (var marker in mapHandler.Markers)
+			{
+				marker.Remove();
+			}
+			
 			mapHandler.AddPins(map.Pins);
 		}
 	}
