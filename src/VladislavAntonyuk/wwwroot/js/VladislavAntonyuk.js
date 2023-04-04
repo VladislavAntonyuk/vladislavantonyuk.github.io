@@ -15,7 +15,7 @@
             let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
             svg.setAttribute("class", "mud-icon-root mud-svg-icon mud-icon-size-medium copy-to-clipboard");
             svg.setAttribute("cursor", "pointer");
-            svg.setAttribute("style", "position:absolute;right:30px;font-size:2rem;fill:var(--mud-palette-background)");
+            svg.setAttribute("style", "position:absolute;right:30px;font-size:2rem;fill:#32333dff");
             svg.setAttribute("viewBox", "0 0 24 24");
             svg.setAttribute("width", "24");
             svg.setAttribute("height", "24");
