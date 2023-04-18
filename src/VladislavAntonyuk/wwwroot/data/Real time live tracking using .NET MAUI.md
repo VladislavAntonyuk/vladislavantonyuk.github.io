@@ -213,15 +213,13 @@ var progress = new Progress<Location>(location =>
 await Geolocator.Default.StartListening(progress, cancellationToken);
 ```
 
+![Android real-time location tracker](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/39/android.gif)
+
 ## Conclusion
 
 In this article, we have learned how to implement real-time live tracking using .NET MAUI for Android, iOS, and Windows platforms. With a single code base, we can easily access device location with real-time tracking features.
 
 Make sure to always handle location data responsibly and obtain the necessary permissions from your users before accessing and displaying their location data. Additionally, consider optimizing the location update interval and platform-specific configurations to improve battery life and performance.
-
-With .NET MAUI, you can now build even more powerful and sophisticated applications, taking full advantage of cross-platform frameworks and native capabilities.
-
-![Android real-time location tracker](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/39/android.gif)
 
 The final code can be found on [GitHub](https://github.com/VladislavAntonyuk/MauiSamples/tree/main/MauiMaps){target="_blank"}.
 
