@@ -9,6 +9,7 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/Setting-a-cursor-for-.NET-MAUI-VisualElement;
 			/articles/Real-time-live-tracking-using-.NET-MAUI;
 			/articles/Drag-and-Drop-any-content-to-a-.NET-MAUI-application;
 			/articles/Integrating-captcha-into-a-.NET-MAUI-application;

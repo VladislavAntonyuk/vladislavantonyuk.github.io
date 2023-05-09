@@ -235,6 +235,14 @@
         "description": "The article demonstrates how to create a real-time live tracking application using .NET MAUI.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, live, tracking, real time, location, map, pin, polyline",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/39/39.png"
+      },
+      {
+        "id": 40,
+        "created": "2023-05-10",
+        "name": "Setting a cursor for .NET MAUI VisualElement",
+        "description": "The article demonstrates how to change cursor of any .NET MAUI VisualElement.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, cursor, hand, visual element",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/40/40.png"
       }
     ]
   },
