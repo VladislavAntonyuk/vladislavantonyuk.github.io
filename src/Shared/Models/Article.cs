@@ -7,6 +7,6 @@ public class Article : BaseEntity
 	public string? Description { get; set; }
 	public string? Keywords { get; set; }
 	public string? Image { get; set; }
-	public DateOnly Created { get; set; }
+	public DateTime Created { get; set; }
 	public string? CategoryName { get; set; }
 }

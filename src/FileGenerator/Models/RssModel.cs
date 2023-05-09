@@ -38,7 +38,7 @@ public class Item
 	[XmlElement(ElementName = "encoded", Namespace = "http://purl.org/rss/1.0/modules/content/")]
 	public CData? Content { get; set; }
 
-	[XmlElement(ElementName = "cretor", Namespace = "http://purl.org/dc/elements/1.1/")]
+	[XmlElement(ElementName = "creator", Namespace = "http://purl.org/dc/elements/1.1/")]
 	public CData? Creator { get; set; }
 }
 
@@ -69,6 +69,10 @@ public class Rss
 {
 	[XmlElement(ElementName = "channel")]
 	public Channel? Channel { get; set; }
+
+	[XmlAttribute(AttributeName = "version")]
+	public string Version { get; set; } = "2.0";
+
 }
 
 public class CData : IXmlSerializable

@@ -46,7 +46,7 @@ public class SitemapService : ISitemapService
 		};
 		var articles = await _articlesService.GetArticles();
 		sitemap.AddRange(articles.Select(article => CreateUrl("articles", priority,
-		                                                      article.Created.ToDateTime(TimeOnly.MinValue),
+		                                                      article.Created,
 		                                                      ChangeFrequency.Monthly, article.Name)));
 
 		await sitemap.SaveAsync(Environment.CurrentDirectory + "/" + FilePath);
