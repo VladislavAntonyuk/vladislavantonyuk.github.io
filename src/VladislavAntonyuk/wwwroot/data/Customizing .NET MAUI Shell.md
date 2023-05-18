@@ -244,7 +244,15 @@ That's all we need to customize .NET MAUI Shell. Run the application and see the
 
 ![.NET MAUI Shell Android](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/41/android.png)
 
+<center>Shell on Android</center>
+
 ![.NET MAUI Shell iOS](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/41/ios.png)
+
+<center>Shell on iOS</center>
+
+![.NET MAUI Shell Windows](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/41/windows.png)
+
+<center>Shell on Windows</center>
 
 The full code can be found on [GitHub](https://github.com/VladislavAntonyuk/MauiSamples/tree/main/MauiShellCustomization){target="_blank"}.
 
