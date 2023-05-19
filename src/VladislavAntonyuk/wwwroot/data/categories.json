@@ -246,7 +246,7 @@
       },
       {
         "id": 41,
-        "created": "2023-05-22",
+        "created": "2023-05-23",
         "name": "Customizing .NET MAUI Shell",
         "description": "The article demonstrates how to customize .NET MAUI Shell for Android and iOS/MacCatalyst platforms, offering step-by-step guidance, code examples, and a link to the GitHub repository containing full examples for practical usage.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, shell, round corner, tabview",
