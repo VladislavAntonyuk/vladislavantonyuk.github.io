@@ -141,6 +141,8 @@ class DropInteractionDelegate : UIDropInteractionDelegate
 
 Similar to the `Windows` implementation, add interaction to the `UIView` control. The `UIDropInteractionDelegate` is responsible for drop interactions for our control. `SessionDidUpdate` indicates that the file should be copied to the application's storage. The `PerformDrop` method loads items by the identifier (`JSON` in the sample) and then reads its content.
 
+![Drag & Drop Windows](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/38/drag-drop-windows.gif)
+
 ## Conclusion ##
 
 In this article, we have explored how to enable drag-and-drop functionality in `.NET MAUI` applications. By following these steps, you can create an intuitive and user-friendly interface for your application, allowing users to easily move files from their device's file system to your application.
