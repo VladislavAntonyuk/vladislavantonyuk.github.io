@@ -296,6 +296,4 @@ This is a final article in these series. Now you know how to create application 
 
 To simplify all these steps, I created a template, that you can use to create cross-platform application with onion archirecture. It is available as a `NuGet` package: [.NET Templates](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates){target="_blank"}.
 
-The full code can be found on [GitHub](https://github.com/VladislavAntonyuk/MauiSamples/tree/main/PizzaStore){target="_blank"}.
-
 Happy coding!
