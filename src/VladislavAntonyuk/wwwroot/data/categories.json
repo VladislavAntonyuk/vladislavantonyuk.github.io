@@ -251,6 +251,14 @@
         "description": "The article demonstrates how to customize .NET MAUI Shell for Android and iOS/MacCatalyst platforms, offering step-by-step guidance, code examples, and a link to the GitHub repository containing full examples for practical usage.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, shell, round corner, tabview",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/41/41.png"
+      },
+      {
+        "id": 42,
+        "created": "2023-06-29",
+        "name": "Drag and Drop any content from a .NET MAUI application",
+        "description": "The article demonstrates how to add drag and drop functionality to easily move content from the .NET MAUI application to the operating system.",
+        "keywords": "dotnet, maui, .net, drag and drop, android, ios, maccatalyst, windows, tizen",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/42/logo.gif"
       }
     ]
   },

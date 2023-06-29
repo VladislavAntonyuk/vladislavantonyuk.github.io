@@ -7,12 +7,13 @@ This article demonstrates how to add drop functionality to easily move content f
 To enable drag and drop functionality in your `.NET MAUI` application, you need to prepare the user interface. You will need to add a control that will accept the content that is being dragged and dropped. The control that you add will depend on the type of application you are building. For example, if you are building a photo editing application, you might want to add a control that accepts image files. I am extending the `MauiPaint` application and will allow `JSON` files to drop on `Page` control.
 
 ```csharp
-var platformElement = myPage.ToPlatform(Handler.MauiContext);
-platformElement.RegisterDragDrop(async stream =>
+myPage.RegisterDrop(Handler.MauiContext, async stream =>
 {
 	await OpenFile(stream);
 });
 ```
+
+## Windows implementation ##
 
 There are two main events that you need to handle:
 
@@ -20,12 +21,10 @@ There are two main events that you need to handle:
 
 - `Drop`: This event is fired when the content is dropped onto the control. You can use this event to perform any necessary processing on the file.
 
-## Windows implementation ##
-
 ```csharp
-public static class DragDropExtensions
+public static class DragDropHelper
 {
-	public static void RegisterDragDrop(this UIElement element, Func<Stream, Task>? content)
+	public static void RegisterDrop(UIElement element, Func<Stream, Task>? content)
 	{
 		element.AllowDrop = true;
 		element.Drop += async (s, e) =>
@@ -50,7 +49,7 @@ public static class DragDropExtensions
 		element.DragOver += OnDragOver;
 	}
 
-	public static void UnRegisterDragDrop(this UIElement element)
+	public static void UnRegisterDrop(UIElement element)
 	{
 		element.AllowDrop = false;
 		element.DragOver -= OnDragOver;
@@ -91,7 +90,7 @@ Once the file has been accepted, the Drop event handler retrieves the storage it
 ```csharp
 public static class DragDropHelper
 {
-	public static void RegisterDragDrop(this UIView view, Func<Stream, Task>? content)
+	public static void RegisterDragDrop(UIView view, Func<Stream, Task>? content)
 	{
 		var dropInteraction = new UIDropInteraction(new DropInteractionDelegate()
 		{
@@ -100,7 +99,7 @@ public static class DragDropHelper
 		view.AddInteraction(dropInteraction);
 	}
 
-	public static void UnRegisterDragDrop(this UIView view)
+	public static void UnRegisterDragDrop(UIView view)
 	{
 		var dropInteractions = view.Interactions.OfType<UIDropInteraction>();
 		foreach (var interaction in dropInteractions)
@@ -142,6 +141,31 @@ class DropInteractionDelegate : UIDropInteractionDelegate
 Similar to the `Windows` implementation, add interaction to the `UIView` control. The `UIDropInteractionDelegate` is responsible for drop interactions for our control. `SessionDidUpdate` indicates that the file should be copied to the application's storage. The `PerformDrop` method loads items by the identifier (`JSON` in the sample) and then reads its content.
 
 ![Drag & Drop Windows](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/38/drag-drop-windows.gif)
+
+## Extension methods
+
+To simplify the syntax let's create extension methods:
+
+```csharp
+using Microsoft.Maui.Platform;
+
+public static class DragDropExtensions
+{
+	public static void RegisterDrop(this IElement element, IMauiContext? mauiContext, Func<Stream, Task>? content)
+	{
+		ArgumentNullException.ThrowIfNull(mauiContext);
+		var view = element.ToPlatform(mauiContext);
+		DragDropHelper.RegisterDrop(view, content);
+	}
+
+	public static void UnRegisterDrop(this IElement element, IMauiContext? mauiContext)
+	{
+		ArgumentNullException.ThrowIfNull(mauiContext);
+		var view = element.ToPlatform(mauiContext);
+		DragDropHelper.UnRegisterDrop(view);
+	}
+}
+```
 
 ## Conclusion ##
 
