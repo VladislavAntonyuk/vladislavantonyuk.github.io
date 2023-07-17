@@ -259,6 +259,14 @@
         "description": "The article demonstrates how to add drag and drop functionality to easily move content from the .NET MAUI application to the operating system.",
         "keywords": "dotnet, maui, .net, drag and drop, android, ios, maccatalyst, windows, tizen",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/42/logo.gif"
+      },
+      {
+        "id": 43,
+        "created": "2023-07-22",
+        "name": "Adding custom action button to .NET MAUI Shell TabBar",
+        "description": "The article demonstrates how to customize .NET MAUI Shell TabBar for Android and iOS/MacCatalyst platforms, offering step-by-step guidance, code examples, and a link to the GitHub repository containing full examples for practical usage.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, shell, tabbar, MAUIUIJuly",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/43/43.png"
       }
     ]
   },

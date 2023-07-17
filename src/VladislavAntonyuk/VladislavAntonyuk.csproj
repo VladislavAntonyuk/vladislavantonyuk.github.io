@@ -9,6 +9,7 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
 			/articles/Drag-and-Drop-any-content-from-a-.NET-MAUI-application;
 			/articles/Customizing-.NET-MAUI-Shell;
 			/articles/Setting-a-cursor-for-.NET-MAUI-VisualElement;
