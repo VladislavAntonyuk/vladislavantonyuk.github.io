@@ -16,11 +16,11 @@ Now we need to convert it to WindowsService.
 2. Then in `Program.cs` call `UseWindowsService()` in `CreateHostBuilder`:
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args)
-		{
-			return Host.CreateDefaultBuilder(args)
-				.ConfigureServices((_, services) => { services.AddHostedService<Worker>(); })
-				.UseWindowsService();
-		}
+{
+	return Host.CreateDefaultBuilder(args)
+		.ConfigureServices((_, services) => { services.AddHostedService<Worker>(); })
+		.UseWindowsService();
+}
 ```
 
 Our base Windows Service is ready.
@@ -31,45 +31,45 @@ This utility is split into 2 parts: the first checks the power status, and the s
 #### Part 1. Check the Power status ####
 ```csharp
 public enum BatteryFlag : byte
-	{
-		High = 1,
-		Low = 2,
-		Critical = 4,
-		Charging = 8,
-		NoSystemBattery = 128,
-		Unknown = 255
-	}
+{
+	High = 1,
+	Low = 2,
+	Critical = 4,
+	Charging = 8,
+	NoSystemBattery = 128,
+	Unknown = 255
+}
 
 public enum AcLineStatus: byte
-	{
-		Offline = 0,
-		Online = 1,
-		Unknown = 255
-	}
+{
+	Offline = 0,
+	Online = 1,
+	Unknown = 255
+}
 
 [StructLayout(LayoutKind.Sequential)]
-	public class PowerState
+public class PowerState
+{
+	public AcLineStatus ACLineStatus;
+	public BatteryFlag BatteryFlag;
+
+	// direct instantiation not intended, use GetPowerState.
+	private PowerState()
 	{
-		public AcLineStatus ACLineStatus;
-		public BatteryFlag BatteryFlag;
-
-		// direct instantiation not intended, use GetPowerState.
-		private PowerState()
-		{
-		}
-
-		public static PowerState GetPowerState()
-		{
-			var state = new PowerState();
-			if (GetSystemPowerStatusRef(state))
-				return state;
-
-			throw new ApplicationException("Unable to get power state");
-		}
-
-		[DllImport("Kernel32", EntryPoint = "GetSystemPowerStatus")]
-		private static extern bool GetSystemPowerStatusRef(PowerState sps);
 	}
+
+	public static PowerState GetPowerState()
+	{
+		var state = new PowerState();
+		if (GetSystemPowerStatusRef(state))
+			return state;
+
+		throw new ApplicationException("Unable to get power state");
+	}
+
+	[DllImport("Kernel32", EntryPoint = "GetSystemPowerStatus")]
+	private static extern bool GetSystemPowerStatusRef(PowerState sps);
+}
 ```
 Let's now see what is here.
 1. `BatteryFlag` describes the current battery status. It has the value `NoSystemBattery` which we use to know if the device is a desktop or a laptop.
@@ -79,71 +79,71 @@ Let's now see what is here.
 #### Part 2. Creating the Brightness Service ####
 ```csharp
 internal class BrightnessService
+{
+	public static byte GetBrightness()
 	{
-		public static byte GetBrightness()
+		var managementObjectSearcher = new ManagementObjectSearcher(new ManagementScope("root\\WMI"),
+			new SelectQuery("WmiMonitorBrightness"));
+		var objectCollection = managementObjectSearcher.Get();
+		byte num = 0;
+		using (var enumerator = objectCollection.GetEnumerator())
 		{
-			var managementObjectSearcher = new ManagementObjectSearcher(new ManagementScope("root\\WMI"),
-				new SelectQuery("WmiMonitorBrightness"));
-			var objectCollection = managementObjectSearcher.Get();
-			byte num = 0;
-			using (var enumerator = objectCollection.GetEnumerator())
-			{
-				if (enumerator.MoveNext())
-					num = (byte) enumerator.Current.GetPropertyValue("CurrentBrightness");
-			}
-
-			objectCollection.Dispose();
-			managementObjectSearcher.Dispose();
-			return num;
-		}		
-
-		public static void SetBrightness(byte targetBrightness)
-		{
-			var managementObjectSearcher = new ManagementObjectSearcher(new ManagementScope("root\\WMI"),
-				new SelectQuery("WmiMonitorBrightnessMethods"));
-			var objectCollection = managementObjectSearcher.Get();
-			using (var enumerator = objectCollection.GetEnumerator())
-			{
-				if (enumerator.MoveNext())
-					((ManagementObject) enumerator.Current).InvokeMethod("WmiSetBrightness", new object[]
-					{
-						uint.MaxValue,
-						targetBrightness
-					});
-			}
-
-			objectCollection.Dispose();
-			managementObjectSearcher.Dispose();
+			if (enumerator.MoveNext())
+				num = (byte) enumerator.Current.GetPropertyValue("CurrentBrightness");
 		}
+
+		objectCollection.Dispose();
+		managementObjectSearcher.Dispose();
+		return num;
+	}		
+
+	public static void SetBrightness(byte targetBrightness)
+	{
+		var managementObjectSearcher = new ManagementObjectSearcher(new ManagementScope("root\\WMI"),
+			new SelectQuery("WmiMonitorBrightnessMethods"));
+		var objectCollection = managementObjectSearcher.Get();
+		using (var enumerator = objectCollection.GetEnumerator())
+		{
+			if (enumerator.MoveNext())
+				((ManagementObject) enumerator.Current).InvokeMethod("WmiSetBrightness", new object[]
+				{
+					uint.MaxValue,
+					targetBrightness
+				});
+		}
+
+		objectCollection.Dispose();
+		managementObjectSearcher.Dispose();
 	}
+}
 ```
 Using WMI we get and set the brightness.
 
 The last part is left. We need to call our services. Open `Worker.cs` and replace `ExecuteAsync` method content with:
 ```csharp
-			const byte minBrightness = 0;
-			const byte maxBrightness = 100;
-			while (!stoppingToken.IsCancellationRequested)
-			{
-				var powerState = PowerState.GetPowerState();
-				if (powerState.BatteryFlag == BatteryFlag.NoSystemBattery)
-				{
-					await StopAsync(stoppingToken);
-				}
-				else
-				{
-					var currentBrightness = BrightnessService.BrightnessService.GetBrightness();
-					var desiredBrightness = powerState.ACLineStatus == AcLineStatus.Offline
-						? minBrightness
-						: maxBrightness;
-					if (currentBrightness != desiredBrightness)
-					{
-						BrightnessService.BrightnessService.SetBrightness(desiredBrightness);
-					}
-				}
+const byte minBrightness = 0;
+const byte maxBrightness = 100;
+while (!stoppingToken.IsCancellationRequested)
+{
+	var powerState = PowerState.GetPowerState();
+	if (powerState.BatteryFlag == BatteryFlag.NoSystemBattery)
+	{
+		await StopAsync(stoppingToken);
+	}
+	else
+	{
+		var currentBrightness = BrightnessService.BrightnessService.GetBrightness();
+		var desiredBrightness = powerState.ACLineStatus == AcLineStatus.Offline
+			? minBrightness
+			: maxBrightness;
+		if (currentBrightness != desiredBrightness)
+		{
+			BrightnessService.BrightnessService.SetBrightness(desiredBrightness);
+		}
+	}
 
-				await Task.Delay(1000, stoppingToken);
-			}
+	await Task.Delay(1000, stoppingToken);
+}
 ```
 So we check for the power state. If our device is a desktop (`NoSystemBattery`) just stop the service. Else get the current brightness and compare it to the desired. If they are different we call the `BrightnessService`. To monitor the status and react to the power state changes we wait for 1 second and then try to set the brightness again.
 
@@ -172,23 +172,23 @@ After some days of usage, I found the flickering of the screen. It happens becau
 Add new method to the `BrightnessService`:
 ```csharp
 private static void SetBrightnessRegistry(byte targetBrightness)
-		{
-			try
-			{
-				var key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes");
-				var activePowerScheme = key.GetValue("ActivePowerScheme");
-				key = key.OpenSubKey($@"{activePowerScheme}\7516b95f-f776-4464-8c53-06167f40cc99\aded5e82-b909-4619-9949-f5d71dac0bcb", true);
-				key.SetValue("ACSettingIndex", targetBrightness, RegistryValueKind.DWord);
-				key.SetValue("DCSettingIndex", targetBrightness, RegistryValueKind.DWord);
-			}
-			catch (Exception e)
-			{
-				// do some logging here
-				throw;
-			}
-		}
+{
+	try
+	{
+		var key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes");
+		var activePowerScheme = key.GetValue("ActivePowerScheme");
+		key = key.OpenSubKey($@"{activePowerScheme}\7516b95f-f776-4464-8c53-06167f40cc99\aded5e82-b909-4619-9949-f5d71dac0bcb", true);
+		key.SetValue("ACSettingIndex", targetBrightness, RegistryValueKind.DWord);
+		key.SetValue("DCSettingIndex", targetBrightness, RegistryValueKind.DWord);
+	}
+	catch (Exception e)
+	{
+		// do some logging here
+		throw;
+	}
+}
 ```
 Now call this method in `SetBrigthness`.
 That's it.
 
-You can download the solution on my GitHub: [ScreenBrightnessService](https://github.com/VladislavAntonyuk/ScreenBrightnessService "ScreenBrightnessService"){target="_blank"}
+You can download the solution on my GitHub: [WindowsService](https://github.com/VladislavAntonyuk/WindowsService "WindowsService"){target="_blank"}
