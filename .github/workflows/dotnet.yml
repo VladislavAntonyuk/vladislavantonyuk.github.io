@@ -12,10 +12,9 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3.2.0
       with:
         dotnet-version: 8.x
-        include-prerelease: true
     
     - name: Update version
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
