@@ -1,6 +1,6 @@
 Hello!
 
-This is a continuation of the [first article](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-1.-Overview){target="_blank"} about onion architecture in the development of cross-platform applications.
+This is a continuation of the [first article](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-1.-Overview){target="_blank"} about onion architecture in the development of cross-platform applications.
 
 From the theory to the practice. For a closer look at onion architecture, let's create an application for ordering pizza. 
 
@@ -46,4 +46,4 @@ When creating an application architecture, one must understand that the actual n
 
 ![Onion Architecture](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/10/onion-architecture2.png)
 
-In the next article, we'll create Infrastructure level: [Onion architecture in the development of cross-platform applications. Part 3. Infrastructure](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure){target="_blank"}
+In the next article, we'll create Infrastructure level: [Onion architecture in the development of cross-platform applications. Part 3. Infrastructure](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure){target="_blank"}

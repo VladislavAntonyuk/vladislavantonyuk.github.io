@@ -267,6 +267,14 @@
         "description": "The article demonstrates how to customize .NET MAUI Shell TabBar for Android and iOS/MacCatalyst platforms, offering step-by-step guidance, code examples, and a link to the GitHub repository containing full examples for practical usage.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, shell, tabbar, MAUIUIJuly",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/43/43.png"
+      },
+      {
+        "id": 45,
+        "created": "2023-08-15",
+        "name": ".NET MAUI Push Notifications using Azure Notification Hub. Part 2. Setup .NET MAUI",
+        "description": "The article demonstrates how to add push notifications to .NET MAUI application using Azure Notification Hub.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, push, notification, azure, hub",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/45/45.png"
       }
     ]
   },
@@ -344,6 +352,14 @@
         "description": "This article describes how to simplify authentication and authorization for specific pages in Azure App Service by writing minimal or no code in your web app.",
         "keywords": "Azure, app service, authentication, built-in, identity provider",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/18/14-0.png"
+      },
+      {
+        "id": 44,
+        "created": "2023-08-14",
+        "name": ".NET MAUI Push Notifications using Azure Notification Hub. Part 1. Setup Azure Notification Hub",
+        "description": "The article demonstrates how to add push notifications to .NET MAUI application using Azure Notification Hub.",
+        "keywords": "Azure, notification, hub, dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, push, notification, azure, hub",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/44/44.png"
       }
     ]
   },

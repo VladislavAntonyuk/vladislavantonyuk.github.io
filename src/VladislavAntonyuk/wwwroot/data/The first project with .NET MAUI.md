@@ -1,6 +1,6 @@
 Hello!
 
-Today we will migrate an existing Xamarin.Forms Application to .NET MAUI! As a victim I chose my [KanbanBoard app](https://vladislavantonyuk.azurewebsites.net/articles/Creating-Kanban-Board-using-Xamarin-Forms-5 "KanbanBoard app"){target="_blank"}.
+Today we will migrate an existing Xamarin.Forms Application to .NET MAUI! As a victim I chose my [KanbanBoard app](./articles/Creating-Kanban-Board-using-Xamarin-Forms-5 "KanbanBoard app"){target="_blank"}.
 
 ## Installation ##
 

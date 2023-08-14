@@ -23,4 +23,4 @@ The number of levels may differ, but the center is always the Domain Model, that
 2. Any specific implementation will be provided to the application at runtime.
 3. Onion architecture provides better testability because a unit test can be created for individual layers without being influenced by other modules in the application.
 
-In the next article, we'll create Domain and Application levels: [Onion architecture in the development of cross-platform applications. Part 2. Domain and Application](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application){target="_blank"}
+In the next article, we'll create Domain and Application levels: [Onion architecture in the development of cross-platform applications. Part 2. Domain and Application](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application){target="_blank"}

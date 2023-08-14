@@ -2,7 +2,7 @@ Hello!
 
 Today, we will create a small mobile application, which requires user authentication, using .NET MAUI.
 
-I hope you already have a valid environment. Read [this article](https://vladislavantonyuk.azurewebsites.net/articles/The-first-project-with-.NET-MAUI) on how to set up .NET MAUI.
+I hope you already have a valid environment. Read [this article](./articles/The-first-project-with-.NET-MAUI) on how to set up .NET MAUI.
 
 If you don't have an Azure Active Directory, watch this video on how to set it up:
 

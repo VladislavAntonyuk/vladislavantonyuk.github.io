@@ -1,6 +1,6 @@
 Hello!
 
-This is a continuation of the [second article](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application){target="_blank"} about onion architecture in the development of cross-platform applications.
+This is a continuation of the [second article](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application){target="_blank"} about onion architecture in the development of cross-platform applications.
 
 We continue creating `PizzaStore`.
 
@@ -102,4 +102,4 @@ services.AddDbContext<StaffingContext>(opts => opts.UseSqlite(configuration.GetC
 services.AddTransient<IPizzaRepository, PizzaRepository>();
 ```
 
-In the next article, we'll create UI level: [Onion architecture in the development of cross-platform applications. Part 4. UI](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-4.-UI){target="_blank"}
+In the next article, we'll create UI level: [Onion architecture in the development of cross-platform applications. Part 4. UI](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-4.-UI){target="_blank"}

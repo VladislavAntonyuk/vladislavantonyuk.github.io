@@ -9,6 +9,9 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-1.-Setup-Azure-Notification-Hub;
+			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-2.-Setup-.NET-MAUI;
+			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
 			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
 			/articles/Drag-and-Drop-any-content-from-a-.NET-MAUI-application;
 			/articles/Customizing-.NET-MAUI-Shell;
@@ -55,7 +58,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BlazorWasmPreRendering.Build" Version="2.0.0-preview.9" />
+        <PackageReference Include="BlazorWasmPreRendering.Build" Version="3.0.0-preview.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.10" PrivateAssets="all" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
         <PackageReference Include="MudBlazor" Version="6.8.0" />

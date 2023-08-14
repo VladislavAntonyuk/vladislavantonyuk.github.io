@@ -4,7 +4,7 @@ Today, we will create a small .NET MAUI application and extend it with iOS Share
 
 App extensions let you extend custom functionality and content beyond your app and make it available to users while they’re interacting with other apps or the system.
 
-I hope you already have a valid environment. Read [this article](https://vladislavantonyuk.azurewebsites.net/articles/The-first-project-with-.NET-MAUI) on how to set up .NET MAUI.
+I hope you already have a valid environment. Read [this article](./articles/The-first-project-with-.NET-MAUI) on how to set up .NET MAUI.
 
 If you prefer a video tutorial you can find it on YouTube:
 

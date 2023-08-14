@@ -1,6 +1,6 @@
 Hello!
 
-This is a continuation of the [third article](https://vladislavantonyuk.azurewebsites.net/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure){target="_blank"} about onion architecture in the development of cross-platform applications.
+This is a continuation of the [third article](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure){target="_blank"} about onion architecture in the development of cross-platform applications.
 
 We continue creating `PizzaStore`.
 
