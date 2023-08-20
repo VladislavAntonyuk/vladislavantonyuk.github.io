@@ -118,9 +118,9 @@ public class AuthService
         authenticationClient = PublicClientApplicationBuilder.Create(Constants.ClientId)
             //.WithB2CAuthority(Constants.AuthoritySignIn) // uncomment to support B2C
 #if WINDOWS
-            .WithRedirectUri("http://localhost");
+            .WithRedirectUri("http://localhost")
 #else
-            .WithRedirectUri($"msal{Constants.ClientId}://auth");
+            .WithRedirectUri($"msal{Constants.ClientId}://auth")
 #endif
             .Build();
     }
