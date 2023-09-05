@@ -9,9 +9,9 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
-			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-1.-Setup-Azure-Notification-Hub;
+			/articles/Adding-Application-Insights-to-.NET-MAUI-Application;
 			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-2.-Setup-.NET-MAUI;
-			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
+			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-1.-Setup-Azure-Notification-Hub;
 			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
 			/articles/Drag-and-Drop-any-content-from-a-.NET-MAUI-application;
 			/articles/Customizing-.NET-MAUI-Shell;

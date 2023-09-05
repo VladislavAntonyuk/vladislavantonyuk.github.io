@@ -275,6 +275,14 @@
         "description": "The article demonstrates how to add push notifications to .NET MAUI application using Azure Notification Hub.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, push, notification, azure, hub",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/45/45.png"
+      },
+      {
+        "id": 46,
+        "created": "2023-09-05",
+        "name": "Adding Application Insights to .NET MAUI Application",
+        "description": "This article provides an in-depth exploration into how you can integrate Microsoft's Application Insights into your .NET MAUI application. A comparative study between Microsoft AppCenter and Application Insights is also highlighted, demystifying the inherent advantage of Application Insights in application management and analytics.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, Application Insights, Azure, AppCenter, Application Performance Management, Cross-Platform App Development, User Interaction Tracking, Performance Monitoring, Integration, SDK, TelemetryClient, Track Events, Track Exceptions, DevOps, Application Analytics.",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/46/46.png"
       }
     ]
   },
