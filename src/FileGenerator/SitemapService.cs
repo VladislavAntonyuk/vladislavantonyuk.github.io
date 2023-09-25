@@ -3,6 +3,7 @@
 using System.Xml.Linq;
 using Shared;
 using X.Web.Sitemap;
+using X.Web.Sitemap.Extensions;
 
 public interface ISitemapService
 {
