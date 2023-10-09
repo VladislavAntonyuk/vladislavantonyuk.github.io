@@ -1,4 +1,5 @@
 @page "/articles/{id}"
+@using GiscusBlazor
 @using VladislavAntonyuk.Components.Monetization
 @inherits VladislavAntonyukBaseComponent
 
@@ -121,6 +122,17 @@ else
 @if (article is not null)
 {
 	<MudPaper Class="mt-4">
-		<Comments Id="Id" Title="article.Name"/>
+		<Giscus Repo="VladislavAntonyuk/vladislavantonyuk.github.io"
+		        RepoId="R_kgDOImU4iA"
+                Category="Announcements"
+		        CategoryId="DIC_kwDOImU4iM4CYqI3"
+		        Mapping="Mapping.Title"
+		        ReactionsEnabled="true"
+		        EmitMetadata="false"
+		        InputPosition="InputPosition.Top"
+		        Theme="preferred_color_scheme"
+		        Lang="en"
+		        Loading="Loading.Lazy" />
+		@* <Comments Id="Id" Title="article.Name"/> *@
 	</MudPaper>
 }
