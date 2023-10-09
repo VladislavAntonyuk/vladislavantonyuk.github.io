@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Shared.Layouts;
+﻿namespace VladislavAntonyuk.Components.Layouts;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;

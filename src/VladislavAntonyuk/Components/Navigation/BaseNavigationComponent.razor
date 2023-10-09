@@ -3,14 +3,14 @@
 
 <MudText Typo="Typo.h1">@Title</MudText>
 
-<MudTextField @bind-Value="searchFilter"
+<MudTextField @bind-Value="SearchFilter"
               Label="Search"
               Variant="Variant.Outlined"
               Adornment="Adornment.End"
               AdornmentIcon="@Icons.Material.Filled.Search"
               AdornmentColor="Color.Secondary"
-              OnAdornmentClick="LoadData"
-              OnClearButtonClick="LoadData"
+              OnAdornmentClick="Search"
+              OnClearButtonClick="Search"
               Clearable="true"
               Immediate="true"
               Margin="Margin.Normal"/>
@@ -22,9 +22,9 @@
 		<MudText Typo="Typo.h3">Loading</MudText>
 	</MudStack>
 }
-else if (data is not null && items is not null && data.TotalCount > 0)
+else if (data?.TotalCount > 0)
 {
-	@ChildContent(items)
+    @ChildContent(data.Items)
 
 	@if (data.TotalPages > 1)
 	{

@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Shared.Monetization;
+﻿namespace VladislavAntonyuk.Components.Monetization;
 
 public partial class BuyMeACoffee : VladislavAntonyukBaseComponent
 {

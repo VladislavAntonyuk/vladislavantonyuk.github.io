@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Shared;
+﻿namespace VladislavAntonyuk.Components;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;

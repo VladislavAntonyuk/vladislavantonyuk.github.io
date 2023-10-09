@@ -1,21 +1,9 @@
 ﻿namespace VladislavAntonyuk;
 
-public class PaginatedList<T>
+public class PaginatedList<T>(IReadOnlyCollection<T> items, int totalCount, int pageIndex, int pageSize)
 {
-	public PaginatedList(IReadOnlyCollection<T> items, int totalCount, int pageIndex, int pageSize)
-	{
-		PageIndex = pageIndex;
-		TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
-		TotalCount = totalCount;
-		Items = items;
-	}
-
-	public bool HasPreviousPage => PageIndex > 1;
-
-	public bool HasNextPage => PageIndex < TotalPages;
-
-	public IReadOnlyCollection<T> Items { get; }
-	public int PageIndex { get; }
-	public int TotalPages { get; }
-	public int TotalCount { get; }
+	public IReadOnlyCollection<T> Items { get; } = items;
+	public int PageIndex { get; } = pageIndex;
+	public int TotalPages { get; } = (int)Math.Ceiling(totalCount / (double)pageSize);
+	public int TotalCount { get; } = totalCount;
 }

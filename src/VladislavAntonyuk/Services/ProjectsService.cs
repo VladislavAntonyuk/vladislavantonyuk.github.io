@@ -1,20 +1,14 @@
-﻿namespace Shared;
+﻿namespace VladislavAntonyuk.Services;
 
 using System.Net.Http.Json;
-using Models;
+using Shared;
+using Shared.Models;
 
-internal class ProjectsService : IProjectsService
+internal class ProjectsService(HttpClient httpClient) : IProjectsService
 {
-	private readonly HttpClient _httpClient;
-
-	public ProjectsService(HttpClient httpClient)
-	{
-		_httpClient = httpClient;
-	}
-
 	public async Task<List<Project>> GetProjects(string? searchParameter = null)
 	{
-		var projects = await _httpClient.GetFromJsonAsync<IEnumerable<Project>>("data/projects.json");
+		var projects = await httpClient.GetFromJsonAsync<IEnumerable<Project>>("data/projects.json");
 		if (projects is null)
 		{
 			return new List<Project>();

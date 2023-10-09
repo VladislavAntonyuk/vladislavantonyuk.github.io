@@ -1,8 +1,8 @@
-﻿namespace VladislavAntonyuk.Shared;
+﻿namespace VladislavAntonyuk.Components;
 
-using global::Shared;
-using global::Shared.Models;
 using Microsoft.AspNetCore.Components;
+using Shared;
+using Shared.Models;
 
 public partial class NavCategories : VladislavAntonyukBaseComponent
 {

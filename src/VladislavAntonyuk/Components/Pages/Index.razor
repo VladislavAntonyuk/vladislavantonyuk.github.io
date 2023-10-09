@@ -1,15 +1,17 @@
 ﻿@page "/"
 @page "/articles"
-@using global::Shared.Models
+@using VladislavAntonyuk.Components.Monetization
+@using VladislavAntonyuk.Components.Navigation
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Articles" Description="Vladislav Antonyuk - Articles"/>
-<BaseNavigationComponent T="Article" @ref="baseNav" Title="Articles" Action="(page, searchParameter) => LoadArticles(page, searchParameter)">
+
+<ArticlesNavigationComponent>
 	<ChildContent Context="articles">
 		<MudGrid>
 			@for (var i = 0; i < articles.Count; i++)
 			{
-				var article = articles[i];
+				var article = articles.ElementAt(i);
 				var i1 = i;
 				<MudItem xs="12">
 					@if (i1 % 4 == 3)
@@ -57,4 +59,4 @@
 			}
 		</MudGrid>
 	</ChildContent>
-</BaseNavigationComponent>
+</ArticlesNavigationComponent>

@@ -14,17 +14,9 @@ public interface IRssService
 	Task<string> GenerateRss();
 }
 
-public class RssService : IRssService
+public class RssService(IArticlesService articlesService, IUrlCreator urlCreator) : IRssService
 {
 	private const string FilePath = "rss.xml";
-	private readonly IArticlesService _articlesService;
-	private readonly IUrlCreator _urlCreator;
-
-	public RssService(IArticlesService articlesService, IUrlCreator urlCreator)
-	{
-		_articlesService = articlesService;
-		_urlCreator = urlCreator;
-	}
 
 	public async ValueTask<string> ParseRss()
 	{
@@ -38,10 +30,10 @@ public class RssService : IRssService
 			Channel = new Channel
 			{
 				LastBuildDate = DateTime.UtcNow.ToString("R"),
-				Link = _urlCreator.CreateArticleUrl(""),
+				Link = urlCreator.CreateArticleUrl(""),
 				Link2 = new Link
 				{
-					Href = _urlCreator.CreateArticleUrl("rss"),
+					Href = urlCreator.CreateArticleUrl("rss"),
 					Rel = "self",
 					Type = "application/rss+xml"
 				},
@@ -50,7 +42,7 @@ public class RssService : IRssService
 				Items = new List<Item>()
 			}
 		};
-		var articles = await _articlesService.GetArticles();
+		var articles = await articlesService.GetArticles();
 		if (articles.Count == 0)
 		{
 			return string.Empty;
@@ -73,8 +65,8 @@ public class RssService : IRssService
 	{
 		return new Item
 		{
-			Link = _urlCreator.CreateArticleUrl("articles", article.Name),
-			Guid = _urlCreator.CreateArticleUrl("articles", article.Name),
+			Link = urlCreator.CreateArticleUrl("articles", article.Name),
+			Guid = urlCreator.CreateArticleUrl("articles", article.Name),
 			Description = article.Description,
 			Content = Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline()),
 			Creator = "Vladislav Antonyuk",

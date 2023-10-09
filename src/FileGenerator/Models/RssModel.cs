@@ -75,17 +75,12 @@ public class Rss
 
 }
 
-public class CData : IXmlSerializable
+public class CData(string? value) : IXmlSerializable
 {
-	private string? value;
+	private string? value = value;
 
 	public CData() : this(string.Empty)
 	{
-	}
-
-	public CData(string? value)
-	{
-		this.value = value;
 	}
 
 	public XmlSchema? GetSchema()

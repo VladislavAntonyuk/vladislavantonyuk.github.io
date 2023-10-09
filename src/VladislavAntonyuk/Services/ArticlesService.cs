@@ -1,20 +1,14 @@
-﻿namespace Shared;
+﻿namespace VladislavAntonyuk.Services;
 
 using System.Net.Http.Json;
-using Models;
+using Shared;
+using Shared.Models;
 
-internal class ArticlesService : IArticlesService
+internal class ArticlesService(HttpClient httpClient) : IArticlesService
 {
-	private readonly HttpClient _httpClient;
-
-	public ArticlesService(HttpClient httpClient)
-	{
-		_httpClient = httpClient;
-	}
-
 	public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
 	{
-		var categories = await _httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
 		if (categories is null)
 		{
 			return new List<Article>();
@@ -41,13 +35,9 @@ internal class ArticlesService : IArticlesService
 
 	public async Task<Article?> GetArticle(string articleName)
 	{
-		var categories = await _httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
-		if (categories is null)
-		{
-			return null;
-		}
+		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
 
-		var article = categories.SelectMany(x => x.Articles, (category, article) =>
+		var article = categories?.SelectMany(x => x.Articles, (category, article) =>
 		                        {
 			                        article.CategoryName = category.Name;
 			                        return article;
@@ -59,7 +49,7 @@ internal class ArticlesService : IArticlesService
 			return null;
 		}
 
-		var contentResponseMessage = await _httpClient.GetAsync($"./data/{articleName}.md");
+		var contentResponseMessage = await httpClient.GetAsync($"./data/{articleName}.md");
 		if (!contentResponseMessage.IsSuccessStatusCode)
 		{
 			return null;
@@ -71,7 +61,7 @@ internal class ArticlesService : IArticlesService
 
 	public async Task<IReadOnlyCollection<Article>?> GetSuggestions(string articleName, int limit)
 	{
-		var categories = await _httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
 		if (categories is null)
 		{
 			return new List<Article>();
@@ -109,7 +99,7 @@ internal class ArticlesService : IArticlesService
 
 	public async Task<List<Category>> GetCategories()
 	{
-		var categories = await _httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
 		return categories is null ? new List<Category>() : categories.ToList();
 	}
 }

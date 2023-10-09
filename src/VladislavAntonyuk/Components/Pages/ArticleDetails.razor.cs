@@ -1,8 +1,8 @@
-﻿namespace VladislavAntonyuk.Pages;
+﻿namespace VladislavAntonyuk.Components.Pages;
 
-using global::Shared;
-using global::Shared.Models;
 using Microsoft.AspNetCore.Components;
+using Shared;
+using Shared.Models;
 
 public partial class ArticleDetails : VladislavAntonyukBaseComponent
 {

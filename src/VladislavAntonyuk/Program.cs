@@ -1,9 +1,10 @@
-using Microsoft.AspNetCore.Components.Web;
+﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 using Shared;
 using StardustDL.RazorComponents.Markdown;
 using VladislavAntonyuk;
+using VladislavAntonyuk.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

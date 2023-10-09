@@ -1,4 +1,4 @@
-﻿namespace VladislavAntonyuk.Shared.Monetization;
+﻿namespace VladislavAntonyuk.Components.Monetization;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
