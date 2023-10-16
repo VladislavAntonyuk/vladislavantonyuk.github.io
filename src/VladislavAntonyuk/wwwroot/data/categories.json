@@ -345,6 +345,14 @@
         "description": "The Identity of the user in DynamicRouteValueTransformer.",
         "keywords": "dynamic route, blazor, identity, slug",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/6/44E6443E-0A47-4209-BDD2-D46AB88B66A2.webp"
+      },
+      {
+        "id": 47,
+        "created": "2023-10-16",
+        "name": "Microsoft Identity Platform Authentication in Blazor Web Application",
+        "description": "Adding Microsoft Entra ID B2C in .NET 8 Blazor WebApp.",
+        "keywords": "azure, blazor, identity, azure ad, azure ad b2c, template, microsoft, microsoft identity platfrom, blazor webapp",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/47/47.png"
       }
     ]
   },

@@ -9,6 +9,7 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/Microsoft-Identity-Platform-Authentication-in-Blazor-Web-Application;
 			/articles/Adding-Application-Insights-to-.NET-MAUI-Application;
 			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-2.-Setup-.NET-MAUI;
 			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-1.-Setup-Azure-Notification-Hub;
