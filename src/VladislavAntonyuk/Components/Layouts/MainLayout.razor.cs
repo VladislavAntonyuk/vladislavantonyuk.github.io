@@ -42,9 +42,6 @@ public partial class MainLayout : LayoutComponentBase
 	[Inject]
 	public required IDialogService DialogService { get; set; }
 
-	[CascadingParameter]
-	public required App.AppInfo ApplicationInfo { get; set; }
-
 	//[Inject]
 	//public required ILocationVerifier LocationVerifier { get; set; }
 

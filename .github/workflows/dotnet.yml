@@ -21,17 +21,17 @@ jobs:
 
     - name: Change base url
       run: |
-        sed -i 's/{BASE_URL}/https:\/\/vladislavantonyuk.github.io/g' src/VladislavAntonyuk/**/*.html
-        sed -i 's/{BASE_URL}/https:\/\/vladislavantonyuk.github.io/g' src/VladislavAntonyuk/**/*.razor
+        find src/VladislavAntonyuk -name "*.html" -type f -exec sed -i 's|{BASE_URL}|https://vladislavantonyuk.github.io|g' {} \;
+        find src/VladislavAntonyuk -name "*.razor" -type f -exec sed -i 's|{BASE_URL}|https://vladislavantonyuk.github.io|g' {} \;
       
     - name: Publish .NET Project
-      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -c Release -p:GHPages=true -p:GHPagesBase="/" -o release --nologo
+      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -p:GHPages=true -p:GHPagesBase="/" -o release --nologo
       
     - name: Change constants
-      run: sed -i 's/public const string BaseUrl = "\/";/public const string BaseUrl = "https:\/\/vladislavantonyuk.github.io\/";/g' src/Shared/Constants.cs
+      run: sed -i 's|public const string BaseUrl = "/";|public const string BaseUrl = "https://vladislavantonyuk.github.io/";|g' src/Shared/Constants.cs
     
     - name: Change base url
-      run: sed -i 's/http:\/\/127.0.0.1:5050/https:\/\/vladislavantonyuk.github.io/g' release/wwwroot/**/**.html
+      run: find release/wwwroot -name '*.html' -type f -exec sed -i 's|http://127.0.0.1:5050|https://vladislavantonyuk.github.io|g' {} \;
     
     - name: Generate RSS and Sitemap
       run: |
