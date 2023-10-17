@@ -6,7 +6,17 @@ Blazor Web Apps provide a component-based architecture with server-side renderin
 
 The latest .NET 8 RC2 release brings Individual account authentication, but it's not enough for a real-world application. In this article, we will explore how to integrate Microsoft Identity Platform Authentication into a Blazor Web App.
 
-The use of Microsoft's Identity greatly enhances user authentication and authorization in web apps. This article outlines the steps required to integrate Microsoft Entra ID (formely Azure Active Directory) into a Blazor web application.
+The use of Microsoft's Identity greatly enhances user authentication and authorization in web apps. This article outlines the steps required to integrate Microsoft Entra ID (formerly Azure Active Directory) into a Blazor web application.
+
+## Precondition
+
+If you don't have an Azure Active Directory, watch this video on how to set it up:
+
+[![Azure Active Directory authentication in .NET MAUI](https://img.youtube.com/vi/3RGX5mVRXSs/0.jpg)](https://www.youtube.com/watch?v=3RGX5mVRXSs)
+ 
+And Azure Active Directory (B2C):
+
+[![Azure Active Directory B2C authentication in .NET MAUI](https://img.youtube.com/vi/sTPWF2O456U/0.jpg)](https://www.youtube.com/watch?v=sTPWF2O456U)
 
 ## Step 1: Install the Required Package
 
