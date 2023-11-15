@@ -7,3 +7,7 @@ updates:
   reviewers:
     - "VladislavAntonyuk"
   open-pull-requests-limit: 10
+  groups:
+    Microsoft:
+      patterns:
+      - "Microsoft*"
