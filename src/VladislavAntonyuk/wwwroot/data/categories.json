@@ -281,8 +281,16 @@
         "created": "2023-09-05",
         "name": "Adding Application Insights to .NET MAUI Application",
         "description": "This article provides an in-depth exploration into how you can integrate Microsoft's Application Insights into your .NET MAUI application. A comparative study between Microsoft AppCenter and Application Insights is also highlighted, demystifying the inherent advantage of Application Insights in application management and analytics.",
-        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, Application Insights, Azure, AppCenter, Application Performance Management, Cross-Platform App Development, User Interaction Tracking, Performance Monitoring, Integration, SDK, TelemetryClient, Track Events, Track Exceptions, DevOps, Application Analytics.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, Application Insights, Azure, AppCenter, Application Performance Management, Cross-Platform App Development, User Interaction Tracking, Performance Monitoring, Integration, SDK, TelemetryClient, Track Events, Track Exceptions, DevOps, Application Analytics",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/46/46.png"
+      },
+      {
+        "id": 48,
+        "created": "2023-11-30",
+        "name": "Mastering Composite Controls in .NET MAUI: Building a TabView from Scratch",
+        "description": "Explore the creation of a custom TabView control in .NET MAUI using multiple methods like composing IndicatorView and CarouselView or ContentView with RadioButtons.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, custom TabView, IndicatorView, CarouselView, ContentView, RadioButtons, StackLayout, ScrollView, UI design, composite controls, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/48/48.png"
       }
     ]
   },
