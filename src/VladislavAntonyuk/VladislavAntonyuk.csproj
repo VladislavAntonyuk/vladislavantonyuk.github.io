@@ -66,7 +66,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
         <PackageReference Include="MudBlazor" Version="6.11.1" />
         <PackageReference Include="StardustDL.RazorComponents.Markdown" Version="0.0.3.28" />
-        <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.0" />
+        <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.1" />
     </ItemGroup>
 
     <ItemGroup>
