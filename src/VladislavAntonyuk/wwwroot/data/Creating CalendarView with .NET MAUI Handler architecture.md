@@ -62,7 +62,38 @@ public class CalendarView : View, ICalendarView
 }
 ```
 
+Our control is ready, now we need to create a handler for each platform.
+
+As there is a part of duplicated code in each handler let's extract it to a separate class. Create a `CalendarHandler` class:
+
+```csharp
+public partial class CalendarHandler
+{
+	public static IPropertyMapper<ICalendarView, CalendarHandler> PropertyMapper = new PropertyMapper<ICalendarView, CalendarHandler>(ViewMapper)
+	{
+		[nameof(ICalendarView.FirstDayOfWeek)] = MapFirstDayOfWeek,
+		[nameof(ICalendarView.MinDate)] = MapMinDate,
+		[nameof(ICalendarView.MaxDate)] = MapMaxDate,
+		[nameof(ICalendarView.SelectedDate)] = MapSelectedDate
+	};
+
+	public static CommandMapper<ICalendarView, CalendarHandler> CommandMapper = new(ViewCommandMapper);
+
+	public CalendarHandler(IPropertyMapper mapper, CommandMapper? commandMapper = null) : base(mapper, commandMapper)
+	{
+	}
+
+	public CalendarHandler() : this(PropertyMapper, CommandMapper)
+	{
+	}
+}
+```
+
+Now we are ready for creating a platform-specific code. For each platfrom we need to create a PlatfromView and implement `Map*` methods.
+
 ## iOS/MacCatalyst handler
+
+Create a `CalendarHandler` class in `Platforms\iOS` and `Platforms\MacCatalyst` with the next content:
 
 ```csharp
 public partial class CalendarHandler : ViewHandler<ICalendarView, UICalendarView>
@@ -84,6 +115,8 @@ public partial class CalendarHandler : ViewHandler<ICalendarView, UICalendarView
 ![.NET MAUI CalendarView MacCatalyst](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/49/maccatalyst.png)
 
 ## Windows handler
+
+Create a `CalendarHandler` class in `Platforms\Windows` with the next content:
 
 ```csharp
 using Calendar = Microsoft.UI.Xaml.Controls.CalendarView;
@@ -108,6 +141,8 @@ public partial class CalendarHandler : ViewHandler<ICalendarView, Calendar>
 
 ## Android handler
 
+Android implementation uses old good `Android.Widget.CalendarView`. It is not a material design control. It also lacks features like selecting a range of dates. In the next article, I will show you how to easily use the Java library in .NET MAUI Android. But for now, create a `CalendarHandler` class in `Platforms\Android` with the next content:
+
 ```csharp
 using Calendar = Android.Widget.CalendarView;
 
@@ -129,7 +164,9 @@ public partial class CalendarHandler : ViewHandler<ICalendarView, Calendar>
 
 ![.NET MAUI CalendarView Android](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/49/android.png)
 
-The final step is registering our handlers:
+## Final step
+
+The final step is registering our handlers using `ConfigureMauiHandlers` method:
 
 ```csharp
 public static class MauiProgram
