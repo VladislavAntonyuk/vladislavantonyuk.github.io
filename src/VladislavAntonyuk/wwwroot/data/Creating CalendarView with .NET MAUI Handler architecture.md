@@ -185,7 +185,7 @@ public static class MauiProgram
 }
 ```
 
-That's all we need to customize .NET MAUI CalendarView.
+That's all we need to create a .NET MAUI CalendarView.
 
 The full code can be found on [GitHub](https://github.com/VladislavAntonyuk/MauiSamples/tree/main/MauiBells){target="_blank"}.
 
