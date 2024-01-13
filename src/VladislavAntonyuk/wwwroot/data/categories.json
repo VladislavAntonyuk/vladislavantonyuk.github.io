@@ -287,7 +287,7 @@
       {
         "id": 48,
         "created": "2023-11-30",
-        "name": "Mastering Composite Controls in .NET MAUI: Building a TabView from Scratch",
+        "name": "Mastering Composite Controls in .NET MAUI. Building a TabView from Scratch",
         "description": "Explore the creation of a custom TabView control in .NET MAUI using multiple methods like composing IndicatorView and CarouselView or ContentView with RadioButtons.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, custom TabView, IndicatorView, CarouselView, ContentView, RadioButtons, StackLayout, ScrollView, UI design, composite controls, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/48/48.png"
@@ -299,6 +299,14 @@
         "description": "Explore the creation of a CalendarView control in .NET MAUI using Handler architecture.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, CalendarView, Handler, architecture, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/49/49.png"
+      },
+      {
+        "id": 50,
+        "created": "2024-01-12",
+        "name": "Effortless Android Library Binding",
+        "description": "Bind Java libraries directly from Maven repositories",
+        "keywords": "dotnet, maui, .net, android, .NET MAUI, CalendarView, maven, binding, java, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/50/50.png"
       }
     ]
   },

@@ -9,8 +9,9 @@
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
 			/articles;
+			/articles/Effortless-Android-Library-Binding;
 			/articles/Creating-CalendarView-with-.NET-MAUI-Handler-architecture;
-			/articles/Mastering-Composite-Controls-in-.NET-MAUI:-Building-a-TabView-from-Scratch;
+			/articles/Mastering-Composite-Controls-in-.NET-MAUI.-Building-a-TabView-from-Scratch;
 			/articles/Microsoft-Identity-Platform-Authentication-in-Blazor-Web-Application;
 			/articles/Adding-Application-Insights-to-.NET-MAUI-Application;
 			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-2.-Setup-.NET-MAUI;
