@@ -14,8 +14,11 @@ And Azure Active Directory (B2C):
 
 So let's start!
 1. Create a new .NET MAUI project.
-2. Install `Microsoft.Identity.Client` and `System.IdentityModel.Tokens.Jwt` packages:
+2. Install `Microsoft.Identity.Client` package:
 ![Microsoft Identity Client Nuget](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/13/microsoft-identity-client-nuget.png)
+
+> If the library doesn't work on iOS/MacCatalyst, you can still use .NET MAUI WebAuthenticator.
+
 3. Create `Constants` class:
 ```csharp
 public static class Constants
@@ -137,7 +140,7 @@ public class AuthService
                 .WithParentActivityOrWindow(Microsoft.Maui.ApplicationModel.Platform.CurrentActivity)
 #endif
 #if WINDOWS
-		.WithUseEmbeddedWebView(false)				
+				.WithUseEmbeddedWebView(false)				
 #endif
                 .ExecuteAsync(cancellationToken);
             return result;
@@ -155,19 +158,13 @@ Add login button to your XAML and add Clicked event handler:
 ```csharp
 var authService = new AuthService(); // most likely you will inject it in the constructor, but for simplicity let's initialize it here
 var result = await authService.LoginAsync(CancellationToken.None);
-var token = result?.IdToken; // you can also get AccessToken if you need it
-if (token != null)
+var claims = result?.ClaimsPrincipal.Claims; // you can also get AccessToken or IdToken from result if you need it
+if (claims != null)
 {
-	var handler = new JwtSecurityTokenHandler();
-	var data = handler.ReadJwtToken(token);
-	var claims = data.Claims.ToList();
-	if (data != null)
-	{
-		var stringBuilder = new StringBuilder();
-		stringBuilder.AppendLine($"Name: {data.Claims.FirstOrDefault(x => x.Type.Equals("name"))?.Value}");
-		stringBuilder.AppendLine($"Email: {data.Claims.FirstOrDefault(x => x.Type.Equals("preferred_username"))?.Value}");
-		LoginResultLabel.Text = stringBuilder.ToString();
-	}
+	var stringBuilder = new StringBuilder();
+	stringBuilder.AppendLine($"Name: {claims.FirstOrDefault(x => x.Type.Equals("name"))?.Value}");
+	stringBuilder.AppendLine($"Email: {claims.FirstOrDefault(x => x.Type.Equals("preferred_username"))?.Value}");
+	LoginResultLabel.Text = stringBuilder.ToString();
 }
 ```
 
