@@ -21,6 +21,16 @@ UI testing is crucial for ensuring that various parts of your .NET MAUI applicat
 
 Appium is an open-source and cross-platform mobile application automation tool that supports all .NET MAUI platforms. What sets Appium apart is its commitment to providing a single automation API that works across different mobile platforms, making it a preferred choice for those seeking a unified approach to mobile testing.
 
+Install Appium and drivers for each platform:
+
+```bash
+npm i --location=global appium@2.1.1
+appium driver install uiautomator2@2.29.4
+appium driver install --source=npm appium-windows-driver@2.10.1
+appium driver install xcuitest@4.34.0
+appium driver install mac2@1.7.2
+```
+
 For UI integration tests using Appium, create a new xUnit project for each platform.
 
 For Android, your csproj may look like this:
