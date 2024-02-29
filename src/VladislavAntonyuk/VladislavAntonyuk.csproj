@@ -8,7 +8,8 @@
         <BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
-			/articles;
+			/articles;			
+			/articles/Testing-.NET-MAUI-Application-using-Appium-and-xUnit;
 			/articles/Effortless-Android-Library-Binding;
 			/articles/Creating-CalendarView-with-.NET-MAUI-Handler-architecture;
 			/articles/Mastering-Composite-Controls-in-.NET-MAUI.-Building-a-TabView-from-Scratch;
@@ -64,8 +65,8 @@
     <ItemGroup>
         <PackageReference Include="BlazorWasmPreRendering.Build" Version="3.1.0-preview.4" />
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.1" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
         <PackageReference Include="MudBlazor" Version="6.16.0" />
         <PackageReference Include="StardustDL.RazorComponents.Markdown" Version="0.0.3.28" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.1" />

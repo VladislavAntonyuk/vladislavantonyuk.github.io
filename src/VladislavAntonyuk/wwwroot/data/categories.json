@@ -304,9 +304,17 @@
         "id": 50,
         "created": "2024-01-12",
         "name": "Effortless Android Library Binding",
-        "description": "Bind Java libraries directly from Maven repositories",
+        "description": "Bind Java libraries directly from Maven repositories.",
         "keywords": "dotnet, maui, .net, android, .NET MAUI, CalendarView, maven, binding, java, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/50/50.png"
+      },
+      {
+        "id": 51,
+        "created": "2024-02-29",
+        "name": "Testing .NET MAUI Application using Appium and xUnit",
+        "description": "Elevate your .NET MAUI application testing with precision using Appium and xUnit.",
+        "keywords": "dotnet, maui, .net, android, .NET MAUI, testing, xUnit, Appium, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/51/51.png"
       }
     ]
   },
