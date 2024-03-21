@@ -315,6 +315,14 @@
         "description": "Elevate your .NET MAUI application testing with precision using Appium and xUnit.",
         "keywords": "dotnet, maui, .net, android, .NET MAUI, testing, xUnit, Appium, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/51/51.png"
+      },
+      {
+        "id": 52,
+        "created": "2024-03-21",
+        "name": "Targeting Specific Runtimes for Platform Tests",
+        "description": "This article tackles targeted platform testing, enabling you to isolate tests for specific runtime environments, boosting development efficiency and application robustness.",
+        "keywords": "dotnet, maui, .net, android, .NET MAUI, testing, xUnit, Appium, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/52/52.png"
       }
     ]
   },
