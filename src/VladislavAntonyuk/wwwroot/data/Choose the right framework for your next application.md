@@ -31,7 +31,7 @@ Here's a simple XAML code snippet showcasing each framework's syntax (all displa
 <Button Text="Click Me" Clicked="OnButtonClicked" />
 
 // Uno
-<Button Text="Click Me" Clicked="OnButtonClicked" />
+<Button Content="Click Me" Clicked="OnButtonClicked" />
 
 // Avalonia
 <Button Content="Click Me" Click="OnButtonClicked" />
