@@ -27,13 +27,13 @@ A Code Sample for Comparison
 Here's a simple XAML code snippet showcasing each framework's syntax (all displaying a button with "Click Me" text):
 
 ```xml
-// .NET MAUI
+<!--.NET MAUI-->
 <Button Text="Click Me" Clicked="OnButtonClicked" />
 
-// Uno
-<Button Text="Click Me" Clicked="OnButtonClicked" />
+<!--Uno-->
+<Button Content="Click Me" Clicked="OnButtonClicked" />
 
-// Avalonia
+<!--Avalonia-->
 <Button Content="Click Me" Click="OnButtonClicked" />
 ```
 

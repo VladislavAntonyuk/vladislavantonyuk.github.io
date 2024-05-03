@@ -331,6 +331,14 @@
         "description": "A Deep Dive into .NET MAUI, Uno, and Avalonia",
         "keywords": "dotnet, maui, .net, android, .NET MAUI, Avalonia, Uno Platform, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/53/53.png"
+      },
+      {
+        "id": 54,
+        "created": "2024-05-02",
+        "name": ".NET MAUI CollectionView with Staggered Layout",
+        "description": "Create a Staggered Layout for CollectionView in .NET MAUI.",
+        "keywords": "dotnet, maui, .net, android, .NET MAUI, CollectionView, Staggered Layout, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/54/54.png"
       }
     ]
   },

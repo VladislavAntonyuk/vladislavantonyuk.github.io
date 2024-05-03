@@ -8,7 +8,8 @@
         <BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/projects;
-			/articles;			
+			/articles;
+			/articles/.NET-MAUI-CollectionView-with-Staggered-Layout;
 			/articles/Choose-the-right-framework-for-your-next-application;
 			/articles/Targeting-Specific-Runtimes-for-Platform-Tests;
 			/articles/Testing-.NET-MAUI-Application-using-Appium-and-xUnit;
