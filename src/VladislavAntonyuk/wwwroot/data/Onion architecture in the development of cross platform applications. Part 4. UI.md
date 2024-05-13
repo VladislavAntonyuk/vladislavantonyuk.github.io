@@ -2,6 +2,14 @@ Hello!
 
 This is a continuation of the [third article](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure){target="_blank"} about onion architecture in the development of cross-platform applications.
 
+**Pragmatic Clean Architecture**
+
+This comprehensive course will teach you the system I use to ship production-ready applications using Clean Architecture. Learn how to apply the best practices of modern software architecture. It contains Everything You Need To Build Production-Ready Applications With Clean Architecture.
+
+[![Pragmatic Clean Architecture](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pca_cover_1.png)](https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t)
+
+**UI**
+
 We continue creating `PizzaStore`.
 
 In this article, we are moving to the final stage - developing user interface for our store. 
@@ -294,6 +302,8 @@ public partial class MainViewModel : ObservableObject
 
 This is a final article in these series. Now you know how to create application with onion architecture.
 
-To simplify all these steps, I created a template, that you can use to create cross-platform application with onion archirecture. It is available as a `NuGet` package: [.NET Templates](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates){target="_blank"}.
+To simplify all these steps, I created a template, that you can use to create cross-platform application with onion architecture. It is available as a `NuGet` package: [.NET Templates](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates){target="_blank"}.
+
+Once again, I highly recommend [this course](https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t) for a Clean Architecture Deep-Dive.
 
 Happy coding!

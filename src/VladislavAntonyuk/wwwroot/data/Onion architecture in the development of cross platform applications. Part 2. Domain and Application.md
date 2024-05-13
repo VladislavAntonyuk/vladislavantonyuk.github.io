@@ -2,6 +2,14 @@ Hello!
 
 This is a continuation of the [first article](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-1.-Overview){target="_blank"} about onion architecture in the development of cross-platform applications.
 
+**Pragmatic Clean Architecture**
+
+This comprehensive course will teach you the system I use to ship production-ready applications using Clean Architecture. Learn how to apply the best practices of modern software architecture. It contains Everything You Need To Build Production-Ready Applications With Clean Architecture.
+
+[![Pragmatic Clean Architecture](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pca_cover_1.png)](https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t)
+
+**Domain and Application**
+
 From the theory to the practice. For a closer look at onion architecture, let's create an application for ordering pizza. 
 
 Create a solution called `PizzaStore`.

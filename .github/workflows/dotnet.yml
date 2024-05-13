@@ -16,6 +16,9 @@ jobs:
       with:
         dotnet-version: 8.x
     
+    - name: Install workloads
+      run: dotnet workload install wasm-tools
+
     - name: Update version
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
 

@@ -23,4 +23,10 @@ The number of levels may differ, but the center is always the Domain Model, that
 2. Any specific implementation will be provided to the application at runtime.
 3. Onion architecture provides better testability because a unit test can be created for individual layers without being influenced by other modules in the application.
 
+**Pragmatic Clean Architecture**
+
+This comprehensive course will teach you the system I use to ship production-ready applications using Clean Architecture. Learn how to apply the best practices of modern software architecture. It contains Everything You Need To Build Production-Ready Applications With Clean Architecture.
+
+[![Pragmatic Clean Architecture](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pca_cover_1.png)](https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t)
+
 In the next article, we'll create Domain and Application levels: [Onion architecture in the development of cross-platform applications. Part 2. Domain and Application](./articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application){target="_blank"}
