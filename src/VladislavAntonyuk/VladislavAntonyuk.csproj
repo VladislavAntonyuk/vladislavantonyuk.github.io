@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
@@ -66,11 +63,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BlazorWasmPreRendering.Build" Version="4.0.0" />
+        <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0-preview.1" />
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" PrivateAssets="all" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
-        <PackageReference Include="MudBlazor" Version="6.19.1" />
+        <PackageReference Include="MudBlazor" Version="7.0.0-preview.2" />
         <PackageReference Include="StardustDL.RazorComponents.Markdown" Version="0.0.3.28" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.2.0" />
     </ItemGroup>
