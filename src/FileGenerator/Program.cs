@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Shared;
 
-var path = Environment.CurrentDirectory + "/" + args[0] + "/wwwroot/data/";
+var path = Environment.CurrentDirectory + "/" + args.FirstOrDefault() + "/wwwroot/data/";
 var services = new ServiceCollection();
 services.AddShared();
 services.AddScoped<IRssService, RssService>();

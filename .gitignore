@@ -477,3 +477,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+sitemap.xml
+rss.xml

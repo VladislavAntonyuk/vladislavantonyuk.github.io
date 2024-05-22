@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileGenerator": {
+      "commandName": "Project",
+      "workingDirectory": "..\\VladislavAntonyuk"
+    }
+  }
+}
