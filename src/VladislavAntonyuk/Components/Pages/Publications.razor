@@ -32,14 +32,14 @@
 		<MudTh>Keywords</MudTh>
 	</HeaderContent>
 	<RowTemplate>
-		<MudTd DataLabel="Authors">@context.Authors</MudTd>
+		<MudTd DataLabel="Authors">@(string.Join(", ", context.Authors))</MudTd>
 		<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
 		<MudTd DataLabel="Journal">@context.Journal</MudTd>
 		<MudTd DataLabel="Volume">@context.Volume</MudTd>
 		<MudTd DataLabel="Pages">@context.Pages</MudTd>
 		<MudTd DataLabel="Date">@context.Date</MudTd>
 		<MudTd DataLabel="DOI">@context.Doi</MudTd>
-		<MudTd DataLabel="Keywords">@context.Keywords</MudTd>
+		<MudTd DataLabel="Keywords">@(string.Join(", ", context.Keywords))</MudTd>
 	</RowTemplate>
 	<NoRecordsContent>
 		<MudText>No matching records found</MudText>

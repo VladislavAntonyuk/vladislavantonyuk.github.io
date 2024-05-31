@@ -4,6 +4,7 @@
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
+			/publications;
 			/projects;
 			/articles;
 			/articles/.NET-MAUI-CollectionView-with-Staggered-Layout;
