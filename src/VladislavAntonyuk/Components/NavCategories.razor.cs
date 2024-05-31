@@ -6,7 +6,7 @@ using Shared.Models;
 
 public partial class NavCategories : VladislavAntonyukBaseComponent
 {
-	private List<Category> categories = new();
+	private List<Category> categories = [];
 
 	[Inject]
 	public required NavigationManager Navigation { get; set; }

@@ -11,7 +11,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
 		if (categories is null)
 		{
-			return new List<Article>();
+			return [];
 		}
 
 		if (!string.IsNullOrEmpty(categoryName))
@@ -100,6 +100,6 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 	public async Task<List<Category>> GetCategories()
 	{
 		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
-		return categories is null ? new List<Category>() : categories.ToList();
+		return categories is null ? [] : categories.ToList();
 	}
 }

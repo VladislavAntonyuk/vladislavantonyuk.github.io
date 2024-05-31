@@ -18,6 +18,7 @@ static void ConfigureServices(IServiceCollection services, string baseAddress)
 	services.AddShared();
 	services.AddScoped<IArticlesService, ArticlesService>();
 	services.AddScoped<IProjectsService, ProjectsService>();
+	services.AddScoped<IPublicationsService, PublicationsService>();
 	services.AddMudServices();
 	services.AddMarkdownComponent();
 

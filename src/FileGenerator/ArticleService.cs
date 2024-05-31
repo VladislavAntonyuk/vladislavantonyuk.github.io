@@ -15,7 +15,7 @@ internal class ArticlesService(string path) : IArticlesService
 		});
 		if (categories is null)
 		{
-			return new List<Article>();
+			return [];
 		}
 
 		return categories
