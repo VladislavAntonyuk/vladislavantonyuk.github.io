@@ -3,11 +3,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-public partial class ArticleRenderer : VladislavAntonyukBaseComponent
+public partial class ArticleRenderer(IJSRuntime jsRuntime) : VladislavAntonyukBaseComponent
 {
-	[Inject]
-	public required IJSRuntime JsRuntime { get; set; }
-
 	[Parameter]
 	[EditorRequired]
 	public required string Content { get; set; }
@@ -24,6 +21,6 @@ public partial class ArticleRenderer : VladislavAntonyukBaseComponent
 
 	private ValueTask EmbedCopyToClipboardCode()
 	{
-		return JsRuntime.InvokeVoidAsync("JsFunctions.embedCopyToClipboardCode");
+		return jsRuntime.InvokeVoidAsync("JsFunctions.embedCopyToClipboardCode");
 	}
 }

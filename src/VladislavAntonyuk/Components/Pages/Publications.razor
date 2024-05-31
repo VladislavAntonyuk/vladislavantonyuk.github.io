@@ -1,6 +1,5 @@
 ﻿@page "/publications"
 @using global::Shared.Models
-@using VladislavAntonyuk.Components.Navigation
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications">
@@ -26,6 +25,7 @@
 		<MudTh>Authors</MudTh>
 		<MudTh>Name</MudTh>
 		<MudTh>Journal</MudTh>
+		<MudTh>Volume</MudTh>
 		<MudTh>Pages</MudTh>
 		<MudTh>Date</MudTh>
 		<MudTh>DOI</MudTh>
@@ -33,11 +33,12 @@
 	</HeaderContent>
 	<RowTemplate>
 		<MudTd DataLabel="Authors">@context.Authors</MudTd>
-		<MudTd DataLabel="Name">@context.Name</MudTd>
+		<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
 		<MudTd DataLabel="Journal">@context.Journal</MudTd>
+		<MudTd DataLabel="Volume">@context.Volume</MudTd>
 		<MudTd DataLabel="Pages">@context.Pages</MudTd>
 		<MudTd DataLabel="Date">@context.Date</MudTd>
-		<MudTd DataLabel="DOI">@context.DOI</MudTd>
+		<MudTd DataLabel="DOI">@context.Doi</MudTd>
 		<MudTd DataLabel="Keywords">@context.Keywords</MudTd>
 	</RowTemplate>
 	<NoRecordsContent>

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
 
-public partial class MainLayout : LayoutComponentBase
+public partial class MainLayout(NavigationManager navigationManager) : LayoutComponentBase
 {
 	private readonly MudTheme theme = new()
 	{
@@ -39,15 +39,6 @@ public partial class MainLayout : LayoutComponentBase
 	private bool isDarkMode = true;
 	private MudThemeProvider? mudThemeProvider;
 
-	[Inject]
-	public required IDialogService DialogService { get; set; }
-
-	//[Inject]
-	//public required ILocationVerifier LocationVerifier { get; set; }
-
-	[Inject]
-	public required NavigationManager NavigationManager { get; set; }
-
 	private void DrawerToggle()
 	{
 		drawerOpen = !drawerOpen;
@@ -71,18 +62,18 @@ public partial class MainLayout : LayoutComponentBase
 		//var isForbiddenLocation = await LocationVerifier.IsForbidden(ApplicationInfo.UserInfo.RemoteIpAddress);
 		//if (isForbiddenLocation)
 		//{
-		//	await DialogService.ShowAsync<War>("War in Ukraine");
+		//	await dialogService.ShowAsync<War>("War in Ukraine");
 		//}
 	}
 
 	private void ResetError()
 	{
 		errorBoundary?.Recover();
-		NavigationManager.NavigateTo("/");
+		navigationManager.NavigateTo("/");
 	}
 
 	private void RssClicked()
 	{
-		NavigationManager.NavigateTo("/rss.xml", true);
+		navigationManager.NavigateTo("/rss.xml", true);
 	}
 }

@@ -3,12 +3,9 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-public partial class Ads : VladislavAntonyukBaseComponent
+public partial class Ads(IJSRuntime jsRuntime) : VladislavAntonyukBaseComponent
 {
 	private bool isEnabled;
-
-	[Inject]
-	public required IJSRuntime JsRuntime { get; set; }
 
 	[Parameter]
 	[EditorRequired]
@@ -34,7 +31,7 @@ public partial class Ads : VladislavAntonyukBaseComponent
 		await base.OnAfterRenderAsync(firstRender);
 		if (firstRender)
 		{
-			await JsRuntime.InvokeVoidAsync("JsFunctions.initAds");
+			await jsRuntime.InvokeVoidAsync("JsFunctions.initAds");
 		}
 	}
 }

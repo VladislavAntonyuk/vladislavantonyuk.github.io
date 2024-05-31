@@ -1,5 +1,3 @@
 ﻿namespace VladislavAntonyuk.Components;
 
-public partial class NavMenu : VladislavAntonyukBaseComponent
-{
-}
+public partial class NavMenu : VladislavAntonyukBaseComponent;

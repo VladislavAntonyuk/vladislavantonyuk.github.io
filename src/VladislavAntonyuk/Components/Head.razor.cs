@@ -2,11 +2,8 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class Head : VladislavAntonyukBaseComponent
+public partial class Head(NavigationManager navigationManager) : VladislavAntonyukBaseComponent
 {
-	[Inject]
-	public required NavigationManager NavigationManager { get; set; }
-
 	[Parameter]
 	public string Title { get; set; } = "VladislavAntonyuk";
 
