@@ -347,6 +347,14 @@
         "description": "Simplifying .NET MAUI App Development: Debugging and Monitoring Tools.",
         "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/55/55.png"
+      },
+      {
+        "id": 56,
+        "created": "2024-07-04",
+        "name": "Various methods for barcode scanning in .NET MAUI",
+        "description": "This article explores three methods: using MLKit for Android, Camera.MAUI.ZXing, and CommunityToolkit.Maui.Camera.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, cross-platform development, barcode, camera, MAUIUIJULY",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/56/56.png"
       }
     ]
   },
