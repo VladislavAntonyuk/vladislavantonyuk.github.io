@@ -39,21 +39,18 @@ else
 					<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 					               Target="_blank"
 					               Icon="@Icons.Custom.Brands.Twitter"
-								   Title="Tweet"
 					               Size="Size.Large"
 								   aria-label="Twitter" />
 
-					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' 
+					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")'
 								   Target="_blank"
 								   Icon="@Icons.Custom.Brands.Facebook"
-					               Title="Facebook"
 					               Size="Size.Large"
 								   aria-label="Facebook" />
 
 					<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")'
 								   Target="_blank"
 								   Icon="@Icons.Custom.Brands.LinkedIn"
-					               Title="LinkedIn"
 					               Size="Size.Large"
 								   aria-label="LinkedIn" />
 				</MudStack>
@@ -66,19 +63,25 @@ else
 		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
 			<MudStack Row="true" Justify="Justify.Center">
 				@{
-					var url = urlCreator.CreateArticleUrl("articles", article.Name);
+					var url = "{BASE_URL}/" + urlCreator.CreateArticleUrl("articles", article.Name);
 				}
 				<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 				               Target="_blank"
-				               Icon="@Icons.Custom.Brands.Twitter" Title="Tweet"
-				               Size="Size.Large"/>
+				               Icon="@Icons.Custom.Brands.Twitter"
+				               Size="Size.Large"
+				               aria-label="Twitter" />
 
-				<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.Facebook"
-				               Title="Facebook"
-				               Size="Size.Large"/>
-				<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"
-				               Title="LinkedIn"
-				               Size="Size.Large"/>
+				<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")'
+				               Target="_blank"
+				               Icon="@Icons.Custom.Brands.Facebook"
+				               Size="Size.Large"
+				               aria-label="Facebook" />
+
+				<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")'
+				               Target="_blank"
+				               Icon="@Icons.Custom.Brands.LinkedIn"
+				               Size="Size.Large"
+				               aria-label="LinkedIn" />
 			</MudStack>
 		</MudHidden>
 		<BuyMeACoffee/>

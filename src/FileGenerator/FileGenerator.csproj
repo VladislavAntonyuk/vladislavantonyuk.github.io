@@ -6,8 +6,8 @@
 
     <ItemGroup>
         <PackageReference Include="Markdig" Version="0.37.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.4.24266.19" />
-        <PackageReference Include="xsitemap" Version="2.9.3" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.6.24327.7" />
+        <PackageReference Include="xsitemap" Version="2.9.10" />
     </ItemGroup>
 
     <ItemGroup>
