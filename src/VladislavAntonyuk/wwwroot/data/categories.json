@@ -402,6 +402,14 @@
         "description": "Overview of onion architecture. Creating a cross-platform application with the onion architecture.",
         "keywords": "onion architecture, cross-platform application, development, xamarin, maui, dotnet, blazor, overview, advantages, drawback, Draw & GO, UI",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/12/onion-architecture.webp"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },
@@ -425,6 +433,14 @@
         "description": "Adding Microsoft Entra ID B2C in .NET 8 Blazor WebApp.",
         "keywords": "azure, blazor, identity, azure ad, azure ad b2c, template, microsoft, microsoft identity platfrom, blazor webapp",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/47/47.png"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },
@@ -448,6 +464,14 @@
         "description": "The article demonstrates how to add push notifications to .NET MAUI application using Azure Notification Hub.",
         "keywords": "Azure, notification, hub, dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, push, notification, azure, hub",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/44/44.png"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },
