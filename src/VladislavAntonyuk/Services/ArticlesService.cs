@@ -1,6 +1,7 @@
 ﻿namespace VladislavAntonyuk.Services;
 
 using System.Net.Http.Json;
+using System.Text.Json;
 using Shared;
 using Shared.Models;
 
@@ -8,7 +9,10 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 {
 	public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
 	{
-		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", new JsonSerializerOptions
+		{
+			PropertyNameCaseInsensitive = true
+		});
 		if (categories is null)
 		{
 			return [];
@@ -30,7 +34,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 			articles = articles.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return articles.OrderByDescending(x => x.Created).ToList();
+		return articles.DistinctBy(x => x.Name).OrderByDescending(x => x.Created).ThenBy(x => x.Id).ToList();
 	}
 
 	public async Task<Article?> GetArticle(string articleName)
@@ -42,7 +46,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 			                        article.CategoryName = category.Name;
 			                        return article;
 		                        })
-		                        .SingleOrDefault(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
+		                        .FirstOrDefault(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
 
 		if (article is null)
 		{
