@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -6,8 +6,8 @@
 
     <ItemGroup>
         <PackageReference Include="Markdig" Version="0.37.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.6.24327.7" />
-        <PackageReference Include="xsitemap" Version="2.9.10" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.7.24405.7" />
+        <PackageReference Include="X.Web.Sitemap" Version="2.10.3" />
     </ItemGroup>
 
     <ItemGroup>
