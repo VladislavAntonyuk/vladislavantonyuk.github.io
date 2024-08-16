@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="..\.github\workflows\dotnet.yml" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Project Path="FileGenerator\FileGenerator.csproj" />
+  <Project Path="Shared\Shared.csproj" />
+  <Project Path="VladislavAntonyuk\VladislavAntonyuk.csproj" />
+</Solution>

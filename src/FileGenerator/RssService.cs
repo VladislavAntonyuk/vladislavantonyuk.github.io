@@ -39,7 +39,7 @@ public class RssService(IArticlesService articlesService, IUrlCreator urlCreator
 				},
 				Description = $"{Constants.ProductName} - Articles",
 				Title = Constants.ProductName,
-				Items = new List<Item>()
+				Items = []
 			}
 		};
 		var articles = await articlesService.GetArticles();

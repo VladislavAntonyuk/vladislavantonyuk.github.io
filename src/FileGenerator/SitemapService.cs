@@ -14,7 +14,7 @@ public interface ISitemapService
 public class SitemapService(IArticlesService articlesService, IUrlCreator urlCreator) : ISitemapService
 {
 	private const string FilePath = "sitemap.xml";
-	private Sitemap? sitemap = new();
+	private Sitemap? sitemap = [];
 
 	public async ValueTask<string> ParseSitemap()
 	{
@@ -31,12 +31,12 @@ public class SitemapService(IArticlesService articlesService, IUrlCreator urlCre
 	public async Task<string> GenerateSitemap()
 	{
 		const double priority = 0.8;
-		sitemap = new Sitemap
-		{
+		sitemap =
+		[
 			CreateUrl("", 1, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
 			CreateUrl("articles", priority, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
 			CreateUrl("projects", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly)
-		};
+		];
 		var articles = await articlesService.GetArticles();
 		sitemap.AddRange(articles.Select(article => CreateUrl("articles", priority,
 		                                                      article.Created,

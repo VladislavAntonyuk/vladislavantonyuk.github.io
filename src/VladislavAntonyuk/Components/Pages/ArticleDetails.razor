@@ -12,7 +12,7 @@
 	}
 	else
 	{
-		<Head Title="@UrlCreator.DecodeArticleUrl(Id)"/>
+		<Head Title="@urlCreator.DecodeArticleUrl(Id)"/>
 		<Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code"/>
 	}
 }
@@ -34,26 +34,23 @@ else
 			<MudHidden Breakpoint="Breakpoint.Xs">
 				<MudStack Row="true">
 					@{
-						var url = "{BASE_URL}/" + UrlCreator.CreateArticleUrl("articles", article.Name);
+						var url = "{BASE_URL}/" + urlCreator.CreateArticleUrl("articles", article.Name);
 					}
 					<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 					               Target="_blank"
 					               Icon="@Icons.Custom.Brands.Twitter"
-								   Title="Tweet"
 					               Size="Size.Large"
 								   aria-label="Twitter" />
 
-					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' 
+					<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")'
 								   Target="_blank"
 								   Icon="@Icons.Custom.Brands.Facebook"
-					               Title="Facebook"
 					               Size="Size.Large"
 								   aria-label="Facebook" />
 
 					<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")'
 								   Target="_blank"
 								   Icon="@Icons.Custom.Brands.LinkedIn"
-					               Title="LinkedIn"
 					               Size="Size.Large"
 								   aria-label="LinkedIn" />
 				</MudStack>
@@ -66,19 +63,25 @@ else
 		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
 			<MudStack Row="true" Justify="Justify.Center">
 				@{
-					var url = UrlCreator.CreateArticleUrl("articles", article.Name);
+					var url = "{BASE_URL}/" + urlCreator.CreateArticleUrl("articles", article.Name);
 				}
 				<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={url}#")'
 				               Target="_blank"
-				               Icon="@Icons.Custom.Brands.Twitter" Title="Tweet"
-				               Size="Size.Large"/>
+				               Icon="@Icons.Custom.Brands.Twitter"
+				               Size="Size.Large"
+				               aria-label="Twitter" />
 
-				<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.Facebook"
-				               Title="Facebook"
-				               Size="Size.Large"/>
-				<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")' Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"
-				               Title="LinkedIn"
-				               Size="Size.Large"/>
+				<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={url}#")'
+				               Target="_blank"
+				               Icon="@Icons.Custom.Brands.Facebook"
+				               Size="Size.Large"
+				               aria-label="Facebook" />
+
+				<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={url}#")'
+				               Target="_blank"
+				               Icon="@Icons.Custom.Brands.LinkedIn"
+				               Size="Size.Large"
+				               aria-label="LinkedIn" />
 			</MudStack>
 		</MudHidden>
 		<BuyMeACoffee/>
@@ -98,7 +101,7 @@ else
 	<MudGrid>
 		@foreach (var suggestion in suggestions)
 		{
-			var url = UrlCreator.CreateArticleUrl("articles", suggestion.Name);
+			var url = urlCreator.CreateArticleUrl("articles", suggestion.Name);
 			<MudItem sm="6">
 				<MudCard Style="height: 100%">
 					@if (!string.IsNullOrWhiteSpace(suggestion.Image))

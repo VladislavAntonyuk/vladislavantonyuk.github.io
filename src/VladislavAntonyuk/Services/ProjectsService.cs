@@ -6,12 +6,12 @@ using Shared.Models;
 
 internal class ProjectsService(HttpClient httpClient) : IProjectsService
 {
-	public async Task<List<Project>> GetProjects(string? searchParameter = null)
+	public async Task<List<Project>> Get(string? searchParameter = null)
 	{
 		var projects = await httpClient.GetFromJsonAsync<IEnumerable<Project>>("data/projects.json");
 		if (projects is null)
 		{
-			return new List<Project>();
+			return [];
 		}
 
 		if (!string.IsNullOrEmpty(searchParameter))

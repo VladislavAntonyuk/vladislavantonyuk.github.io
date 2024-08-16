@@ -19,7 +19,13 @@ public class UrlCreator : IUrlCreator
 			urlBuilder.Append(WebUtility.UrlEncode(encodedPart).Replace("+", "-"));
 		}
 
-		return urlBuilder.ToString().Trim('/');
+		var result = urlBuilder.ToString().Trim('/');
+		if (string.IsNullOrEmpty(url))
+		{
+			return result;
+		}
+
+		return result + '/';
 	}
 
 	public string? DecodeArticleUrl(string? url)

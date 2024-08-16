@@ -61,7 +61,7 @@ public class Channel
 	public string? LastBuildDate { get; set; }
 
 	[XmlElement(ElementName = "item")]
-	public List<Item> Items { get; set; } = new();
+	public List<Item> Items { get; set; } = [];
 }
 
 [XmlRoot(ElementName = "rss")]

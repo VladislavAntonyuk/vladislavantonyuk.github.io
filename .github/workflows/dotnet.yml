@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-latest
             
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
+        dotnet-version: 9.x
     
+    - name: Install workloads
+      run: dotnet workload install wasm-tools
+
     - name: Update version
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
 
@@ -41,7 +44,7 @@ jobs:
         cp sitemap.xml release/wwwroot/sitemap.xml
       
     - name: Commit wwwroot to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch : gh-pages

@@ -15,7 +15,7 @@ internal class ArticlesService(string path) : IArticlesService
 		});
 		if (categories is null)
 		{
-			return new List<Article>();
+			return [];
 		}
 
 		return categories
@@ -25,7 +25,9 @@ internal class ArticlesService(string path) : IArticlesService
 			                  article.Content = File.ReadAllText(path + article.Name + ".md");
 			                  return article;
 		                  })
-		       .OrderByDescending(x => x.Created)
+			   .DistinctBy(x => x.Name)
+			   .OrderByDescending(x => x.Created)
+			   .ThenBy(x => x.Id)
 		       .ToList();
 	}
 

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Shared;
 using Shared.Models;
 
-public partial class ArticleDetails : VladislavAntonyukBaseComponent
+public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager navigation, IArticlesService articlesService) : VladislavAntonyukBaseComponent
 {
 	private Article? article;
 	private ErrorModel? error;
@@ -13,29 +13,20 @@ public partial class ArticleDetails : VladislavAntonyukBaseComponent
 	[Parameter]
 	public required string Id { get; set; }
 
-	[Inject]
-	public required IUrlCreator UrlCreator { get; set; }
-
-	[Inject]
-	public required NavigationManager Navigation { get; set; }
-
-	[Inject]
-	public required IArticlesService ArticlesService { get; set; }
-
 	protected override async Task OnParametersSetAsync()
 	{
 		article = null;
 		error = null;
 		suggestions = null;
-		var articleName = UrlCreator.DecodeArticleUrl(Id);
+		var articleName = urlCreator.DecodeArticleUrl(Id);
 		if (string.IsNullOrEmpty(articleName))
 		{
-			Navigation.NavigateTo("/");
+			navigation.NavigateTo("/");
 			return;
 		}
 
-		suggestions = await ArticlesService.GetSuggestions(articleName, 2);
-		var result = await ArticlesService.GetArticle(articleName);
+		suggestions = await articlesService.GetSuggestions(articleName, 2);
+		var result = await articlesService.GetArticle(articleName);
 		if (result is null)
 		{
 			error = new ErrorModel

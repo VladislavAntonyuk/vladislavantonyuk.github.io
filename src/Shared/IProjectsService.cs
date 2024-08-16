@@ -4,5 +4,5 @@ using Models;
 
 public interface IProjectsService
 {
-	Task<List<Project>> GetProjects(string? searchParameter = null);
+	Task<List<Project>> Get(string? searchParameter = null);
 }

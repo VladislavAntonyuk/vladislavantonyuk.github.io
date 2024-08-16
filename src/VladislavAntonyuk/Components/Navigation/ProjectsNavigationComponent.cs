@@ -15,7 +15,7 @@ public class ProjectsNavigationComponent : BaseNavigationComponent<Project>
 	protected override async Task<PaginatedList<Project>> GetData()
 	{
 		const int pageSize = 10;
-		var projects = await ProjectsService.GetProjects(SearchFilter);
+		var projects = await ProjectsService.Get(SearchFilter);
 
 		var result = projects.Skip((Page - 1) * pageSize).Take(pageSize).ToList();
 

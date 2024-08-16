@@ -313,7 +313,7 @@
         "created": "2024-02-29",
         "name": "Testing .NET MAUI Application using Appium and xUnit",
         "description": "Elevate your .NET MAUI application testing with precision using Appium and xUnit.",
-        "keywords": "dotnet, maui, .net, android, .NET MAUI, testing, xUnit, Appium, cross-platform development",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, testing, xUnit, Appium, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/51/51.png"
       },
       {
@@ -321,16 +321,40 @@
         "created": "2024-03-21",
         "name": "Targeting Specific Runtimes for Platform Tests",
         "description": "This article tackles targeted platform testing, enabling you to isolate tests for specific runtime environments, boosting development efficiency and application robustness.",
-        "keywords": "dotnet, maui, .net, android, .NET MAUI, testing, xUnit, Appium, cross-platform development",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, testing, xUnit, Appium, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/52/52.png"
       },
       {
         "id": 53,
         "created": "2024-04-01",
         "name": "Choose the right framework for your next application",
-        "description": "A Deep Dive into .NET MAUI, Uno, and Avalonia",
-        "keywords": "dotnet, maui, .net, android, .NET MAUI, Avalonia, Uno Platform, cross-platform development",
+        "description": "A Deep Dive into .NET MAUI, Uno, and Avalonia.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Avalonia, Uno Platform, cross-platform development",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/53/53.png"
+      },
+      {
+        "id": 54,
+        "created": "2024-05-02",
+        "name": ".NET MAUI CollectionView with Staggered Layout",
+        "description": "Create a Staggered Layout for CollectionView in .NET MAUI.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, CollectionView, Staggered Layout, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/54/54.png"
+      },
+      {
+        "id": 55,
+        "created": "2024-06-11",
+        "name": "Simplifying .NET MAUI App Development with Debugging and Monitoring Tools",
+        "description": "Simplifying .NET MAUI App Development: Debugging and Monitoring Tools.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, cross-platform development",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/55/55.png"
+      },
+      {
+        "id": 56,
+        "created": "2024-07-04",
+        "name": "Various methods for barcode scanning in .NET MAUI",
+        "description": "This article explores three methods: using MLKit for Android, Camera.MAUI.ZXing, and CommunityToolkit.Maui.Camera.",
+        "keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, cross-platform development, barcode, camera, MAUIUIJULY",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/56/56.png"
       }
     ]
   },
@@ -378,6 +402,14 @@
         "description": "Overview of onion architecture. Creating a cross-platform application with the onion architecture.",
         "keywords": "onion architecture, cross-platform application, development, xamarin, maui, dotnet, blazor, overview, advantages, drawback, Draw & GO, UI",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/12/onion-architecture.webp"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },
@@ -401,6 +433,14 @@
         "description": "Adding Microsoft Entra ID B2C in .NET 8 Blazor WebApp.",
         "keywords": "azure, blazor, identity, azure ad, azure ad b2c, template, microsoft, microsoft identity platfrom, blazor webapp",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/47/47.png"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },
@@ -424,6 +464,14 @@
         "description": "The article demonstrates how to add push notifications to .NET MAUI application using Azure Notification Hub.",
         "keywords": "Azure, notification, hub, dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, push, notification, azure, hub",
         "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/44/44.png"
+      },
+      {
+        "id": 57,
+        "created": "2024-08-15",
+        "name": "Azure Active Directory authentication in .NET Aspire Distributed Application",
+        "description": "",
+        "keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazoe, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
+        "image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/57/57.png"
       }
     ]
   },

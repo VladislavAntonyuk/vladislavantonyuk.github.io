@@ -4,31 +4,32 @@
 
 <PageTitle>@Constants.ProductName</PageTitle>
 
-<MudThemeProvider @ref="mudThemeProvider" @bind-IsDarkMode="isDarkMode" Theme="theme"/>
+<MudThemeProvider @ref="mudThemeProvider" @bind-IsDarkMode="isDarkMode" Theme="theme" />
+<MudPopoverProvider />
 <ErrorBoundary @ref="errorBoundary">
 	<ChildContent>
 		<MudDialogProvider CloseButton="true"
-		                   CloseOnEscapeKey="true"
-		                   DisableBackdropClick="true"
-		                   Position="DialogPosition.Center"/>
+						   CloseOnEscapeKey="true"
+						   BackdropClick="false"
+						   Position="DialogPosition.Center" />
 	</ChildContent>
 	<ErrorContent>
 		<MudText Typo="Typo.h1">Error has occurred</MudText>
 		<MudButton OnClick="ResetError">Go To The Homepage</MudButton>
 	</ErrorContent>
 </ErrorBoundary>
-<MudSnackbarProvider/>
+<MudSnackbarProvider />
 
 <MudLayout>
 	<MudAppBar Elevation="1">
 		<MudHidden Breakpoint="Breakpoint.SmAndDown">
 			<MudLink Href="/">
 				<MudImage Src="https://avatars2.githubusercontent.com/u/33021114" Alt="@Constants.ProductName"
-				          Class="mud-icon-root mud-icon-size-large"/>
+						  Class="mud-icon-root mud-icon-size-large" />
 			</MudLink>
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.MdAndUp">
-			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" aria-label="Menu"/>
+			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" aria-label="Menu" />
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.Xs">
 			<MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
@@ -36,12 +37,12 @@
 		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
 			<MudLink Href="/" Typo="Typo.subtitle2" Color="Color.Inherit">@Constants.ProductName</MudLink>
 		</MudHidden>
-		<MudSpacer/>
+		<MudSpacer />
 
 		<MudButton Color="Color.Primary"
-		           Variant="Variant.Filled"
-		           Href="https://github.com/VladislavAntonyuk/vladislavantonyuk.github.io/issues"
-		           Target="_blank">
+				   Variant="Variant.Filled"
+				   Href="https://github.com/VladislavAntonyuk/vladislavantonyuk.github.io/issues"
+				   Target="_blank">
 			Submit Issue
 		</MudButton>
 
@@ -49,18 +50,19 @@
 	</MudAppBar>
 
 	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
-		<NavMenu/>
-		<NavCategories/>
+		<NavMenu />
+		<NavCategories />
 		<MudStack Row="true" Justify="Justify.Center">
 			<MudIconButton Href="https://www.youtube.com/c/VladislavAntonyuk" Target="_blank" Icon="@Icons.Custom.Brands.YouTube"></MudIconButton>
 			<MudIconButton Href="https://github.com/VladislavAntonyuk" Target="_blank" Icon="@Icons.Custom.Brands.GitHub"></MudIconButton>
 			<MudIconButton Href="https://www.linkedin.com/in/vladislav-antonyuk/" Target="_blank" Icon="@Icons.Custom.Brands.LinkedIn"></MudIconButton>
 		</MudStack>
-		<BuyMeACoffee/>
+		<BuyMeACoffee />
 		<MudLink Href="https://mvp.microsoft.com/en-us/PublicProfile/5005304"><MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/MVP_Badge_Horizontal_Preferred_Blue3005_RGB.png" Alt="MVP" Fluid="true" Class="side-image" /></MudLink>
 		<MudImage Src="https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7" Alt="Made in Ukraine" Fluid="true" Class="side-image" ObjectFit="ObjectFit.Contain" />
-		<Ads Slot="1005616791"/>
+		<Ads Slot="1005616791" />
 	</MudDrawer>
+
 	<MudMainContent>
 		<MudContainer MaxWidth="MaxWidth.False">
 
@@ -74,9 +76,15 @@
 				</ErrorContent>
 			</ErrorBoundary>
 
-			<MudScrollToTop Style="width:64px;height:64px;bottom:96px;">
-				<MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward" Style="width:64px;height:64px"/>
+			<MudScrollToTop Style="width:64px;height:64px;bottom:96px;z-index: 10000;">
+				<MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowUpward" Style="width:64px;height:64px" />
 			</MudScrollToTop>
 		</MudContainer>
 	</MudMainContent>
+
+	<MudDrawer Open="true" Anchor="Anchor.End" Elevation="1" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Responsive">
+		<Affiliate Class="mt-2 mx-2"/>
+		<Ads Slot="1173073065" />
+	</MudDrawer>
+
 </MudLayout>
