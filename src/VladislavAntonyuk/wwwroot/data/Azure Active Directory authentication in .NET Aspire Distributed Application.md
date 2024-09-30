@@ -80,7 +80,7 @@ API Service is ready.
 }
 ```
 
->> **IMPORTANT**. Pay attention to scopes. It is required for the Downstream API. If you forget to change the Scopes to an array, when you try to use the IDownstreamApi the scopes will appear null, and IDownstreamApi will attempt an anonymous (unauthenticated) call to the downstream API, which will result in a 401/unauthenticated.
+> **IMPORTANT**. Pay attention to scopes. It is required for the Downstream API. If you forget to change the Scopes to an array, when you try to use the IDownstreamApi the scopes will appear null, and IDownstreamApi will attempt an anonymous (unauthenticated) call to the downstream API, which will result in a 401/unauthenticated.
 
 3. Update `Program.cs` to register required services:
 

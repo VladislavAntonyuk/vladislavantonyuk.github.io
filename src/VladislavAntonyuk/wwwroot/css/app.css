@@ -8,11 +8,17 @@ html, body {
 
 .article img {
     max-height: 55vh;
+	margin: 0 auto;
+	display: block;
+}
+
+.mud-markdown-body .snippet-clipboard-content {
+	margin-bottom: 1em;
 }
 
 code[class*="language-"], pre[class*="language-"] {
-    font-size: .875em;
-    max-height: 35em;
+	font-size: .875em;
+	max-height: 35em;
 }
 
 .article blockquote {
