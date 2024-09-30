@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor;
 using MudBlazor.Services;
 using Shared;
-using StardustDL.RazorComponents.Markdown;
 using VladislavAntonyuk;
 using VladislavAntonyuk.Services;
 
@@ -20,7 +20,7 @@ static void ConfigureServices(IServiceCollection services, string baseAddress)
 	services.AddScoped<IProjectsService, ProjectsService>();
 	services.AddScoped<IPublicationsService, PublicationsService>();
 	services.AddMudServices();
-	services.AddMarkdownComponent();
+	services.AddMudMarkdownServices();
 
 	services.AddScoped(sp => new HttpClient
 	{
