@@ -20,11 +20,15 @@ internal class ArticlesService(string path)
 			   .SelectMany(x => x.Articles, (category, article) =>
 						  {
 							  article.CategoryName = category.Name;
-							  article.Content = File.ReadAllText(path + article.Name + ".md");
 							  return article;
 						  })
 			   .DistinctBy(x => x.Name)
 			   .Where(x => x.Created <= DateTime.UtcNow)
+			   .Select(x =>
+			   {
+				   x.Content = File.ReadAllText(path + x.Name + ".md");
+				   return x;
+			   })
 			   .OrderByDescending(x => x.Created)
 			   .ThenBy(x => x.Id)
 			   .ToList();
