@@ -11,7 +11,7 @@ public interface ISitemapService
 	Task<string> GenerateSitemap();
 }
 
-public class SitemapService(IArticlesService articlesService, IUrlCreator urlCreator) : ISitemapService
+internal class SitemapService(ArticlesService articlesService, IUrlCreator urlCreator) : ISitemapService
 {
 	private const string FilePath = "sitemap.xml";
 	private Sitemap? sitemap = [];

@@ -14,7 +14,7 @@ public interface IRssService
 	Task<string> GenerateRss();
 }
 
-public class RssService(IArticlesService articlesService, IUrlCreator urlCreator) : IRssService
+internal class RssService(ArticlesService articlesService, IUrlCreator urlCreator) : IRssService
 {
 	private const string FilePath = "rss.xml";
 
@@ -63,13 +63,14 @@ public class RssService(IArticlesService articlesService, IUrlCreator urlCreator
 
 	private Item CreateItem(Article article)
 	{
+		var url = urlCreator.CreateArticleUrl("articles", article.Name);
 		return new Item
 		{
-			Link = urlCreator.CreateArticleUrl("articles", article.Name),
-			Guid = urlCreator.CreateArticleUrl("articles", article.Name),
+			Link = url,
+			Guid = url,
 			Description = article.Description,
 			Content = Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline()),
-			Creator = "Vladislav Antonyuk",
+			Creator = Constants.ProductName,
 			Title = article.Name,
 			PubDate = article.Created.ToString("R")
 		};

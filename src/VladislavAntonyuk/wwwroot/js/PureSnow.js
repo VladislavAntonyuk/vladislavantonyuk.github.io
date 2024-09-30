@@ -51,7 +51,6 @@ function spawn_snow(snowDensity = 200) {
 // Append style for each snowflake to the head
 function add_css(rule) {
     const css = document.createElement('style');
-    css.type = 'text/css';
     css.appendChild(document.createTextNode(rule)); // Support for the rest
     document.getElementsByTagName("head")[0].appendChild(css);
 }

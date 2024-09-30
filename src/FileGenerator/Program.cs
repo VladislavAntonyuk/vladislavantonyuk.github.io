@@ -7,7 +7,7 @@ var services = new ServiceCollection();
 services.AddShared();
 services.AddScoped<IRssService, RssService>();
 services.AddScoped<ISitemapService, SitemapService>();
-services.AddScoped<IArticlesService>(_ => new ArticlesService(path));
+services.AddScoped(_ => new ArticlesService(path));
 
 var container = services.BuildServiceProvider();
 var rssService = container.GetRequiredService<IRssService>();

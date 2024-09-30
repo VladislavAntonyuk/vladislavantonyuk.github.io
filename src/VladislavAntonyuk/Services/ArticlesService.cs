@@ -7,12 +7,11 @@ using Shared.Models;
 
 internal class ArticlesService(HttpClient httpClient) : IArticlesService
 {
+	private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web);
+
 	public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
 	{
-		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", new JsonSerializerOptions
-		{
-			PropertyNameCaseInsensitive = true
-		});
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", Options);
 		if (categories is null)
 		{
 			return [];
@@ -34,19 +33,19 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 			articles = articles.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return articles.DistinctBy(x => x.Name).OrderByDescending(x => x.Created).ThenBy(x => x.Id).ToList();
+		return articles.Where(x => x.Created <= DateTime.UtcNow).DistinctBy(x => x.Name).OrderByDescending(x => x.Created).ThenBy(x => x.Id).ToList();
 	}
 
 	public async Task<Article?> GetArticle(string articleName)
 	{
-		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
+		var categories = await GetCategories();
 
-		var article = categories?.SelectMany(x => x.Articles, (category, article) =>
-		                        {
-			                        article.CategoryName = category.Name;
-			                        return article;
-		                        })
-		                        .FirstOrDefault(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
+		var article = categories.SelectMany(x => x.Articles, (category, article) =>
+								{
+									article.CategoryName = category.Name;
+									return article;
+								})
+								.FirstOrDefault(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
 
 		if (article is null)
 		{
@@ -72,11 +71,12 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 		}
 
 		var articles = categories.SelectMany(x => x.Articles, (category, article) =>
-		                         {
-			                         article.CategoryName = category.Name;
-			                         return article;
-		                         })
-		                         .ToList();
+								 {
+									 article.CategoryName = category.Name;
+									 return article;
+								 })
+								.Where(x => x.Created <= DateTime.UtcNow)
+								.ToList();
 
 		if (!string.IsNullOrEmpty(articleName))
 		{
@@ -85,25 +85,26 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 		}
 
 		var allSuggestions = articles.Where(x => !x.Name.EndsWith(articleName, StringComparison.OrdinalIgnoreCase))
-		                             .OrderBy(q => q.Id)
-		                             .ToList();
+									 .Where(x => x.Created <= DateTime.UtcNow)
+									 .OrderBy(q => q.Id)
+									 .ToList();
 
 		if (allSuggestions.Count == 0)
 		{
-			return new List<Article>();
+			return [];
 		}
 
 		var randomIds = Enumerable.Range(0, allSuggestions.Count)
-		                          .OrderBy(t => Random.Shared.Next())
-		                          .Take(limit)
-		                          .ToArray();
+								  .OrderBy(t => Random.Shared.Next())
+								  .Take(limit)
+								  .ToArray();
 
 		return randomIds.Select(t => allSuggestions[t]).ToList();
 	}
 
 	public async Task<List<Category>> GetCategories()
 	{
-		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", Options);
 		return categories is null ? [] : categories.ToList();
 	}
 }
