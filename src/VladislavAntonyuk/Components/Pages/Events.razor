@@ -1,4 +1,5 @@
 ﻿@page "/events/{eventName}"
+@using VladislavAntonyuk.Components.Monetization
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events">
@@ -7,5 +8,9 @@
 @if (@event is not null)
 {
 	<MudText Typo="Typo.h1">@(@event.Name)</MudText>
-	<MudText>@(@event.Description)</MudText>
+	<MudText Align="Align.Justify">
+		<MudMarkdown Value="@(@event.Description?.ReplaceLineEndings())" />
+	</MudText>
+	
+	<Ads Slot="1656353485"/>
 }

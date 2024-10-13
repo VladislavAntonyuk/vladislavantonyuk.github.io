@@ -49,7 +49,7 @@ else
 		</MudHidden>
 		<BuyMeACoffee/>
 		<MudText Align="Align.Justify">
-			<ArticleRenderer Content="@(article.Content ?? string.Empty)"></ArticleRenderer>
+			<MudMarkdown CodeBlockTheme="CodeBlockTheme.Vs2015" Value="@article.Content" />
 		</MudText>
 		<BuyMeACoffee/>
 	</div>
