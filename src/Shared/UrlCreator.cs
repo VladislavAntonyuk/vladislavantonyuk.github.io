@@ -5,13 +5,13 @@ using System.Text;
 
 public interface IUrlCreator
 {
-	string CreateArticleUrl(string url, string? encodedPart = null);
-	string? DecodeArticleUrl(string? url);
+	string Encode(string url, string? encodedPart = null);
+	string? Decode(string? url);
 }
 
 public class UrlCreator : IUrlCreator
 {
-	public string CreateArticleUrl(string url, string? encodedPart = null)
+	public string Encode(string url, string? encodedPart = null)
 	{
 		var urlBuilder = new StringBuilder($"{Constants.BaseUrl}{url}/");
 		if (!string.IsNullOrWhiteSpace(encodedPart))
@@ -28,7 +28,7 @@ public class UrlCreator : IUrlCreator
 		return result + '/';
 	}
 
-	public string? DecodeArticleUrl(string? url)
+	public string? Decode(string? url)
 	{
 		return WebUtility.UrlDecode(url?.Replace("-", "+"));
 	}

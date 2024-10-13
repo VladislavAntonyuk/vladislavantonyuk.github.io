@@ -1,0 +1,19 @@
+﻿@inherits VladislavAntonyukBaseComponent
+
+<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={Url}#")'
+               Target="_blank"
+               Icon="@Icons.Custom.Brands.Twitter"
+               Size="Size.Large"
+               aria-label="Twitter" />
+
+<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={Url}#")'
+               Target="_blank"
+               Icon="@Icons.Custom.Brands.Facebook"
+               Size="Size.Large"
+               aria-label="Facebook" />
+
+<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={Url}#")'
+               Target="_blank"
+               Icon="@Icons.Custom.Brands.LinkedIn"
+               Size="Size.Large"
+               aria-label="LinkedIn" />

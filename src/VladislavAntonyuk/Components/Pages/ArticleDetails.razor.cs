@@ -18,7 +18,7 @@ public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager na
 		article = null;
 		error = null;
 		suggestions = null;
-		var articleName = urlCreator.DecodeArticleUrl(Id);
+		var articleName = urlCreator.Decode(Id);
 		if (string.IsNullOrEmpty(articleName))
 		{
 			navigation.NavigateTo("/");

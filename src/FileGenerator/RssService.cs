@@ -30,10 +30,10 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 			Channel = new Channel
 			{
 				LastBuildDate = DateTime.UtcNow.ToString("R"),
-				Link = urlCreator.CreateArticleUrl(""),
+				Link = urlCreator.Encode(""),
 				Link2 = new Link
 				{
-					Href = urlCreator.CreateArticleUrl("rss"),
+					Href = urlCreator.Encode("rss"),
 					Rel = "self",
 					Type = "application/rss+xml"
 				},
@@ -63,7 +63,7 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 
 	private Item CreateItem(Article article)
 	{
-		var url = urlCreator.CreateArticleUrl("articles", article.Name);
+		var url = urlCreator.Encode("articles", article.Name);
 		return new Item
 		{
 			Link = url,

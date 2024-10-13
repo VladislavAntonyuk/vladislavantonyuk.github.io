@@ -13,9 +13,9 @@ public partial class Events(IEventsService eventsService, NavigationManager navi
 
 	private Event? @event;
 
-	override protected async Task OnParametersSetAsync()
+	protected override async Task OnParametersSetAsync()
 	{
-		var name = urlCreator.DecodeArticleUrl(EventName);
+		var name = urlCreator.Decode(EventName);
 		if (string.IsNullOrEmpty(name))
 		{
 			snackbar.Add("Event not found", Severity.Error);

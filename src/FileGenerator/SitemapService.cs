@@ -54,7 +54,7 @@ internal class SitemapService(ArticlesService articlesService, IUrlCreator urlCr
 	{
 		return new Url
 		{
-			Location = urlCreator.CreateArticleUrl(url, encodedPart),
+			Location = urlCreator.Encode(url, encodedPart),
 			TimeStamp = timestamp,
 			ChangeFrequency = changeFrequency,
 			Priority = priority

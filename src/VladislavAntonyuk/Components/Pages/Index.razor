@@ -22,7 +22,7 @@
 
 				<MudItem xs="12">
 					@{
-						var url = urlCreator.CreateArticleUrl("articles", article.Name);
+						var url = urlCreator.Encode("articles", article.Name);
 					}
 					<MudCard>
 						@if (!string.IsNullOrWhiteSpace(article.Image))
