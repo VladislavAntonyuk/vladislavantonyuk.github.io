@@ -1,0 +1,12 @@
+﻿@page "/events/"
+@using global::Shared.Models
+@inherits VladislavAntonyukBaseComponent
+
+<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events">
+</Head>
+
+@if(@event is not null)
+{
+	<MudText Typo="Typo.h1">@@event.Name</MudText>
+	<MudText>@@event.Description</MudText>
+}
