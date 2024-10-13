@@ -2,15 +2,34 @@
 @using VladislavAntonyuk.Components.Monetization
 @inherits VladislavAntonyukBaseComponent
 
-<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events">
-</Head>
-
-@if (@event is not null)
+@if (@event is null)
 {
-	<MudText Typo="Typo.h1">@(@event.Name)</MudText>
-	<MudText Align="Align.Justify">
-		<MudMarkdown Value="@(@event.Description?.ReplaceLineEndings())" />
-	</MudText>
-	
-	<Ads Slot="1656353485"/>
+	<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
 }
+else
+{
+	var url = urlCreator.Encode("events", @event.Name);
+	var title = $"Vladislav Antonyuk - {@event.Name}";
+	var description = $"Vladislav Antonyuk - {@event.Description}";
+
+	<Head Title="@title" Description="@description" />
+
+	<div class="article">
+		@if (!string.IsNullOrWhiteSpace(@event.Image))
+		{
+			<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" Fluid="true" />
+		}
+
+		<MudText Typo="Typo.h1" Align="Align.Center">@(@event.Name)</MudText>
+
+		<MudStack Row="true" Justify="Justify.Center">
+			<ShareButtons Url="@url" />
+		</MudStack>
+
+		<MudText Align="Align.Justify">
+			<MudMarkdown Value="@(@event.Description?.ReplaceLineEndings())" />
+		</MudText>
+	</div>
+}
+
+<Ads Slot="1656353485" />

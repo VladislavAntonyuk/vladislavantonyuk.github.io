@@ -2,8 +2,7 @@
 @using global::Shared.Models
 @inherits VladislavAntonyukBaseComponent
 
-<Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications">
-</Head>
+<Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications"/>
 
 <MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Publication>>>(ServerReload))"
 		  T="Publication"
