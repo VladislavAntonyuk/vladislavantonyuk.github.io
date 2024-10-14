@@ -4,18 +4,14 @@ using Microsoft.AspNetCore.Components;
 using Shared;
 using Shared.Models;
 
-public class ProjectsNavigationComponent : BaseNavigationComponent<Project>
+public class ProjectsNavigationComponent (NavigationManager navigation, IProjectsService projectsService): BaseNavigationComponent<Project>(navigation)
 {
-
-	[Inject]
-	public required IProjectsService ProjectsService { get; set; }
-
 	public override string Title => "Projects";
 
 	protected override async Task<PaginatedList<Project>> GetData()
 	{
 		const int pageSize = 10;
-		var projects = await ProjectsService.Get(SearchFilter);
+		var projects = await projectsService.Get(SearchFilter);
 
 		var result = projects.Skip((Page - 1) * pageSize).Take(pageSize).ToList();
 

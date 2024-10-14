@@ -10,24 +10,24 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 	{
 		Typography = new Typography
 		{
-			H1 = new H1
+			H1 = new H1Typography
 			{
 				FontSize = "2.5rem"
 			},
-			H2 = new H2
+			H2 = new H2Typography
 			{
 				FontSize = "2rem"
 			}
 			,
-			H3 = new H3
+			H3 = new H3Typography
 			{
 				FontSize = "1.75rem"
 			},
-			H4 = new H4
+			H4 = new H4Typography
 			{
 				FontSize = "1.5rem"
 			},
-			H5 = new H5
+			H5 = new H5Typography
 			{
 				FontSize = "1.25rem"
 			}

@@ -31,7 +31,7 @@ To fix the issue let's create an `OllamaResource` with the connection string.
 
 #### Step 2: Create the Ollama Resource
 
-In this step, we'll create a custom container resource for Ollama. 
+In this step, we'll create a custom container resource for Ollama.
 
 For that , we need to create a new class that inherits from `ContainerResource` and implements the `IResourceWithConnectionString` interface:
 
@@ -85,6 +85,8 @@ internal static class OllamaContainerImageTags
 	internal const string Tag = "0.3.8";
 }
 ```
+
+You can adjust the image tag and registry to match the version of Ollama you want to use. The latest tag can be found at https://hub.docker.com/r/ollama/ollama.
 
 #### Step 4: Register the Ollama Resource in Your Application
 
@@ -183,7 +185,7 @@ app.MapGet("/weatherforecast", async (OllamaProvider ollamaProvider) =>
 		"""
 			Generate random weather for the next 5 days.
 			Return the JSON Array with the next properties: (DateOnly Date, int TemperatureC, string? Summary). Example:
-			{   
+			{
 				"forecast":[
 					{
 						"Date": "2024-09-27",
@@ -196,6 +198,8 @@ app.MapGet("/weatherforecast", async (OllamaProvider ollamaProvider) =>
 }
 ```
 
+In this example, we pull the `llama3` model and generate a response based on the input provided. You can customize the model and request to fit your application's requirements. The list of available models can be found at https://ollama.com/library.
+
 #### Step 4: Test the Integration
 
 Once everything is set up, it's important to test the Ollama integration. Send requests to your application and observe how it responds using the free AI models from Ollama.
@@ -207,14 +211,14 @@ The AI should respond based on the input provided, showcasing the power of free 
 ### Benefits of Using Ollama in .NET Aspire
 
 1. **Cost-Effective AI Integration:** Ollama provides access to free AI models, making it a cost-effective solution for adding AI-driven functionality to your distributed applications.
-   
-1. **Scalable and Modular Architecture:** By leveraging .NET Aspire’s modularity, you can easily scale the AI component in your application without significant overhead.
-   
-1. **Seamless Integration:** With the custom Ollama provider, you can integrate AI features into your application’s existing logic with minimal effort.
+
+1. **Scalable and Modular Architecture:** By leveraging .NET Aspireï¿½s modularity, you can easily scale the AI component in your application without significant overhead.
+
+1. **Seamless Integration:** With the custom Ollama provider, you can integrate AI features into your applicationï¿½s existing logic with minimal effort.
 
 ### Conclusion
 
-In this article, we explored how to leverage free AI with Ollama in a .NET Aspire distributed application. By setting up an Ollama provider and integrating it into your application’s services, you can unlock the potential of AI without the high costs often associated with AI infrastructure.
+In this article, we explored how to leverage free AI with Ollama in a .NET Aspire distributed application. By setting up an Ollama provider and integrating it into your applicationï¿½s services, you can unlock the potential of AI without the high costs often associated with AI infrastructure.
 
 This approach not only enhances your application's intelligence but also keeps it scalable and efficient. Whether for chatbots, recommendation engines, or any other AI-driven feature, Ollama combined with .NET Aspire offers a powerful solution for modern application development.
 

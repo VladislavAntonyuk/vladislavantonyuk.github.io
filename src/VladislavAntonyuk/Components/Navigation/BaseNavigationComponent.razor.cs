@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-public abstract partial class BaseNavigationComponent<T> : VladislavAntonyukBaseComponent
+public abstract partial class BaseNavigationComponent<T>(NavigationManager navigation) : VladislavAntonyukBaseComponent
 {
 	private PaginatedList<T>? data;
 
@@ -21,9 +21,6 @@ public abstract partial class BaseNavigationComponent<T> : VladislavAntonyukBase
 	[Parameter]
 	public required RenderFragment<IReadOnlyCollection<T>> ChildContent { get; set; }
 
-	[Inject]
-	public required NavigationManager Navigation { get; set; }
-
 	protected async Task LoadData()
 	{
 		isLoading = true;
@@ -33,7 +30,7 @@ public abstract partial class BaseNavigationComponent<T> : VladislavAntonyukBase
 
 	private Task SetPage(int page)
 	{
-		Navigation.NavigateTo(Navigation.GetUriWithQueryParameter(nameof(Page), page));
+		navigation.NavigateTo(navigation.GetUriWithQueryParameter(nameof(Page), page));
 		Page = page;
 		return LoadData();
 	}
