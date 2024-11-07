@@ -12,6 +12,10 @@ html, body {
 	display: block;
 }
 
+.article blockquote {
+    padding: .875em;
+}
+
 .mud-markdown-body .snippet-clipboard-content {
 	margin-bottom: 1em;
 }
@@ -19,10 +23,6 @@ html, body {
 code[class*="language-"], pre[class*="language-"] {
 	font-size: .875em;
 	max-height: 35em;
-}
-
-.article blockquote {
-    padding: .875em;
 }
 
 .adsbygoogle > div, .adsbygoogle > div > iframe {

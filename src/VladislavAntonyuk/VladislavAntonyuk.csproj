@@ -8,6 +8,8 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Nest-.NET-MAUI-.xaml-Files-in-Visual-Studio-Code;
+			/articles/Free-AI-using-Ollama-in-.NET-MAUI-Application;
 			/articles/Leveraging-Free-AI-with-Ollama-in-.NET-Aspire;
 			/articles/Azure-Active-Directory-authentication-in-.NET-Aspire-Distributed-Application;
 			/articles/Various-methods-for-barcode-scanning-in-.NET-MAUI;
@@ -73,8 +75,8 @@
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0-rc.2.24474.3" PrivateAssets="all" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0-rc.2.24474.3" />
-        <PackageReference Include="MudBlazor" Version="8.0.0-preview.1" />
-        <PackageReference Include="MudBlazor.Markdown" Version="7.8.0" />
+        <PackageReference Include="MudBlazor" Version="8.0.0-preview.4" />
+        <PackageReference Include="MudBlazor.Markdown" Version="7.14.0" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
     </ItemGroup>
 

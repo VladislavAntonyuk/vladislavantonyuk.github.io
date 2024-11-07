@@ -69,7 +69,7 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 			Link = url,
 			Guid = url,
 			Description = article.Description,
-			Content = Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline()),
+			Content = url,//Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline()),
 			Creator = Constants.ProductName,
 			Title = article.Name,
 			PubDate = article.Created.ToString("R")
