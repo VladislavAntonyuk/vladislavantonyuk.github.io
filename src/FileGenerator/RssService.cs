@@ -64,12 +64,13 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 	private Item CreateItem(Article article)
 	{
 		var url = urlCreator.Encode("articles", article.Name);
+		var content = $"<p>{article.Description}</p><a href='{url}'>{url}</a>";//Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline());
 		return new Item
 		{
 			Link = url,
 			Guid = url,
 			Description = article.Description,
-			Content = url,//Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline()),
+			Content = content,
 			Creator = Constants.ProductName,
 			Title = article.Name,
 			PubDate = article.Created.ToString("R")

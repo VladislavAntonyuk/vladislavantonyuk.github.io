@@ -367,7 +367,7 @@
 			{
 				"id": 60,
 				"created": "2024-11-11",
-				"name": "Nest .NET MAUI .xaml Files in Visual Studio Code",
+				"name": "Nesting .NET MAUI .xaml Files in Visual Studio Code",
 				"description": "",
 				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml, vscode",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/60/60.png"
