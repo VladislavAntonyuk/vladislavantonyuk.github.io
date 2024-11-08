@@ -1,40 +1,37 @@
-﻿@page "/events/{eventName}"
-@using VladislavAntonyuk.Components.Monetization
+﻿@page "/events"
+@using VladislavAntonyuk.Components.Navigation
 @inherits VladislavAntonyukBaseComponent
 
-@if (@event is null)
-{
-	<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
-}
-else
-{
-	var url = urlCreator.Encode("events", @event.Name);
-	var title = $"Vladislav Antonyuk - {@event.Name}";
-	var description = $"Vladislav Antonyuk - {@event.Description}";
+<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
 
-	<Head Title="@title" Description="@description" />
-
-	<div class="article">
-		@if (!string.IsNullOrWhiteSpace(@event.Image))
-		{
-			<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" Fluid="true" />
-		}
-
-		<MudText Typo="Typo.h1" Align="Align.Center">@(@event.Name)</MudText>
-
-		@if (@event.Date is not null)
-		{
-			<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Date)</MudText>
-		}
-
-		<MudStack Row="true" Justify="Justify.Center">
-			<ShareButtons Url="@url" />
-		</MudStack>
-
-		<MudText Align="Align.Justify">
-			<MudMarkdown Value="@(@event.Description?.ReplaceLineEndings())" />
-		</MudText>
-	</div>
-}
-
-<Ads Slot="1656353485" />
+<EventsNavigationComponent>
+	<ChildContent Context="events">
+		<MudGrid>
+			@foreach (var @event in events)
+			{
+				var url = $"/events/{@event.Name}";
+				<MudItem sm="6">
+					<MudCard Style="height: 100%">
+						@if (!string.IsNullOrWhiteSpace(@event.Image))
+						{
+							<MudLink Href="@url">
+								<MudCardMedia Image="@(@event.Image)"
+											  Style="background-size: contain" />
+							</MudLink>
+						}
+						<MudCardContent>
+							<MudText Typo="Typo.h4" Align="Align.Center">@(@event.Name)</MudText>
+							@if (@event.Date is not null)
+							{
+								<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Date)</MudText>
+							}
+						</MudCardContent>
+						<MudCardActions>
+							<MudLink Href="@url">Go To Details</MudLink>
+						</MudCardActions>
+					</MudCard>
+				</MudItem>
+			}
+		</MudGrid>
+	</ChildContent>
+</EventsNavigationComponent>

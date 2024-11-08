@@ -19,4 +19,20 @@ internal class EventsService(HttpClient httpClient) : IEventsService
 
 		return events.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 	}
+
+	public async Task<List<Event>> Filter(string? searchParameter)
+	{
+		var events = await httpClient.GetFromJsonAsync<IEnumerable<Event>>("data/events.json", Options);
+		if (events is null)
+		{
+			return [];
+		}
+
+		if (!string.IsNullOrEmpty(searchParameter))
+		{
+			events = events.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
+		}
+
+		return events.OrderBy(x => x.Id).ToList();
+	}
 }
