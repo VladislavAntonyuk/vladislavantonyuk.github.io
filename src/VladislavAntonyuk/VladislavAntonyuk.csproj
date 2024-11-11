@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/events/.NET-Conf-2024-Ukraine;
+      /events/.NET-Conf-2023-Ukraine;
 			/publications;
 			/projects;
 			/articles;
