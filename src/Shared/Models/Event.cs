@@ -6,5 +6,7 @@ public class Event : BaseEntity
 	public string? Description { get; set; }
 	public string? RedirectUrl { get; set; }
 	public string? Image { get; set; }
+	public string? Location { get; set; }
 	public DateTimeOffset? Date { get; set; }
+	public string? Price { get; set; }
 }

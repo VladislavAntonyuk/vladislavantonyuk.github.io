@@ -21,6 +21,11 @@
 						}
 						<MudCardContent>
 							<MudText Typo="Typo.h4" Align="Align.Center">@(@event.Name)</MudText>
+							@if (!string.IsNullOrEmpty(@event.Location))
+							{
+								<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Location)</MudText>
+							}
+							
 							@if (@event.Date is not null)
 							{
 								<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Date)</MudText>
