@@ -99,3 +99,5 @@ Running large models locally can be resource-intensive. To ensure smooth perform
 With LLamaSharp, .NET MAUI developers can incorporate cutting-edge AI into their applications without relying on internet connectivity or incurring cloud costs. This approach is ideal for privacy-focused, offline, or internal-use apps.
 
 Start exploring the potential of offline AI today and take your .NET MAUI applications to the next level!
+
+The full code can be found on [GitHub](https://github.com/VladislavAntonyuk/AspireSamples/tree/main/MauiAspireOllama){target="_blank"}.
