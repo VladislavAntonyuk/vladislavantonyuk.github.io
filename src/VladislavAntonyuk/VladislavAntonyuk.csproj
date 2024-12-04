@@ -5,7 +5,7 @@
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
         <BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/events/.NET-Conf-2024-Ukraine;
-      /events/.NET-Conf-2023-Ukraine;
+			/events/.NET-Conf-2023-Ukraine;
 			/publications;
 			/projects;
 			/articles;
@@ -72,11 +72,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0-preview.2" />
+        <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0" />
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0-rc.2.24474.3" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0-rc.2.24474.3" />
-        <PackageReference Include="MudBlazor" Version="8.0.0-preview.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
+        <PackageReference Include="MudBlazor" Version="8.0.0-preview.5" />
         <PackageReference Include="MudBlazor.Markdown" Version="7.14.0" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
     </ItemGroup>

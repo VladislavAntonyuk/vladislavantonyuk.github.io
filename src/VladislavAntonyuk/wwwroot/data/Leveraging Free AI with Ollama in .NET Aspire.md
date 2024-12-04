@@ -212,13 +212,13 @@ The AI should respond based on the input provided, showcasing the power of free 
 
 1. **Cost-Effective AI Integration:** Ollama provides access to free AI models, making it a cost-effective solution for adding AI-driven functionality to your distributed applications.
 
-1. **Scalable and Modular Architecture:** By leveraging .NET Aspire�s modularity, you can easily scale the AI component in your application without significant overhead.
+1. **Scalable and Modular Architecture:** By leveraging .NET Aspire's modularity, you can easily scale the AI component in your application without significant overhead.
 
-1. **Seamless Integration:** With the custom Ollama provider, you can integrate AI features into your application�s existing logic with minimal effort.
+1. **Seamless Integration:** With the custom Ollama provider, you can integrate AI features into your application's existing logic with minimal effort.
 
 ### Conclusion
 
-In this article, we explored how to leverage free AI with Ollama in a .NET Aspire distributed application. By setting up an Ollama provider and integrating it into your application�s services, you can unlock the potential of AI without the high costs often associated with AI infrastructure.
+In this article, we explored how to leverage free AI with Ollama in a .NET Aspire distributed application. By setting up an Ollama provider and integrating it into your application's services, you can unlock the potential of AI without the high costs often associated with AI infrastructure.
 
 This approach not only enhances your application's intelligence but also keeps it scalable and efficient. Whether for chatbots, recommendation engines, or any other AI-driven feature, Ollama combined with .NET Aspire offers a powerful solution for modern application development.
 

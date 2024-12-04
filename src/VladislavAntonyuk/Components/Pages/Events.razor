@@ -9,7 +9,7 @@
 		<MudGrid>
 			@foreach (var @event in events)
 			{
-				var url = $"/events/{@event.Name}";
+				var url = urlCreator.Encode("events", @event.Name);
 				<MudItem sm="6">
 					<MudCard Style="height: 100%">
 						@if (!string.IsNullOrWhiteSpace(@event.Image))

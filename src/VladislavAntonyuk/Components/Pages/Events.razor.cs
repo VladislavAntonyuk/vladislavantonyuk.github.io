@@ -1,3 +1,5 @@
 ﻿namespace VladislavAntonyuk.Components.Pages;
 
-public partial class Events : VladislavAntonyukBaseComponent;
+using Shared;
+
+public partial class Events(IUrlCreator urlCreator) : VladislavAntonyukBaseComponent;
