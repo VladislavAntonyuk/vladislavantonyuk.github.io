@@ -1,4 +1,4 @@
-﻿Hello! 👋
+Hello! 👋
 
 Today we continue exploring AI capabilities in .NET.
 
@@ -19,7 +19,7 @@ Open your .NET MAUI project and install the LLamaSharp NuGet packages and one or
 - LLamaSharp.Backend.Cpu: Pure CPU for Windows, Linux & Mac. Metal (GPU) support for Mac.
 - LLamaSharp.Backend.Cuda11: CUDA 11 for Windows & Linux.
 - LLamaSharp.Backend.Cuda12: CUDA 12 for Windows & Linux.
-= LLamaSharp.Backend.Vulkan: Vulkan for Windows & Linux.
+- LLamaSharp.Backend.Vulkan: Vulkan for Windows & Linux.
 
 My configuration for Windows with Vulkan backend:
 
@@ -32,9 +32,7 @@ My configuration for Windows with Vulkan backend:
 
 Download a compatible LLaMA model from Ollama or another source. Ensure that the model is in a format supported by LLamaSharp. Save the model file in your application's resources or a known path.
 
-There are two popular formats of model files of LLMs, these are PyTorch format (.pth) and Huggingface format (.bin). LLamaSharp uses a `GGUF` format file, which can be converted from these two formats. To get a `GGUF` file, there are two options:
-
-Search model name + 'gguf' in [Huggingface](https://huggingface.co/), you will find many model files that have already been converted to `GGUF` format.
+There are two popular formats of model files of LLMs, these are PyTorch format (.pth) and Huggingface format (.bin). LLamaSharp uses a `GGUF` format file, which can be converted from these two formats. To get a `GGUF` file, search model name + 'gguf' in [Huggingface](https://huggingface.co/).
 
 I downloaded the `Llama 3.1` model ([Link](https://huggingface.co/cognitivecomputations/dolphin-2.9.4-llama3.1-8b-gguf)).
 
@@ -83,6 +81,8 @@ public class AIModelService
     }
 }
 ```
+
+For my sample app I received the next output:
 
 ![.NET MAUI LlamaSharp](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/59/ai.png)
 
