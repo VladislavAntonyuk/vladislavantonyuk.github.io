@@ -1,4 +1,4 @@
-﻿[
+[
 	{
 		"id": 1,
 		"name": ".NET MAUI/Xamarin",
@@ -359,7 +359,7 @@
 			{
 				"id": 59,
 				"created": "2024-10-30",
-				"name": "Free AI using Ollama in .NET MAUI Application",
+				"name": "Free offline AI in .NET MAUI Application",
 				"description": "",
 				"keywords": "dotnet, .net, maui, ollama, ai, chatgpt, android, ios, maccatalyst, windows, tizen",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/59/59.png"
