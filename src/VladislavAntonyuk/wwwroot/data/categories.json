@@ -434,6 +434,14 @@
 				"description": "",
 				"keywords": "dotnet, .net, aspire, aad, azure, azure active directory, addb2c, b2c, blazor, .NET Aspire, microsoft, microsoft entra, webapp, webapi",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/58/58.png"
+			},
+			{
+				"id": 61,
+				"created": "2024-12-25",
+				"name": "Efficiently Writing Excel Files with Optimized Memory Usage",
+				"description": "",
+				"keywords": "dotnet, .net, excel, benchmark",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/61/61.png"
 			}
 		]
 	},
