@@ -371,6 +371,14 @@
 				"description": "",
 				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml, vscode",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/60/60.png"
+			},
+			{
+				"id": 62,
+				"created": "2025-01-27",
+				"name": "Building Dynamic UI with Decision Logic in .NET MAUI XAML",
+				"description": "",
+				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/62/62.png"
 			}
 		]
 	},

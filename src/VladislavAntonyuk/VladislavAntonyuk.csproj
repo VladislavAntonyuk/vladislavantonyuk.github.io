@@ -10,6 +10,7 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Building-Dynamic-UI-with-Decision-Logic-in-.NET-MAUI-XAML;
 			/articles/Efficiently-Writing-Excel-Files-with-Optimized-Memory-Usage;
 			/articles/Nesting-.NET-MAUI-.xaml-Files-in-Visual-Studio-Code;
 			/articles/Free-offline-AI-in-.NET-MAUI-Application;
@@ -76,10 +77,10 @@
     <ItemGroup>
         <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0" />
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
-        <PackageReference Include="MudBlazor" Version="8.0.0-preview.7" />
-        <PackageReference Include="MudBlazor.Markdown" Version="7.14.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.1" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.1" />
+        <PackageReference Include="MudBlazor" Version="8.1.0" />
+        <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
     </ItemGroup>
 
