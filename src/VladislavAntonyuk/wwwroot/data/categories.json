@@ -379,6 +379,14 @@
 				"description": "",
 				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/62/62.png"
+			},
+			{
+				"id": 64,
+				"created": "2025-03-14",
+				"name": "How to Get the Active Window in .NET MAUI",
+				"description": "",
+				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/64/64.png"
 			}
 		]
 	},

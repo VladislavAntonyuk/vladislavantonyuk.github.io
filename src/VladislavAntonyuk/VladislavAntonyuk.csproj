@@ -10,6 +10,7 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/How-to-Get-the-Active-Window-in-.NET-MAUI;
 			/articles/Prioritizing-Test-Execution-in-xUnit-v3;
 			/articles/Building-Dynamic-UI-with-Decision-Logic-in-.NET-MAUI-XAML;
 			/articles/Efficiently-Writing-Excel-Files-with-Optimized-Memory-Usage;
@@ -76,10 +77,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BlazorWasmPreRendering.Build" Version="5.0.0" />
+        <PackageReference Include="BlazorWasmPreRendering.Build" Version="6.0.0-preview.1" />
         <PackageReference Include="GiscusBlazor" Version="2.3.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.2" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.3" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.3" />
         <PackageReference Include="MudBlazor" Version="8.3.0" />
         <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
         <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />

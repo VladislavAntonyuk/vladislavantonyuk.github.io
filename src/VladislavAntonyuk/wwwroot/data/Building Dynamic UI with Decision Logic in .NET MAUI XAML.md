@@ -215,4 +215,5 @@ XAML Usage:
 This `SwitchCaseView` will display a different Label depending on the Case value.
 
 ## Conclusion
-Dynamic UI in .NET MAUI XAML empowers developers to create responsive, user-centric applications with minimal code. By combining data bindings, triggers, converters, behaviors, and controls like ConditionView and SwitchCaseView, you can handle complex UI requirements efficiently. Start building dynamic UIs today and enhance your app’s interactivity and usability!
+
+Dynamic UI in .NET MAUI XAML empowers developers to create responsive, user-centric applications with minimal code. By combining data bindings, triggers, converters, behaviors, and controls like ConditionView and SwitchCaseView, you can handle complex UI requirements efficiently. Start building dynamic UIs today and enhance your app's interactivity and usability!
