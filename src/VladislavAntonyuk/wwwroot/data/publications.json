@@ -10,5 +10,41 @@
 		"date": "2021",
 		"doi": "http://dx.doi.org/10.15421/432101",
 		"keywords": [ "архітектура програмного забезпечення", "архітектурні шаблони", "розробка кросплатформового додатка" ]
+	},
+	{
+		"id": 2,
+		"name": "A Cross-Platform Mobile Development for accelerating software development lifecycle",
+		"link": "http://dx.doi.org/10.15421/432201",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Actual problems of automation and information technology",
+		"volume": "26",
+		"pages": "3-8",
+		"date": "2022",
+		"doi": "http://dx.doi.org/10.15421/432201",
+		"keywords": [ ".NET MAUI",	"Draw & GO", "мобільний додаток", "крос-платформна розрозбка" ]
+	},
+	{
+		"id": 3,
+		"name": "The concept of associative graphical interface in the workflow automation system",
+		"link": "https://doi.org/10.34185/1562-9945-5-148-2023-12",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "System technologies",
+		"volume": "5/148",
+		"pages": "133-140",
+		"date": "2023",
+		"doi": "https://doi.org/10.34185/1562-9945-5-148-2023-12",
+		"keywords": [ "Draw & GO", "автоматизація", "макроси", "продуктивність", "оптимізація", "плагін-архітектура" ]
+	},
+	{
+		"id": 4,
+		"name": "Integration and use of artificial intelligence for automated macros creation",
+		"link": "https://doi.org/10.34185/1562-9945-5-154-2024-02",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "System technologies",
+		"volume": "5/154",
+		"pages": "16-23",
+		"date": "2024",
+		"doi": "https://doi.org/10.34185/1562-9945-5-154-2024-02",
+		"keywords": [ "automation and optimization of workflows", "macro", "human-machine interaction", "artificial intelligence", "LLMs", "Prompt Engineering", "computerized devices" ]
 	}
 ]
