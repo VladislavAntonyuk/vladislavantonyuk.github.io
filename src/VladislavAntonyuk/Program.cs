@@ -16,6 +16,7 @@ await builder.Build().RunAsync();
 static void ConfigureServices(IServiceCollection services, string baseAddress)
 {
 	services.AddShared();
+	services.AddMemoryCache();
 	services.AddScoped<IArticlesService, ArticlesService>();
 	services.AddScoped<IProjectsService, ProjectsService>();
 	services.AddScoped<IPublicationsService, PublicationsService>();

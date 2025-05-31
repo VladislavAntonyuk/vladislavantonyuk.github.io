@@ -22,12 +22,6 @@ jobs:
     - name: Update version
       run: sed -i 's/CACHE_VERSION_VALUE/${{ github.run_id }}/g' src/VladislavAntonyuk/wwwroot/service-worker.published.js
 
-    - name: Change base url
-      run: |
-        find src/VladislavAntonyuk -name "*.html" -type f -exec sed -i 's|{BASE_URL}|https://vladislavantonyuk.github.io|g' {} \;
-        find src/VladislavAntonyuk -name "*.razor" -type f -exec sed -i 's|{BASE_URL}|https://vladislavantonyuk.github.io|g' {} \;
-        mv "src/VladislavAntonyuk/wwwroot/index.prod.html" "src/VladislavAntonyuk/wwwroot/index.html"
-      
     - name: Change constants
       run: sed -i 's|public const string BaseUrl = "/";|public const string BaseUrl = "https://vladislavantonyuk.github.io/";|g' src/Shared/Constants.cs
 

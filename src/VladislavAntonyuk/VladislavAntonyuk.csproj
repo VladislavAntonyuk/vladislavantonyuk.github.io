@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
-    <PropertyGroup>
-	    <!--<WriteImportMapToHtml>true</WriteImportMapToHtml>-->
+	<PropertyGroup>
+
+		<OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
 
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
-        <BlazorWasmPrerenderingUrlPathToExplicitFetch>
+		<BlazorWasmPrerenderingUrlPathToExplicitFetch>
 			/events/.NET-Conf-2024-Ukraine;
 			/events/.NET-Conf-2023-Ukraine;
 			/events;
@@ -76,23 +77,23 @@
 			/articles/Secrets-of-successful-interview;
 			/articles/How-to-automatically-keep-your-code-clean;
 		</BlazorWasmPrerenderingUrlPathToExplicitFetch>
-    </PropertyGroup>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="BlazorWasmPreRendering.Build" Version="6.0.0-preview.1" />
-        <PackageReference Include="GiscusBlazor" Version="2.3.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-preview.3.25172.1" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-preview.3.25172.1" />
-        <PackageReference Include="MudBlazor" Version="8.5.1" />
-        <PackageReference Include="MudBlazor.Markdown" Version="8.5.1" />
-        <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="BlazorWasmPreRendering.Build" Version="6.0.0-preview.2" />
+		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-preview.4.25258.110" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-preview.4.25258.110" />
+		<PackageReference Include="MudBlazor" Version="8.7.0" />
+		<PackageReference Include="MudBlazor.Markdown" Version="8.6.0" />
+		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Shared\Shared.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Shared\Shared.csproj" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-    </ItemGroup>
+	<ItemGroup>
+		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+	</ItemGroup>
 </Project>

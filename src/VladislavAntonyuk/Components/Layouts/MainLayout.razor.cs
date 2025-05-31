@@ -51,7 +51,7 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 		{
 			if (mudThemeProvider is not null)
 			{
-				var isDarkSystemPreference = await mudThemeProvider.GetSystemPreference();
+				var isDarkSystemPreference = await mudThemeProvider.GetSystemDarkModeAsync();
 				if (isDarkMode != isDarkSystemPreference)
 				{
 					isDarkMode = isDarkSystemPreference;
