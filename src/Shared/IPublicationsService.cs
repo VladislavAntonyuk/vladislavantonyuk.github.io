@@ -4,5 +4,6 @@ using Models;
 
 public interface IPublicationsService
 {
-	Task<List<Publication>> Get(string? searchParameter = null);
+	Task<List<Publication>> GetArticles(string? searchParameter = null, CancellationToken cancellationToken = default);
+	Task<List<Thesis>> GetTheses(string? searchParameter = null, CancellationToken cancellationToken = default);
 }

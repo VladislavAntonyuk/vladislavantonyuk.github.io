@@ -6,9 +6,25 @@ using Shared.Models;
 
 internal class PublicationsService(HttpClient httpClient) : IPublicationsService
 {
-	public async Task<List<Publication>> Get(string? searchParameter = null)
+	public async Task<List<Publication>> GetArticles(string? searchParameter = null, CancellationToken cancellationToken = default)
 	{
-		var publications = await httpClient.GetFromJsonAsync<IEnumerable<Publication>>("data/publications.json");
+		var publications = await httpClient.GetFromJsonAsync<IEnumerable<Publication>>("data/publications.json", cancellationToken);
+		if (publications is null)
+		{
+			return [];
+		}
+
+		if (!string.IsNullOrEmpty(searchParameter))
+		{
+			publications = publications.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
+		}
+
+		return publications.OrderBy(x => x.Id).ToList();
+	}
+
+	public async Task<List<Thesis>> GetTheses(string? searchParameter = null, CancellationToken cancellationToken = default)
+	{
+		var publications = await httpClient.GetFromJsonAsync<IEnumerable<Thesis>>("data/theses.json", cancellationToken);
 		if (publications is null)
 		{
 			return [];

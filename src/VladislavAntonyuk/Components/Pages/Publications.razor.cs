@@ -6,23 +6,39 @@ using Shared.Models;
 
 public partial class Publications(IPublicationsService publicationsService) : VladislavAntonyukBaseComponent
 {
-	private IEnumerable<Publication>? pagedData;
-	private MudTable<Publication>? table;
+	private MudTable<Publication>? articlesTable;
+	private MudTable<Thesis>? thesesTable;
 
-	private string? searchString;
+	private string? articlesSearchString;
+	private string? thesisSearchString;
 
-	private async Task<TableData<Publication>> ServerReload(TableState state, CancellationToken cancellationToken)
+	private async Task<TableData<Publication>> ArticlesReload(TableState state, CancellationToken cancellationToken)
 	{
-		var data = await publicationsService.Get(searchString);
+		var data = await publicationsService.GetArticles(articlesSearchString, cancellationToken);
 		
-		pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList();
+		var pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList();
 
 		return new TableData<Publication> { TotalItems = data.Count, Items = pagedData };
 	}
 
-	private void OnSearch(string text)
+	private async Task<TableData<Thesis>> ThesesReload(TableState state, CancellationToken cancellationToken)
 	{
-		searchString = text;
-		table?.ReloadServerData();
+		var data = await publicationsService.GetTheses(thesisSearchString, cancellationToken);
+		
+		var pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList();
+
+		return new TableData<Thesis> { TotalItems = data.Count, Items = pagedData };
+	}
+
+	private void OnArticlesSearch(string text)
+	{
+		articlesSearchString = text;
+		articlesTable?.ReloadServerData();
+	}
+
+	private void OnThesesSearch(string text)
+	{
+		thesisSearchString = text;
+		thesesTable?.ReloadServerData();
 	}
 }
