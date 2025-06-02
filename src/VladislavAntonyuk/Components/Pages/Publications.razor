@@ -2,96 +2,97 @@
 @using global::Shared.Models
 @inherits VladislavAntonyukBaseComponent
 
-<Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications"/>
+<Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications" />
+<MudExpansionPanels MultiExpansion="true">
+	<MudExpansionPanel Text="Articles">
+		<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Publication>>>(ArticlesReload))"
+				  T="Publication"
+				  @ref="articlesTable"
+				  Bordered="true"
+				  Striped="true">
+			<ToolBarContent>
+				<MudText Typo="Typo.h6">Articles</MudText>
+				<MudSpacer />
+				<MudTextField T="string"
+							  ValueChanged="@(s=>OnArticlesSearch(s))"
+							  Placeholder="Search"
+							  Adornment="Adornment.Start"
+							  AdornmentIcon="@Icons.Material.Filled.Search"
+							  IconSize="Size.Medium"
+							  Class="mt-0" />
+			</ToolBarContent>
+			<HeaderContent>
+				<MudTh>Authors</MudTh>
+				<MudTh>Name</MudTh>
+				<MudTh>Journal</MudTh>
+				<MudTh>Volume</MudTh>
+				<MudTh>Pages</MudTh>
+				<MudTh>Date</MudTh>
+				<MudTh>DOI</MudTh>
+				<MudTh>Keywords</MudTh>
+			</HeaderContent>
+			<RowTemplate>
+				<MudTd DataLabel="Authors">@(string.Join(", ", context.Authors))</MudTd>
+				<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
+				<MudTd DataLabel="Journal">@context.Journal (@context.JournalCategory)</MudTd>
+				<MudTd DataLabel="Volume">@context.Volume</MudTd>
+				<MudTd DataLabel="Pages">@context.Pages</MudTd>
+				<MudTd DataLabel="Date">@context.Date</MudTd>
+				<MudTd DataLabel="DOI">@context.Doi</MudTd>
+				<MudTd DataLabel="Keywords">@(string.Join(", ", context.Keywords))</MudTd>
+			</RowTemplate>
+			<NoRecordsContent>
+				<MudText>No matching records found</MudText>
+			</NoRecordsContent>
+			<LoadingContent>
+				<MudText>Loading...</MudText>
+			</LoadingContent>
+			<PagerContent>
+				<MudTablePager />
+			</PagerContent>
+		</MudTable>
+	</MudExpansionPanel>
+	<MudExpansionPanel Text="Theses">
 
-<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Publication>>>(ArticlesReload))"
-		  T="Publication"
-		  @ref="articlesTable"
-		  Bordered="true"
-		  Striped="true">
-	<ToolBarContent>
-		<MudText Typo="Typo.h6">Publications</MudText>
-		<MudSpacer />
-		<MudTextField T="string"
-					  ValueChanged="@(s=>OnArticlesSearch(s))"
-					  Placeholder="Search"
-					  Adornment="Adornment.Start"
-					  AdornmentIcon="@Icons.Material.Filled.Search"
-					  IconSize="Size.Medium"
-					  Class="mt-0"/>
-	</ToolBarContent>
-	<HeaderContent>
-		<MudTh>Authors</MudTh>
-		<MudTh>Name</MudTh>
-		<MudTh>Journal</MudTh>
-		<MudTh>Volume</MudTh>
-		<MudTh>Pages</MudTh>
-		<MudTh>Date</MudTh>
-		<MudTh>DOI</MudTh>
-		<MudTh>Keywords</MudTh>
-	</HeaderContent>
-	<RowTemplate>
-		<MudTd DataLabel="Authors">@(string.Join(", ", context.Authors))</MudTd>
-		<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
-		<MudTd DataLabel="Journal">@context.Journal (@context.JournalCategory)</MudTd>
-		<MudTd DataLabel="Volume">@context.Volume</MudTd>
-		<MudTd DataLabel="Pages">@context.Pages</MudTd>
-		<MudTd DataLabel="Date">@context.Date</MudTd>
-		<MudTd DataLabel="DOI">@context.Doi</MudTd>
-		<MudTd DataLabel="Keywords">@(string.Join(", ", context.Keywords))</MudTd>
-	</RowTemplate>
-	<NoRecordsContent>
-		<MudText>No matching records found</MudText>
-	</NoRecordsContent>
-	<LoadingContent>
-		<MudText>Loading...</MudText>
-	</LoadingContent>
-	<PagerContent>
-		<MudTablePager />
-	</PagerContent>
-</MudTable>
-
-<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Thesis>>>(ThesesReload))"
-		  T="Thesis"
-		  @ref="thesesTable"
-		  Bordered="true"
-		  Striped="true">
-	<ToolBarContent>
-		<MudText Typo="Typo.h6">Theses</MudText>
-		<MudSpacer />
-		<MudTextField T="string"
-					  ValueChanged="@(s=>OnThesesSearch(s))"
-					  Placeholder="Search"
-					  Adornment="Adornment.Start"
-					  AdornmentIcon="@Icons.Material.Filled.Search"
-					  IconSize="Size.Medium"
-					  Class="mt-0"/>
-	</ToolBarContent>
-	<HeaderContent>
-		<MudTh>Authors</MudTh>
-		<MudTh>Name</MudTh>
-		<MudTh>Journal</MudTh>
-		<MudTh>Volume</MudTh>
-		<MudTh>Pages</MudTh>
-		<MudTh>Date</MudTh>
-		<MudTh>Keywords</MudTh>
-	</HeaderContent>
-	<RowTemplate>
-		<MudTd DataLabel="Authors">@(string.Join(", ", context.Authors))</MudTd>
-		<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
-		<MudTd DataLabel="Journal">@context.Journal</MudTd>
-		<MudTd DataLabel="Volume">@context.Volume</MudTd>
-		<MudTd DataLabel="Pages">@context.Pages</MudTd>
-		<MudTd DataLabel="Date">@context.Date</MudTd>
-		<MudTd DataLabel="Keywords">@(string.Join(", ", context.Keywords))</MudTd>
-	</RowTemplate>
-	<NoRecordsContent>
-		<MudText>No matching records found</MudText>
-	</NoRecordsContent>
-	<LoadingContent>
-		<MudText>Loading...</MudText>
-	</LoadingContent>
-	<PagerContent>
-		<MudTablePager />
-	</PagerContent>
-</MudTable>
+		<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Thesis>>>(ThesesReload))"
+				  T="Thesis"
+				  @ref="thesesTable"
+				  Bordered="true"
+				  Striped="true">
+			<ToolBarContent>
+				<MudText Typo="Typo.h6">Theses</MudText>
+				<MudSpacer />
+				<MudTextField T="string"
+							  ValueChanged="@(s=>OnThesesSearch(s))"
+							  Placeholder="Search"
+							  Adornment="Adornment.Start"
+							  AdornmentIcon="@Icons.Material.Filled.Search"
+							  IconSize="Size.Medium"
+							  Class="mt-0" />
+			</ToolBarContent>
+			<HeaderContent>
+				<MudTh>Authors</MudTh>
+				<MudTh>Name</MudTh>
+				<MudTh>Journal</MudTh>
+				<MudTh>Pages</MudTh>
+				<MudTh>Date</MudTh>
+			</HeaderContent>
+			<RowTemplate>
+				<MudTd DataLabel="Authors">@(string.Join(", ", context.Authors))</MudTd>
+				<MudTd DataLabel="Name"><MudLink Href="@context.Link" Target="_blank">@context.Name</MudLink></MudTd>
+				<MudTd DataLabel="Journal">@context.Journal</MudTd>
+				<MudTd DataLabel="Pages">@context.Pages</MudTd>
+				<MudTd DataLabel="Date">@context.Date</MudTd>
+			</RowTemplate>
+			<NoRecordsContent>
+				<MudText>No matching records found</MudText>
+			</NoRecordsContent>
+			<LoadingContent>
+				<MudText>Loading...</MudText>
+			</LoadingContent>
+			<PagerContent>
+				<MudTablePager />
+			</PagerContent>
+		</MudTable>
+	</MudExpansionPanel>
+</MudExpansionPanels>
