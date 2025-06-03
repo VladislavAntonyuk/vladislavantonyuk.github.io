@@ -77,13 +77,13 @@ In Visual Studio, create a new project and select Blazor WebAssembly Standalone 
 Add a required NuGet package:
 
 ```xml
-    <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="10.0.0-preview.3.25172.1" />
+<PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="10.0.0-preview.3.25172.1" />
 ```
 
 In `index.html`, add the following code to the `<body>` section:
 
 ```html
-  <script src="_content/Microsoft.Authentication.WebAssembly.Msal/AuthenticationService.js"></script>
+<script src="_content/Microsoft.Authentication.WebAssembly.Msal/AuthenticationService.js"></script>
 ```
 
 In `Program.cs`, add the following code to the `Main` method:
@@ -131,7 +131,7 @@ In `wwwroot/appsettings.json`, add the following code:
       "Authority": "https://YOUR_TENANT.ciamlogin.com/YOUR_TENANT.onmicrosoft.com/",
       "ValidateAuthority": false,
       "ClientId": "YOUR_CLIENT_APP_CLIENT_ID",
- }
+    }
 }
 ```
 
@@ -144,7 +144,7 @@ In Visual Studio, create a new project and select ASP.NET Core Web API.
 Add a required NuGet package:
 
 ```xml
-    <PackageReference Include="Microsoft.Identity.Web" Version="3.0.0" />
+<PackageReference Include="Microsoft.Identity.Web" Version="3.0.0" />
 ```
 
 In `Program.cs`, add the following code to configure authentication:
@@ -176,7 +176,7 @@ You can also validate the scope of the access token by calling `VerifyUserHasAny
 var scopeRequiredByApi = app.Configuration["AzureAd:Scopes"] ?? "";
 app.MapGet("/weatherforecast", (HttpContext httpContext) =>
 {
- httpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+    httpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
     return Results.Ok(new[] { "Sunny", "Cloudy", "Rainy" });
 }).RequireAuthorization();
 ```
@@ -200,6 +200,6 @@ The final step is to configure the `appsettings.json` file in the ASP.NET Core W
 
 We are done. Start the application and check the result.
 
-![Sign in](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/65/7.gif)
+I have create a template for this example, which you can use to quickly set up a Blazor WebAssembly Standalone application with Microsoft Entra External ID authentication and an ASP.NET Core Web API backend.
 
-The full code can be found on [GitHub](https://github.com/VladislavAntonyuk/AspireSamples/tree/main/EntraIDBlazorWebAssemblyAuth){target="_blank"}.
+You can find the template in the [GitHub repository](https://github.com/vladislavAntonyuk/.net-templates){target="_blank"}.
