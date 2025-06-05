@@ -1,6 +1,6 @@
 Hello!
 
-If you are still using Microsoft Entra External ID, please consider migrating to Microsoft Entra External ID. Microsoft Entra External ID is the new name for Microsoft Entra External ID, and it provides the same functionality with additional features and improvements. Furthermore, effective May 1, 2025, Azure AD B2C will no longer be available to purchase for new customers.
+If you are still using Azure Active Directory B2C, please consider migrating to Microsoft Entra External ID. Microsoft Entra External ID is the new name for Azure Active Directory B2C, and it provides the same functionality with additional features and improvements. Furthermore, effective May 1, 2025, Azure AD B2C will no longer be available to purchase for new customers.
 
 In this example, we will create a Blazor WebAssembly Standalone application and an ASP.NET Core Web API application that the Blazor WebAssembly application communicates with to access back-end services.
 
