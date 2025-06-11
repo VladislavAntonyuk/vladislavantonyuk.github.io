@@ -8,54 +8,54 @@
 	if (error is null)
 	{
 		<MudText Typo="Typo.h1" Align="Align.Center">Loading</MudText>
-		<MudProgressCircular Color="Color.Default" Indeterminate="true"/>
+		<MudProgressCircular Color="Color.Default" Indeterminate="true" />
 	}
 	else
 	{
-		<Head Title="@urlCreator.Decode(Id)"/>
-		<Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code"/>
+		<Head Title="@urlCreator.Decode(Id)" />
+		<Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code" />
 	}
 }
 else
 {
 	var url = urlCreator.Encode("articles", article.Name);
-	<Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image"/>
+	<Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image" />
 
 	<div class="article">
 		@if (!string.IsNullOrWhiteSpace(article.Image))
 		{
-			<MudImage Src="@article.Image" Alt="@article.Name" Fluid="true"/>
+			<MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
 		}
 		<MudText Typo="Typo.h1">@article.Name</MudText>
 		<MudStack Row="true" Justify="Justify.SpaceBetween">
 			<MudText>
-				<MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
+				<MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
 				@article.Created.ToString("dd MMMM yyyy")
 			</MudText>
 			<MudHidden Breakpoint="Breakpoint.Xs">
 				<MudStack Row="true">
-					<ShareButtons Url="@url"/>
+					<ShareButtons Url="@url" />
 				</MudStack>
 			</MudHidden>
 			<MudText Align="Align.End">
-				<MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small"/>
+				<MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
 				@article.CategoryName
 			</MudText>
 		</MudStack>
 		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
 			<MudStack Row="true" Justify="Justify.Center">
-				<ShareButtons Url="@url"/>
+				<ShareButtons Url="@url" />
 			</MudStack>
 		</MudHidden>
-		<BuyMeACoffee/>
+		<BuyMeACoffee />
 		<MudText Align="Align.Justify">
-			<MudMarkdown CodeBlockTheme="CodeBlockTheme.Vs2015" Value="@article.Content" />
+			<MudMarkdown Styling="@markdownStyle" Value="@article.Content" />
 		</MudText>
-		<BuyMeACoffee/>
+		<BuyMeACoffee />
 	</div>
 }
 
-<Ads Slot="1656353485"/>
+<Ads Slot="1656353485" />
 
 @if (suggestions?.Any() ?? false)
 {
@@ -70,7 +70,7 @@ else
 					@if (!string.IsNullOrWhiteSpace(suggestion.Image))
 					{
 						<MudCardMedia Image="@suggestion.Image"
-						              Style="background-size: contain"/>
+									  Style="background-size: contain" />
 					}
 					<MudCardContent>
 						<MudText Typo="Typo.h3">@suggestion.Name</MudText>
@@ -89,15 +89,15 @@ else
 {
 	<MudPaper Class="mt-4">
 		<Giscus Repo="VladislavAntonyuk/vladislavantonyuk.github.io"
-		        RepoId="R_kgDOImU4iA"
-                Category="Announcements"
-		        CategoryId="DIC_kwDOImU4iM4CYqI2"
-		        Mapping="Mapping.Title"
-		        ReactionsEnabled="true"
-		        EmitMetadata="false"
-		        InputPosition="InputPosition.Top"
-		        Theme="preferred_color_scheme"
-		        Lang="en"
-		        Loading="Loading.Lazy" />
+				RepoId="R_kgDOImU4iA"
+				Category="Announcements"
+				CategoryId="DIC_kwDOImU4iM4CYqI2"
+				Mapping="Mapping.Title"
+				ReactionsEnabled="true"
+				EmitMetadata="false"
+				InputPosition="InputPosition.Top"
+				Theme="preferred_color_scheme"
+				Lang="en"
+				Loading="Loading.Lazy" />
 	</MudPaper>
 }
