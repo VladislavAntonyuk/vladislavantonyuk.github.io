@@ -13,6 +13,7 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Turn-any-phone-into-an-IP-Camera-in-30-Minutes-using-.NET-MAUI;
 			/articles/Microsoft-Entra-External-ID-authentication-in-.NET-Blazor-WebAssembly-Application;
 			/articles/How-to-Get-the-Active-Window-in-.NET-MAUI;
 			/articles/Prioritizing-Test-Execution-in-xUnit-v3;
@@ -81,7 +82,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BlazorWasmPreRendering.Build" Version="6.0.0-preview.2" />
+		<PackageReference Include="BlazorWasmPreRendering.Build" Version="7.0.0-preview.1" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-preview.5.25277.114" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-preview.5.25277.114" />

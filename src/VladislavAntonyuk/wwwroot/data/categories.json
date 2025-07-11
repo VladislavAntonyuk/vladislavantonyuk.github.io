@@ -387,6 +387,14 @@
 				"description": "",
 				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, xaml",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/64/64.png"
+			},
+			{
+				"id": 66,
+				"created": "2025-07-20",
+				"name": "Turn any phone into an IP Camera in 30 Minutes using .NET MAUI",
+				"description": "Transform any phone into a professional IP camera using .NET MAUI. Learn two powerful approaches: MJPEG streaming for real-time monitoring and video recording with audio for comprehensive surveillance. Perfect for repurposing old devices!",
+				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, ip camera, camera, video streaming, live stream, web server",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/66/66.png"
 			}
 		]
 	},
