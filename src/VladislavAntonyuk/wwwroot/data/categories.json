@@ -395,6 +395,22 @@
 				"description": "Transform any phone into a professional IP camera using .NET MAUI. Learn two powerful approaches: MJPEG streaming for real-time monitoring and video recording with audio for comprehensive surveillance. Perfect for repurposing old devices!",
 				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, ip camera, camera, video streaming, live stream, web server",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/66/66.png"
+			},
+			{
+				"id": 67,
+				"created": "2025-08-02",
+				"name": "Plugin.Maui.Theme review",
+				"description": "Plugin.Maui.Theme - The Must Have Tool to Instantly Transform Your .NET MAUI App",
+				"keywords": "dotnet, .net, maui, android, ios, maccatalyst, windows, tizen, theme",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/67/67.png"
+			},
+			{
+				"id": 68,
+				"created": "2025-09-12",
+				"name": "Take Your .NET MAUI Testing to the Next Level with Maestro",
+				"description": "Discover how Maestro can elevate your .NET MAUI app testing with declarative flows, cross-platform support, and visual test creation.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, testing, xUnit, Appium, cross-platform development, Maestro",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/68/68.png"
 			}
 		]
 	},

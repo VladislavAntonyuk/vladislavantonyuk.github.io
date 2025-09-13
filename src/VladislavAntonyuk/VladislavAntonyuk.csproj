@@ -13,6 +13,8 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Take-Your-.NET-MAUI-Testing-to-the-Next-Level-with-Maestro;
+			/articles/Plugin.Maui.Theme-review;
 			/articles/Turn-any-phone-into-an-IP-Camera-in-30-Minutes-using-.NET-MAUI;
 			/articles/Microsoft-Entra-External-ID-authentication-in-.NET-Blazor-WebAssembly-Application;
 			/articles/How-to-Get-the-Active-Window-in-.NET-MAUI;
@@ -84,10 +86,10 @@
 	<ItemGroup>
 		<PackageReference Include="BlazorWasmPreRendering.Build" Version="7.0.0-preview.1" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-preview.6.25358.103" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-preview.6.25358.103" />
-		<PackageReference Include="MudBlazor" Version="8.10.0" />
-		<PackageReference Include="MudBlazor.Markdown" Version="8.9.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-rc.1.25451.107" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-rc.1.25451.107" />
+		<PackageReference Include="MudBlazor" Version="8.12.0" />
+		<PackageReference Include="MudBlazor.Markdown" Version="8.11.0" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.1" />
 	</ItemGroup>
 
