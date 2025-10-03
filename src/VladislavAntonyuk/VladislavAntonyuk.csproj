@@ -7,6 +7,7 @@
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
 		<BlazorWasmPrerenderingUrlPathToExplicitFetch>
+			/events/.NET-Conf-2025-Ukraine;
 			/events/.NET-Conf-2024-Ukraine;
 			/events/.NET-Conf-2023-Ukraine;
 			/events;
@@ -88,9 +89,9 @@
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.0-rc.1.25451.107" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0-rc.1.25451.107" />
-		<PackageReference Include="MudBlazor" Version="8.12.0" />
+		<PackageReference Include="MudBlazor" Version="8.13.0" />
 		<PackageReference Include="MudBlazor.Markdown" Version="8.11.0" />
-		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.1" />
+		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>

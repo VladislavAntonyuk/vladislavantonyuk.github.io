@@ -7,43 +7,35 @@ using X.Web.Sitemap.Extensions;
 
 public interface ISitemapService
 {
-	ValueTask<string> ParseSitemap();
-	Task<string> GenerateSitemap();
+	Task GenerateSitemap();
 }
 
-internal class SitemapService(ArticlesService articlesService, IUrlCreator urlCreator) : ISitemapService
+internal class SitemapService(ArticlesService articlesService, EventsService eventsService, IUrlCreator urlCreator) : ISitemapService
 {
 	private const string FilePath = "sitemap.xml";
 	private Sitemap? sitemap = [];
 
-	public async ValueTask<string> ParseSitemap()
-	{
-		if (!File.Exists(FilePath))
-		{
-			return "File not found";
-		}
-
-		var xml = await File.ReadAllTextAsync(FilePath);
-		Sitemap.TryParse(xml, out sitemap);
-		return FormatXml(sitemap?.ToXml());
-	}
-
-	public async Task<string> GenerateSitemap()
+	public async Task GenerateSitemap()
 	{
 		const double priority = 0.8;
 		sitemap =
 		[
 			CreateUrl("", 1, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
 			CreateUrl("articles", priority, new DateTime(2021, 01, 01), ChangeFrequency.Weekly),
-			CreateUrl("projects", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly)
+			CreateUrl("projects", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly),
+			CreateUrl("events", priority, new DateTime(2021, 01, 01), ChangeFrequency.Monthly)
 		];
 		var articles = await articlesService.GetArticles();
 		sitemap.AddRange(articles.Select(article => CreateUrl("articles", priority,
-		                                                      article.Created,
-		                                                      ChangeFrequency.Monthly, article.Name)));
+															  article.Created,
+															  ChangeFrequency.Monthly, article.Name)));
+
+		var events = await eventsService.GetEvents();
+		sitemap.AddRange(events.Select(x => CreateUrl("events", priority,
+															x.Date.GetValueOrDefault().UtcDateTime,
+															ChangeFrequency.Monthly, x.Name)));
 
 		await sitemap.SaveAsync(Environment.CurrentDirectory + "/" + FilePath);
-		return await ParseSitemap();
 	}
 
 	private Url CreateUrl(string url,

@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Markdig" Version="0.41.3" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-preview.6.25358.103" />
+        <PackageReference Include="Markdig" Version="0.42.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-rc.1.25451.107" />
         <PackageReference Include="X.Web.Sitemap" Version="2.10.5" />
     </ItemGroup>
 
