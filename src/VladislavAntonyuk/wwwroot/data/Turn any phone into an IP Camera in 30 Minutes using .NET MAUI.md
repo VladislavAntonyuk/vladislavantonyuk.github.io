@@ -408,7 +408,9 @@ public partial class CommunityToolkitCameraPage
 </ContentPage>
 ```
 
-![.NET MAUI IP Camera in Action](https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/65/maui-ip-camera.gif)
+<video width="100%" controls>
+  <source src="https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/66/maui-ip-camera.mp4" type="video/mp4">
+</video>
 
 ## Key Features
 

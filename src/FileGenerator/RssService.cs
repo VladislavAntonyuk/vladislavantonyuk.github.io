@@ -1,29 +1,20 @@
 ﻿namespace FileGenerator;
 
-using System.Xml.Linq;
 using System.Xml.Serialization;
-using Markdig;
-using Markdig.Extensions.MediaLinks;
 using Models;
 using Shared;
 using Shared.Models;
 
 public interface IRssService
 {
-	ValueTask<string> ParseRss();
-	Task<string> GenerateRss();
+	Task GenerateRss();
 }
 
-internal class RssService(ArticlesService articlesService, IUrlCreator urlCreator) : IRssService
+internal class RssService(ArticlesService articlesService, EventsService eventsService, IUrlCreator urlCreator) : IRssService
 {
 	private const string FilePath = "rss.xml";
 
-	public async ValueTask<string> ParseRss()
-	{
-		return File.Exists(FilePath) ? FormatXml(await File.ReadAllTextAsync(FilePath)) : "File not found";
-	}
-
-	public async Task<string> GenerateRss()
+	public async Task GenerateRss()
 	{
 		Rss rss = new()
 		{
@@ -37,7 +28,7 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 					Rel = "self",
 					Type = "application/rss+xml"
 				},
-				Description = $"{Constants.ProductName} - Articles",
+				Description = $"{Constants.ProductName} - Personal Website",
 				Title = Constants.ProductName,
 				Items = []
 			}
@@ -45,10 +36,16 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 		var articles = await articlesService.GetArticles();
 		if (articles.Count == 0)
 		{
-			return string.Empty;
+			return;
 		}
 
 		rss.Channel.Items.AddRange(articles.Select(CreateItem));
+
+		var events = await eventsService.GetEvents();
+		if (events.Count > 0)
+		{
+			rss.Channel.Items.AddRange(events.Select(CreateItem));
+		}
 
 		var ns = new XmlSerializerNamespaces();
 		ns.Add("content", "http://purl.org/rss/1.0/modules/content/");
@@ -58,13 +55,12 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 		await using var writer = new StreamWriter(FilePath);
 		serializer.Serialize(writer, rss, ns);
 		writer.Close();
-		return await ParseRss();
 	}
 
 	private Item CreateItem(Article article)
 	{
 		var url = urlCreator.Encode("articles", article.Name);
-		var content = $"<p>{article.Description}</p><a href='{url}'>{url}</a>";//Markdown.ToHtml(article.Content ?? string.Empty, GetPipeline());
+		var content = $"<p>{article.Description}</p><a href='{url}'>{url}</a>";
 		return new Item
 		{
 			Link = url,
@@ -77,45 +73,19 @@ internal class RssService(ArticlesService articlesService, IUrlCreator urlCreato
 		};
 	}
 
-	private static string FormatXml(string xml)
+	private Item CreateItem(Event @event)
 	{
-		try
+		var url = urlCreator.Encode("events", @event.Name);
+		var content = $"<p>{@event.Description}</p><a href='{url}'>{url}</a>";
+		return new Item
 		{
-			var doc = XDocument.Parse(xml);
-			return doc.ToString();
-		}
-		catch (Exception)
-		{
-			return xml;
-		}
-	}
-
-	private static MarkdownPipeline GetPipeline()
-	{
-		var mediaOptions = new MediaOptions();
-
-		var builder = new MarkdownPipelineBuilder();
-		builder.UseAbbreviations()
-		       .UseAutoIdentifiers()
-		       .UseCitations()
-		       .UseCustomContainers()
-		       .UseDefinitionLists()
-		       .UseEmphasisExtras()
-		       .UseFigures()
-		       .UseFooters()
-		       .UseFootnotes()
-		       .UseGridTables()
-		       .UseMediaLinks(mediaOptions)
-		       .UsePipeTables()
-		       .UseListExtras()
-		       .UseTaskLists()
-		       .UseAutoLinks()
-		       .UseSmartyPants()
-		       .UseEmojiAndSmiley();
-		builder.UseMathematics();
-		builder.UseDiagrams();
-
-		builder.UseGenericAttributes(); // Must be last as it is one parser that is modifying other parsers
-		return builder.Build();
+			Link = url,
+			Guid = url,
+			Description = @event.Description,
+			Content = content,
+			Creator = Constants.ProductName,
+			Title = @event.Name,
+			PubDate = (@event.Date - TimeSpan.FromDays(30)).GetValueOrDefault().DateTime.ToString("R")
+		};
 	}
 }
