@@ -1,17 +1,9 @@
 ﻿@using VladislavAntonyuk.Components.Layouts
-@using VladislavAntonyuk.Components
 @using VladislavAntonyuk.Components.Pages
 
-<Router AppAssembly="@typeof(App).Assembly">
-	<Found Context="routeData"> @* NotFoundPage="typeof(Pages.NotFoundPage)"> *@
+<Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(NotFound)">
+	<Found Context="routeData" >
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
-    <NotFound>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <Error ErrorCode="404"
-                   ErrorTitle="Oops! This Page Could Not Be Found"
-                   ErrorText="Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable" />
-        </LayoutView>
-    </NotFound>
 </Router>
