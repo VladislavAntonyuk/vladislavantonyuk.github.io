@@ -482,6 +482,14 @@
 				"description": "",
 				"keywords": "dotnet, .net, excel, benchmark",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/61/61.png"
+			},
+			{
+				"id": 69,
+				"created": "2025-10-04",
+				"name": "How to Reference a Class Library in .NET Aspire",
+				"description": "",
+				"keywords": "dotnet, .net, aspire, class library, reference",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/69/69.png"
 			}
 		]
 	},
