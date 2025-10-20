@@ -3,7 +3,7 @@
 @using VladislavAntonyuk.Components.Pages
 
 <Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
+	<Found Context="routeData"> @* NotFoundPage="typeof(Pages.NotFoundPage)"> *@
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
