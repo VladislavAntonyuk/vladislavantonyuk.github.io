@@ -39,7 +39,7 @@ else
 		</MudStack>
 
 		<MudText Align="Align.Justify">
-			<MudMarkdown Value="@(@event.Description?.ReplaceLineEndings())" />
+			<MudMarkdown Value="@(@event.Description.ReplaceLineEndings())" />
 		</MudText>
 	</div>
 }
