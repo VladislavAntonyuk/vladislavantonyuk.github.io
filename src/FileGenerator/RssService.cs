@@ -76,7 +76,7 @@ internal class RssService(ArticlesService articlesService, EventsService eventsS
 	private Item CreateItem(Event @event)
 	{
 		var url = urlCreator.Encode("events", @event.Name);
-		var content = $"<p>{@event.Description}</p><a href='{url}'>{url}</a>";
+		var content = $"<p>{Markdig.Markdown.ToHtml(@event.Description)}</p><a href='{url}'>{url}</a>";
 		return new Item
 		{
 			Link = url,
