@@ -6,37 +6,40 @@
 
 <EventsNavigationComponent>
 	<ChildContent Context="events">
-		<MudGrid>
-			@foreach (var @event in events)
+		<MudTimeline>
+			@foreach (var @event in events.OrderByDescending(e => e.Date))
 			{
 				var url = urlCreator.Encode("events", @event.Name);
-				<MudItem sm="6">
-					<MudCard Style="height: 100%">
-						@if (!string.IsNullOrWhiteSpace(@event.Image))
-						{
-							<MudLink Href="@url">
-								<MudCardMedia Image="@(@event.Image)"
-											  Style="background-size: contain" />
-							</MudLink>
-						}
-						<MudCardContent>
-							<MudText Typo="Typo.h4" Align="Align.Center">@(@event.Name)</MudText>
-							@if (!string.IsNullOrEmpty(@event.Location))
-							{
-								<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Location)</MudText>
-							}
-							
+				<MudTimelineItem Color="Color.Primary" Icon="@Icons.Material.Filled.Event">
+					<ItemOpposite>
+						<MudStack Spacing="0">
 							@if (@event.Date is not null)
 							{
-								<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Date)</MudText>
+								<MudText Typo="Typo.subtitle1">@(@event.Date)</MudText>
 							}
-						</MudCardContent>
-						<MudCardActions>
-							<MudLink Href="@url">Go To Details</MudLink>
-						</MudCardActions>
-					</MudCard>
-				</MudItem>
+
+							@if (!string.IsNullOrWhiteSpace(@event.Location))
+							{
+								var mapUrl = $"https://www.google.com/maps?q={Uri.EscapeDataString(@event.Location)}";
+								<MudLink Href="@mapUrl" Typo="Typo.subtitle1" Target="_blank">@(@event.Location)</MudLink>
+							}
+						</MudStack>
+					</ItemOpposite>
+					<ItemContent>
+						<MudLink Href="@url">
+							<MudPaper Class="pa-4" Elevation="1">
+								<MudStack Spacing="1">
+									<MudText Typo="Typo.h3" Class="mb-2">@(@event.Name)</MudText>
+									@if (!string.IsNullOrWhiteSpace(@event.Image))
+									{
+										<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" ObjectFit="ObjectFit.ScaleDown" Style="max-height:450px" />
+									}
+								</MudStack>
+							</MudPaper>
+						</MudLink>
+					</ItemContent>
+				</MudTimelineItem>
 			}
-		</MudGrid>
+		</MudTimeline>
 	</ChildContent>
 </EventsNavigationComponent>
