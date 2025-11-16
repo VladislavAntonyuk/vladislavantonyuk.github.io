@@ -33,6 +33,6 @@ internal class EventsService(HttpClient httpClient) : IEventsService
 			events = events.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return events.OrderBy(x => x.Id).ToList();
+		return events.OrderByDescending(x => x.Date).ToList();
 	}
 }

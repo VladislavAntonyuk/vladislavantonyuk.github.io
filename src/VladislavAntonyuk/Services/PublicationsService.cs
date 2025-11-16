@@ -26,7 +26,7 @@ internal class PublicationsService(HttpClient httpClient) : IPublicationsService
 			publications = publications.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return publications.OrderBy(x => x.Id).ToList();
+		return publications.OrderByDescending(x => x.Date).ToList();
 	}
 
 	public async Task<List<Thesis>> GetTheses(string? searchParameter = null, CancellationToken cancellationToken = default)
@@ -42,6 +42,6 @@ internal class PublicationsService(HttpClient httpClient) : IPublicationsService
 			publications = publications.Where(x => x.Name.Contains(searchParameter, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return publications.OrderBy(x => x.Id).ToList();
+		return publications.OrderByDescending(x => x.Date).ToList();
 	}
 }

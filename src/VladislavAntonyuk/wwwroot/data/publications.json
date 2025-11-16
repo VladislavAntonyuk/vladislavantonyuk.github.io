@@ -8,7 +8,7 @@
 		"journalCategory": "B",
 		"volume": "25",
 		"pages": "3-12",
-		"date": "2021",
+		"date": 2021,
 		"doi": "http://dx.doi.org/10.15421/432101",
 		"keywords": [ "архітектура програмного забезпечення", "архітектурні шаблони", "розробка кросплатформового додатка" ]
 	},
@@ -21,7 +21,7 @@
 		"journalCategory": "B",
 		"volume": "26",
 		"pages": "3-8",
-		"date": "2022",
+		"date": 2022,
 		"doi": "http://dx.doi.org/10.15421/432201",
 		"keywords": [ ".NET MAUI",	"Draw & GO", "мобільний додаток", "крос-платформна розрозбка" ]
 	},
@@ -34,7 +34,7 @@
 		"journalCategory": "B",
 		"volume": "5/148",
 		"pages": "133-140",
-		"date": "2023",
+		"date": 2023,
 		"doi": "https://doi.org/10.34185/1562-9945-5-148-2023-12",
 		"keywords": [ "Draw & GO", "автоматизація", "макроси", "продуктивність", "оптимізація", "плагін-архітектура" ]
 	},
@@ -47,7 +47,7 @@
 		"journalCategory": "B",
 		"volume": "5/154",
 		"pages": "16-23",
-		"date": "2024",
+		"date": 2024,
 		"doi": "https://doi.org/10.34185/1562-9945-5-154-2024-02",
 		"keywords": [ "automation and optimization of workflows", "macro", "human-machine interaction", "artificial intelligence", "LLMs", "Prompt Engineering", "computerized devices" ]
 	}

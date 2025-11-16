@@ -6,6 +6,6 @@ public class Thesis : BaseEntity
 	public required string Name { get; set; }
 	public string? Journal { get; set; }
 	public string? Pages { get; set; }
-	public required string Date { get; set; }
+	public required int Date { get; set; }
 	public string? Link { get; set; }
 }
