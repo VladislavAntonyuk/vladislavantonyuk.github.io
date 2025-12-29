@@ -4,26 +4,35 @@
 
 <Head Title="Vladislav Antonyuk - Projects" Description="Vladislav Antonyuk - Projects"/>
 
+<MudPaper Class="hero" Elevation="0">
+    <MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        <MudText Typo="Typo.h3" Align="Align.Center">Projects</MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center">Selected open source and professional work.</MudText>
+    </MudStack>
+</MudPaper>
+
 <ProjectsNavigationComponent>
     <ChildContent Context="projects">
         <MudGrid>
             @foreach (var project in projects)
             {
-                <MudItem sm="6">
-                    <MudCard Style="height: 100%">
-                        @if (!string.IsNullOrWhiteSpace(project.Image))
-                        {
-                            <MudLink Href="@project.Link" Target="_blank">
-                                <MudCardMedia Image="@project.Image"
-                                              Style="background-size: contain" />
-                            </MudLink>
-                        }
+                <MudItem xs="12" sm="6" md="4" lg="4">
+	                <MudCard Style="height: 100%">
+		                @if (!string.IsNullOrWhiteSpace(project.Image))
+		                {
+			                <MudLink Href="@project.Link" Target="_blank">
+				                <MudCardMedia Image="@project.Image"
+				                              Style="background-size: contain" />
+			                </MudLink>
+		                }
                         <MudCardContent>
-                            <MudText Typo="Typo.h4">@project.Name</MudText>
-                            <MudText>@project.Description</MudText>
+                            <MudStack Spacing="1">
+                                <MudText Typo="Typo.h5" Class="truncate">@project.Name</MudText>
+                                <MudText Typo="Typo.body1" Class="truncate-3">@project.Description</MudText>
+                            </MudStack>
                         </MudCardContent>
                         <MudCardActions>
-                            <MudLink Href="@project.Link" Target="_blank">Go To Details</MudLink>
+                            <MudButton Href="@project.Link" Target="_blank" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.OpenInNew">Open</MudButton>
                         </MudCardActions>
                     </MudCard>
                 </MudItem>

@@ -4,41 +4,52 @@
 
 <Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
 
+<MudPaper Class="hero" Elevation="0">
+	<MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
+		<MudText Typo="Typo.h3" Align="Align.Center">Events</MudText>
+		<MudText Typo="Typo.body1" Align="Align.Center">Upcoming and past talks, conferences, and meetups.</MudText>
+	</MudStack>
+</MudPaper>
+
 <EventsNavigationComponent>
 	<ChildContent Context="events">
 		<MudTimeline>
 			@foreach (var @event in events.OrderByDescending(e => e.Date))
 			{
 				var url = urlCreator.Encode("events", @event.Name);
-				<MudTimelineItem Color="Color.Primary" Icon="@Icons.Material.Filled.Event">
+				<MudTimelineItem Color="Color.Secondary" Icon="@Icons.Material.Filled.EventAvailable">
 					<ItemOpposite>
-						<MudStack Spacing="0">
+						<MudStack Spacing="0" AlignItems="AlignItems.End">
 							@if (@event.Date is not null)
 							{
-								<MudText Typo="Typo.subtitle1">@(@event.Date)</MudText>
+								<MudText Typo="Typo.body1" Align="Align.Center">
+									<MudChip T="string"
+									         Text="@(@event.Date.ToString())"
+									         Color="Color.Secondary"/>
+								</MudText>
 							}
 
-							@if (!string.IsNullOrWhiteSpace(@event.Location))
-							{
-								var mapUrl = $"https://www.google.com/maps?q={Uri.EscapeDataString(@event.Location)}";
-								<MudLink Href="@mapUrl" Typo="Typo.subtitle1" Target="_blank">@(@event.Location)</MudLink>
+							@{
+								var price = $"Price: {@event.Price}";
 							}
+							<MudText Typo="Typo.body1" Align="Align.Center">
+								<MudChip T="string" Text="@price" Color="Color.Info" />
+							</MudText>
+
 						</MudStack>
 					</ItemOpposite>
 					<ItemContent>
-						<MudLink Href="@url">
-							<MudPaper Class="pa-4" Elevation="1">
-								<MudStack Spacing="1">
-									<MudText Typo="Typo.h3" Class="mb-2">@(@event.Name)</MudText>
-									@if (!string.IsNullOrWhiteSpace(@event.Image))
-									{
-										<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" ObjectFit="ObjectFit.ScaleDown" Style="max-height:450px" />
-									}
-									
-									<MudText Typo="Typo.body1">Go to event details...</MudText>
-								</MudStack>
-							</MudPaper>
-						</MudLink>
+						<MudPaper Class="pa-4" Elevation="1">
+							<MudStack Spacing="1">
+								<MudText Typo="Typo.h3" Class="mb-2">@(@event.Name)</MudText>
+								@if (!string.IsNullOrWhiteSpace(@event.Image))
+								{
+									<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" ObjectFit="ObjectFit.ScaleDown" Style="max-height:450px" />
+								}
+
+								<MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">View event details</MudButton>
+							</MudStack>
+						</MudPaper>
 					</ItemContent>
 				</MudTimelineItem>
 			}

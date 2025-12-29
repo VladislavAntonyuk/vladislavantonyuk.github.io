@@ -8,28 +8,67 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 {
 	private readonly MudTheme theme = new()
 	{
+		PaletteLight = new PaletteLight()
+		{
+			Primary = "#5F7FFF",
+			PrimaryContrastText = Colors.Shades.White,
+			Secondary = "#00C2FF",
+			SecondaryContrastText = Colors.Shades.White,
+			Info = "#3b82f6",
+			Success = "#22c55e",
+			Warning = "#eab308",
+			Error = "#ef4444",
+			Dark = "#0f172a",
+			Background = "#f5f7fb",
+			Surface = "#ffffff",
+			AppbarBackground = "#5F7FFF",
+			AppbarText = Colors.Shades.White,
+			DrawerBackground = "#ffffff",
+		},
+		PaletteDark = new PaletteDark()
+		{
+			Primary = "#5F7FFF",
+			PrimaryContrastText = Colors.Shades.White,
+			Secondary = "#00C2FF",
+			SecondaryContrastText = Colors.Shades.White,
+			Info = "#818cf8",
+			Success = "#34d399",
+			Warning = "#fbbf24",
+			Error = "#f87171",
+			Dark = "#020617",
+			Background = "#020617",
+			Surface = "#0f172a",
+			AppbarBackground = "#5F7FFF",
+			AppbarText = Colors.Shades.White,
+			DrawerBackground = "#0f172a",
+		},
 		Typography = new Typography
 		{
 			H1 = new H1Typography
 			{
-				FontSize = "2.5rem"
+				FontSize = "2.55rem",
+				FontWeight = "700",
+				LetterSpacing = "0.5px"
 			},
 			H2 = new H2Typography
 			{
-				FontSize = "2rem"
-			}
-			,
+				FontSize = "2.05rem",
+				FontWeight = "700"
+			},
 			H3 = new H3Typography
 			{
-				FontSize = "1.75rem"
+				FontSize = "1.78rem",
+				FontWeight = "600"
 			},
 			H4 = new H4Typography
 			{
-				FontSize = "1.5rem"
+				FontSize = "1.52rem",
+				FontWeight = "600"
 			},
 			H5 = new H5Typography
 			{
-				FontSize = "1.25rem"
+				FontSize = "1.28rem",
+				FontWeight = "600"
 			}
 		}
 	};
@@ -42,6 +81,12 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 	private void DrawerToggle()
 	{
 		drawerOpen = !drawerOpen;
+	}
+
+	private void ToggleTheme()
+	{
+		isDarkMode = !isDarkMode;
+		StateHasChanged();
 	}
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)

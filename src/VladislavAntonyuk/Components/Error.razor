@@ -1,14 +1,19 @@
 @using VladislavAntonyuk.Components.Monetization
 @inherits VladislavAntonyukBaseComponent
 
-<Head Title="@ErrorTitle" Description="@ErrorText"/>
+<Head Title="@ErrorTitle" Description="@ErrorText" />
 
-<MudText Typo="Typo.h1">@ErrorTitle</MudText>
-@if (ErrorCode != 0)
-{
-	<MudText Typo="Typo.h2">@ErrorCode</MudText>
-}
-<MudText>@ErrorText</MudText>
-<MudButton Href="/">Go To The Homepage</MudButton>
+<MudPaper Class="pa-8 notfound" Elevation="1">
+	<MudStack Spacing="2" AlignItems="AlignItems.Center">
+		<MudIcon Icon="@Icons.Material.Filled.SearchOff" Color="Color.Error" Size="Size.Large" />
+		@if (ErrorCode != 0)
+		{
+			<MudText Typo="Typo.h2">@ErrorCode</MudText>
+		}
+		<MudText Typo="Typo.h4" Align="Align.Center">@ErrorTitle</MudText>
+		<MudText Typo="Typo.body1" Align="Align.Center">@ErrorText</MudText>
+		<MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/" StartIcon="@Icons.Material.Filled.Home">Return Home</MudButton>
+	</MudStack>
+</MudPaper>
 
-<Ads Slot="4634952188"/>
+<Ads Slot="4634952188" />

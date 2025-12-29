@@ -21,7 +21,7 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-	<MudAppBar Elevation="1">
+    <MudAppBar Elevation="2" Dense="true">
 		<MudHidden Breakpoint="Breakpoint.SmAndDown">
 			<MudLink Href="/">
 				<MudImage Src="https://avatars2.githubusercontent.com/u/33021114" Alt="@Constants.ProductName"
@@ -32,24 +32,25 @@
 			<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" aria-label="Menu" />
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.Xs">
-			<MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
+            <MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
 		</MudHidden>
 		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
 			<MudLink Href="/" Typo="Typo.subtitle2" Color="Color.Inherit">@Constants.ProductName</MudLink>
 		</MudHidden>
-		<MudSpacer />
+        <MudSpacer />
 
-		<MudButton Color="Color.Primary"
-				   Variant="Variant.Filled"
-				   Href="https://github.com/VladislavAntonyuk/vladislavantonyuk.github.io/issues"
-				   Target="_blank">
-			Submit Issue
-		</MudButton>
+        <MudIconButton Icon="@(!isDarkMode ? Icons.Material.Outlined.DarkMode : Icons.Material.Outlined.LightMode)" Color="Color.Inherit" OnClick="ToggleTheme" aria-label="Toggle theme"></MudIconButton>
+		
+        <MudIconButton Icon="@Icons.Material.Filled.ErrorOutline"
+                       Color="Color.Inherit"
+                       Href="https://github.com/VladislavAntonyuk/vladislavantonyuk.github.io/issues"
+                       Target="_blank"
+                       aria-label="Submit issue"></MudIconButton>
 
-		<MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked" aria-label="RSS"></MudIconButton>
+        <MudIconButton Icon="@Icons.Material.Filled.RssFeed" Color="Color.Inherit" OnClick="RssClicked" aria-label="RSS"></MudIconButton>
 	</MudAppBar>
 
-	<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
+    <MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Responsive" Color="Color.Default">
 		<NavMenu />
 		<NavCategories />
 		<MudStack Row="true" Justify="Justify.Center">
@@ -64,7 +65,7 @@
 	</MudDrawer>
 
 	<MudMainContent>
-		<MudContainer MaxWidth="MaxWidth.False">
+        <MudContainer MaxWidth="MaxWidth.False" Class="py-2">
 
 			<ErrorBoundary @ref="errorBoundary">
 				<ChildContent>
@@ -76,13 +77,13 @@
 				</ErrorContent>
 			</ErrorBoundary>
 
-			<MudScrollToTop Style="width:64px;height:64px;bottom:96px;z-index: 10000;">
-				<MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowUpward" Style="width:64px;height:64px" />
+            <MudScrollToTop Class="scroll-to-top">
+                <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowUpward" Class="scroll-to-top-fab" />
 			</MudScrollToTop>
 		</MudContainer>
 	</MudMainContent>
 
-	<MudDrawer Open="true" Anchor="Anchor.End" Elevation="1" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Responsive">
+    <MudDrawer Open="true" Anchor="Anchor.End" Elevation="1" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Responsive" Color="Color.Default">
 		<Affiliate Class="mt-2 mx-2"/>
 		<Ads Slot="1173073065" />
 	</MudDrawer>

@@ -5,99 +5,101 @@
 
 @if (article is null)
 {
-	if (error is null)
-	{
-		<MudText Typo="Typo.h1" Align="Align.Center">Loading</MudText>
-		<MudProgressCircular Color="Color.Default" Indeterminate="true" />
-	}
-	else
-	{
-		<Head Title="@urlCreator.Decode(Id)" />
-		<Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code" />
-	}
+    <MudPaper Class="pa-6" Elevation="0" Style="text-align:center;">
+        @if (error is null)
+        {
+            <MudProgressCircular Color="Color.Primary" Indeterminate="true" Size="Size.Large" />
+            <MudText Typo="Typo.h5" Class="mt-4">Loading article...</MudText>
+        }
+        else
+        {
+            <Head Title="@urlCreator.Decode(Id)" />
+            <Error ErrorText="@error.Message" ErrorTitle="Error" ErrorCode="@error.Code" />
+        }
+    </MudPaper>
 }
 else
 {
-	var url = urlCreator.Encode("articles", article.Name);
-	<Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image" />
-
-	<div class="article">
-		@if (!string.IsNullOrWhiteSpace(article.Image))
-		{
-			<MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
-		}
-		<MudText Typo="Typo.h1">@article.Name</MudText>
-		<MudStack Row="true" Justify="Justify.SpaceBetween">
-			<MudText>
-				<MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
-				@article.Created.ToString("dd MMMM yyyy")
-			</MudText>
-			<MudHidden Breakpoint="Breakpoint.Xs">
-				<MudStack Row="true">
-					<ShareButtons Url="@url" />
-				</MudStack>
-			</MudHidden>
-			<MudText Align="Align.End">
-				<MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
-				@article.CategoryName
-			</MudText>
-		</MudStack>
-		<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
-			<MudStack Row="true" Justify="Justify.Center">
-				<ShareButtons Url="@url" />
-			</MudStack>
-		</MudHidden>
-		<BuyMeACoffee />
-		<MudText Align="Align.Justify">
-			<MudMarkdown Styling="@markdownStyle" Value="@article.Content" />
-		</MudText>
-		<BuyMeACoffee />
-	</div>
+    var url = urlCreator.Encode("articles", article.Name);
+    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image" />
+	
+    <div class="article">
+	    @if (!string.IsNullOrWhiteSpace(article.Image))
+	    {
+		    <MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
+	    }
+	    <MudText Typo="Typo.h1" Align="Align.Center">@article.Name</MudText>
+	    <MudStack Row="true" Justify="Justify.SpaceBetween">
+		    <MudText>
+			    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
+			    @article.Created.ToString("dd MMMM yyyy")
+		    </MudText>
+		    <MudHidden Breakpoint="Breakpoint.Xs">
+			    <MudStack Row="true">
+				    <ShareButtons Url="@url" />
+			    </MudStack>
+		    </MudHidden>
+		    <MudText Align="Align.End">
+			    <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
+			    @article.CategoryName
+		    </MudText>
+	    </MudStack>
+	    <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+		    <MudStack Row="true" Justify="Justify.Center">
+			    <ShareButtons Url="@url" />
+		    </MudStack>
+	    </MudHidden>
+	    <BuyMeACoffee />
+	    <MudText Align="Align.Justify">
+		    <MudMarkdown Styling="@markdownStyle" Value="@article.Content" />
+	    </MudText>
+	    <BuyMeACoffee />
+    </div>
 }
 
 <Ads Slot="1656353485" />
 
-@if (suggestions?.Any() ?? false)
+@if (suggestions.Count > 0)
 {
 	<MudText Typo="Typo.h2">Related:</MudText>
 
-	<MudGrid>
-		@foreach (var suggestion in suggestions)
-		{
-			var url = urlCreator.Encode("articles", suggestion.Name);
-			<MudItem sm="6">
-				<MudCard Style="height: 100%">
-					@if (!string.IsNullOrWhiteSpace(suggestion.Image))
-					{
-						<MudCardMedia Image="@suggestion.Image"
-									  Style="background-size: contain" />
-					}
-					<MudCardContent>
-						<MudText Typo="Typo.h3">@suggestion.Name</MudText>
-						<MudText>@suggestion.Description</MudText>
-					</MudCardContent>
-					<MudCardActions>
-						<MudLink Href="@url">Read full article</MudLink>
-					</MudCardActions>
-				</MudCard>
-			</MudItem>
-		}
-	</MudGrid>
+    <MudGrid>
+        @foreach (var suggestion in suggestions)
+        {
+            var url = urlCreator.Encode("articles", suggestion.Name);
+            <MudItem xs="12" sm="6">
+				<MudCard Elevation="2" Style="height: 100%">
+                    @if (!string.IsNullOrWhiteSpace(suggestion.Image))
+                    {
+	                    <MudCardMedia Image="@suggestion.Image"
+	                                  Style="background-size: contain" />
+                    }
+                    <MudCardContent>
+                        <MudText Typo="Typo.body1" Class="truncate">@suggestion.Name</MudText>
+                        <MudText Typo="Typo.body2" Class="truncate-2">@suggestion.Description</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+	                    <MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">Read</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
 }
 
 @if (article is not null)
 {
-	<MudPaper Class="mt-4">
-		<Giscus Repo="VladislavAntonyuk/vladislavantonyuk.github.io"
-				RepoId="R_kgDOImU4iA"
-				Category="Announcements"
-				CategoryId="DIC_kwDOImU4iM4CYqI2"
-				Mapping="Mapping.Title"
-				ReactionsEnabled="true"
-				EmitMetadata="false"
-				InputPosition="InputPosition.Top"
-				Theme="preferred_color_scheme"
-				Lang="en"
-				Loading="Loading.Lazy" />
-	</MudPaper>
+    <MudPaper Class="mt-6 pa-4" Elevation="1">
+        <Giscus Repo="VladislavAntonyuk/vladislavantonyuk.github.io"
+                RepoId="R_kgDOImU4iA"
+                Category="Announcements"
+                CategoryId="DIC_kwDOImU4iM4CYqI2"
+                Mapping="Mapping.Title"
+                ReactionsEnabled="true"
+                EmitMetadata="false"
+                InputPosition="InputPosition.Top"
+                Theme="preferred_color_scheme"
+                Lang="en"
+                Loading="Loading.Lazy" />
+    </MudPaper>
 }

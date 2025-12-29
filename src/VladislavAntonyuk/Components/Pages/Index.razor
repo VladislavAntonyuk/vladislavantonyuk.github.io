@@ -6,57 +6,62 @@
 
 <Head Title="Vladislav Antonyuk - Articles" Description="Vladislav Antonyuk - Articles"/>
 
+<MudPaper Class="hero" Elevation="0">
+    <MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        <MudText Typo="Typo.h3" Align="Align.Center">Insights & Articles</MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center">Deep dives into .NET, Blazor, MAUI and modern architecture patterns.</MudText>
+    </MudStack>
+</MudPaper>
+
 <ArticlesNavigationComponent>
-	<ChildContent Context="articles">
-		<MudGrid>
-			@for (var i = 0; i < articles.Count; i++)
-			{
-				var article = articles.ElementAt(i);
-				var i1 = i;
-				<MudItem xs="12">
-					@if (i1 % 4 == 3)
-					{
-						<Ads Slot="7356538192" Format="fluid" LayoutKey="-5a+7r-my-rh+29p"/>
-					}
-				</MudItem>
+    <ChildContent Context="articles">
+	    <MudGrid>
+		    @for (var i = 0; i < articles.Count; i++)
+		    {
+			    var article = articles.ElementAt(i);
+			    var i1 = i;
+			    <MudItem xs="12">
+				    @if (i1 % 4 == 3)
+				    {
+					    <Ads Slot="7356538192" Format="fluid" LayoutKey="-5a+7r-my-rh+29p"/>
+				    }
+			    </MudItem>
 
-				<MudItem xs="12">
-					@{
-						var url = urlCreator.Encode("articles", article.Name);
-					}
-					<MudCard>
-						@if (!string.IsNullOrWhiteSpace(article.Image))
-						{
-							<MudLink Href="@url">
-								<MudImage Src="@article.Image"
-								          Style="max-height: 55vh; margin: auto; display: block;"
-								          Fluid="true"
-								          Alt="@article.Name"/>
-							</MudLink>
-						}
+			    <MudItem xs="12">
+				    @{
+					    var url = urlCreator.Encode("articles", article.Name);
+				    }
+				    <MudCard>
+					    @if (!string.IsNullOrWhiteSpace(article.Image))
+					    {
+						    <MudLink Href="@url">
+							    <MudImage Src="@article.Image"
+							              Style="max-height: 55vh; margin: auto; display: block;"
+							              Fluid="true"
+							              Alt="@article.Name"/>
+						    </MudLink>
+					    }
 
-						<MudCardContent>
-							<MudText Typo="Typo.h4">@article.Name</MudText>
-							<MudText>@article.Description</MudText>
-							<MudStack Row="true" Justify="Justify.SpaceBetween">
-								<MudText>
-									<MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
-									@article.Created.ToString("dd MMMM yyyy")
-								</MudText>
-								<MudText>
-									<MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small"/>
-									@article.CategoryName
-								</MudText>
-							</MudStack>
-						</MudCardContent>
-						<MudCardActions>
-							<MudStack AlignItems="AlignItems.Center" Style="width: 100%">
-								<MudLink Href="@url">Read full article</MudLink>
-							</MudStack>
-						</MudCardActions>
-					</MudCard>
-				</MudItem>
-			}
-		</MudGrid>
+					    <MudCardContent>
+						    <MudText Typo="Typo.h4">@article.Name</MudText>
+						    <MudText>@article.Description</MudText>
+						    <MudStack Row="true" Justify="Justify.SpaceBetween">
+							    <MudText>
+								    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
+								    @article.Created.ToString("dd MMMM yyyy")
+							    </MudText>
+							    <MudText>
+								    <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small"/>
+								    @article.CategoryName
+							    </MudText>
+						    </MudStack>
+					    </MudCardContent>
+					    <MudCardActions>
+						    <MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">Read</MudButton>
+					    </MudCardActions>
+				    </MudCard>
+			    </MudItem>
+		    }
+	    </MudGrid>
 	</ChildContent>
 </ArticlesNavigationComponent>

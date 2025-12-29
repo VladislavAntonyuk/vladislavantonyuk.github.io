@@ -5,6 +5,10 @@
 @if (@event is null)
 {
 	<Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
+	<MudStack AlignItems="AlignItems.Center" Class="pa-6">
+		<MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+		<MudText Typo="Typo.subtitle1" Class="mt-2">Loading event...</MudText>
+	</MudStack>
 }
 else
 {
@@ -24,16 +28,33 @@ else
 
 		@if (!string.IsNullOrEmpty(@event.Location))
 		{
-			<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Location)</MudText>
+			var mapUrl = $"https://www.google.com/maps?q={Uri.EscapeDataString(@event.Location)}";
+			<MudText Typo="Typo.body1" Align="Align.Center">
+				<MudChip
+					T="string"
+					Href="@mapUrl"
+					Target="_blank"
+					Text="@(@event.Location)"
+					Color="Color.Primary"/>
+			</MudText>
 		}
 
 		@if (@event.Date is not null)
 		{
-			<MudText Typo="Typo.body1" Align="Align.Center">@(@event.Date)</MudText>
+			<MudText Typo="Typo.body1" Align="Align.Center">
+				<MudChip T="string"
+				         Text="@(@event.Date.ToString())"
+				         Color="Color.Secondary"/>
+			</MudText>
 		}
 
-		<MudText Typo="Typo.body1" Align="Align.Center">Price: @(@event.Price)</MudText>
-		
+		@{
+			var price = $"Price: {@event.Price}";
+		}
+		<MudText Typo="Typo.body1" Align="Align.Center">
+			<MudChip T="string" Text="@price" Color="Color.Info" />
+		</MudText>
+
 		<MudStack Row="true" Justify="Justify.Center">
 			<ShareButtons Url="@url" />
 		</MudStack>

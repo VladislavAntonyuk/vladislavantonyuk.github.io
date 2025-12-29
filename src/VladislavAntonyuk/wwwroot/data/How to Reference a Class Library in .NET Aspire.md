@@ -100,7 +100,7 @@ This allows you to use types and code from `Shared` in `AspireAppHost`, but Aspi
 
 ## Summary
 
-- Add a project reference to your library in the consuming project, and set `<IsAspireProjectResource>false</IsAspireProjectResource>`.
+- Add a project reference to your library in the consuming project, and set `IsAspireProjectResource` to false.
 - The library will be available for code reuse, but not built or deployed as a separate service or resource.
 
 This approach keeps your Aspire solution clean and focused, while allowing you to share code across projects without unnecessary deployment.

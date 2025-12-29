@@ -9,7 +9,7 @@ public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager na
 {
 	private Article? article;
 	private ErrorModel? error;
-	private IReadOnlyCollection<Article>? suggestions;
+	private IReadOnlyCollection<Article> suggestions = [];
 	private readonly MudMarkdownStyling markdownStyle = new();
 
 	[Parameter]
@@ -25,7 +25,7 @@ public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager na
 	{
 		article = null;
 		error = null;
-		suggestions = null;
+		suggestions = [];
 		var articleName = urlCreator.Decode(Id);
 		if (string.IsNullOrEmpty(articleName))
 		{

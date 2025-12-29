@@ -3,6 +3,14 @@
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Publications" Description="Vladislav Antonyuk - Publications" />
+
+<MudPaper Class="hero" Elevation="0">
+    <MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        <MudText Typo="Typo.h3" Align="Align.Center">Publications & Research</MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center">Browse peer-reviewed articles and theses.</MudText>
+    </MudStack>
+  </MudPaper>
+
 <MudExpansionPanels MultiExpansion="true">
 	<MudExpansionPanel Text="Articles">
 		<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Publication>>>(ArticlesReload))"
@@ -11,7 +19,7 @@
 				  Bordered="true"
 				  Striped="true">
 			<ToolBarContent>
-				<MudText Typo="Typo.h6">Articles</MudText>
+				<MudText Typo="Typo.h5">Articles</MudText>
 				<MudSpacer />
 				<MudTextField T="string"
 							  ValueChanged="@(s=>OnArticlesSearch(s))"
@@ -55,12 +63,12 @@
 	<MudExpansionPanel Text="Theses">
 
 		<MudTable ServerData="@(new Func<TableState, CancellationToken, Task<TableData<Thesis>>>(ThesesReload))"
-				  T="Thesis"
-				  @ref="thesesTable"
-				  Bordered="true"
-				  Striped="true">
+			  T="Thesis"
+			  @ref="thesesTable"
+			  Bordered="true"
+			  Striped="true">
 			<ToolBarContent>
-				<MudText Typo="Typo.h6">Theses</MudText>
+				<MudText Typo="Typo.h5">Theses</MudText>
 				<MudSpacer />
 				<MudTextField T="string"
 							  ValueChanged="@(s=>OnThesesSearch(s))"

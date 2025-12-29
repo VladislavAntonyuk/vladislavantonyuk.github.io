@@ -21,10 +21,4 @@ public class ArticlesNavigationComponent(NavigationManager navigation, IArticles
 	[Parameter]
 	[SupplyParameterFromQuery]
 	public string? CategoryName { get; set; }
-
-	protected override async Task OnParametersSetAsync()
-	{
-		await base.OnParametersSetAsync();
-		await LoadData();
-	}
 }

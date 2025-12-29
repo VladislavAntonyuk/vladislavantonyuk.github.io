@@ -62,7 +62,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 		return article;
 	}
 
-	public async Task<IReadOnlyCollection<Article>?> GetSuggestions(string articleName, int limit)
+	public async Task<IReadOnlyCollection<Article>> GetSuggestions(string articleName, int limit)
 	{
 		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
 		if (categories is null)
