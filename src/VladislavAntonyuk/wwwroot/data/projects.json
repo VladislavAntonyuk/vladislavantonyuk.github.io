@@ -4,55 +4,71 @@
 		"name": "Draw & GO",
 		"description": "Draw & GO is a cross-platform application. It can help you automate all daily routine with your devices by recording and playing back macros using the graphical key.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/drawgo.png",
-		"link": "https://drawgo.azurewebsites.net"
+		"link": "https://drawgo.azurewebsites.net",
+		"startYear": 2013,
+		"endYear": 9999
 	},
 	{
 		"id": 2,
 		"name": "World Explorer",
-		"description": "The application allows you to view the most interesting places in the world.",
+		"description": "The application allows you to travel around the world with AI.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/world-explorer.svg",
-		"link": "https://world-explorer.azurewebsites.net/"
+		"link": "https://github.com/VladislavAntonyuk/WorldExplorer/",
+		"startYear": 2023,
+		"endYear": 2024
 	},
 	{
 		"id": 3,
 		"name": "AI Calendar",
-		"description": "The application allows you to view the most interesting places in the world.",
+		"description": "The application allows you to manage calendar events using AI.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/ai-calendar.png",
-		"link": "https://ai-calendar.azurewebsites.net/"
+		"link": "https://github.com/VladislavAntonyuk/AICalendar/",
+		"startYear": 2025,
+		"endYear": 9999
 	},
 	{
 		"id": 4,
 		"name": "Continue On PC",
 		"description": "iOS Safari Extension to continue browsing on Desktop",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/Continue-on-PC.png",
-		"link": "https://github.com/VladislavAntonyuk/ContinueOnPC"
+		"link": "https://github.com/VladislavAntonyuk/ContinueOnPC",
+		"startYear": 2024,
+		"endYear": 2024
 	},
 	{
 		"id": 5,
 		"name": "GallerySuite",
-		"description": "All your media files in one place. View all your photos from Google Photos, Instagram, Facebook. The application is cross-platform and works on Android, iOS, tvOS. The website is available as well.",
+		"description": "All your media files in one place. View all your photos from Google Photos and Instagram. The application is cross-platform and works on Android, iOS, tvOS. The website is available as well.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/GallerySuite.png",
-		"link": "https://gallerysuite.azurewebsites.net/"
+		"link": "https://github.com/VladislavAntonyuk/GallerySuite",
+		"startYear": 2015,
+		"endYear": 2016
 	},
 	{
 		"id": 6,
 		"name": "Driver Assistance",
 		"description": "The application allows you monitor the car speed and informs about the traffic signs. The OBD-adapter is required.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/driver-assistance.png",
-		"link": "https://bitbucket.org/VladislavAntonyuk/driverassistance"
+		"link": "https://bitbucket.org/VladislavAntonyuk/driverassistance",
+		"startYear": 2017,
+		"endYear": 2018
 	},
 	{
 		"id": 7,
 		"name": "PickMeUp",
 		"description": "Service, which can help you quickly get to the necessary destination.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/pmu.png",
-		"link": "http://pmu.hol.es/"
+		"link": "https://github.com/VladislavAntonyuk/PickMeUp/",
+		"startYear": 2014,
+		"endYear": 2016
 	},
 	{
 		"id": 8,
 		"name": "SpeakUp",
 		"description": "Video-voice control of your device on any language.",
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/speakup.png",
-		"link": "https://drawgo.azurewebsites.net"
+		"link": "https://github.com/VladislavAntonyuk/SpeakUp/",
+		"startYear": 2014,
+		"endYear": 2016
 	}
 ]

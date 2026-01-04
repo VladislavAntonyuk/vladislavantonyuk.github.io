@@ -1,19 +1,19 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .side-image {
-    padding: 5px 10px;
+	padding: 5px 10px;
 }
 
 .article img {
-    max-height: 55vh;
+	max-height: 55vh;
 	margin: 0 auto;
 	display: block;
 }
 
 .article blockquote {
-    padding: .875em;
+	padding: .875em;
 }
 
 .mud-markdown-body .snippet-clipboard-content {
@@ -30,37 +30,37 @@ code[class*="language-"], pre[class*="language-"] {
 }
 
 .loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
+	position: relative;
+	display: block;
+	width: 8rem;
+	height: 8rem;
+	margin: 20vh auto 1rem auto;
 }
 
-.loading-progress circle {
-    fill: none;
-    stroke: #e0e0e0;
-    stroke-width: 0.6rem;
-    transform-origin: 50% 50%;
-    transform: rotate(-90deg);
-}
+	.loading-progress circle {
+		fill: none;
+		stroke: #e0e0e0;
+		stroke-width: 0.6rem;
+		transform-origin: 50% 50%;
+		transform: rotate(-90deg);
+	}
 
-.loading-progress circle:last-child {
-    stroke: #1b6ec2;
-    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-    transition: stroke-dasharray 0.05s ease-in-out;
-}
+		.loading-progress circle:last-child {
+			stroke: #1b6ec2;
+			stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+			transition: stroke-dasharray 0.05s ease-in-out;
+		}
 
 .loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+	position: absolute;
+	text-align: center;
+	font-weight: bold;
+	inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-.loading-progress-text:after {
-    content: var(--blazor-load-percentage-text, "Loading");
-}
+	.loading-progress-text:after {
+		content: var(--blazor-load-percentage-text, "Loading");
+	}
 
 /* Hero section */
 .hero {
@@ -86,4 +86,13 @@ code[class*="language-"], pre[class*="language-"] {
 .notfound {
 	text-align: center;
 	border-radius: 24px;
+}
+
+.mud-chip {
+	height: auto !important;
+	padding: 7px;
+}
+
+.mud-chip-content {
+	text-wrap: auto;
 }

@@ -48,4 +48,9 @@ public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager na
 			article = result;
 		}
 	}
+
+	private void FilterCategory(string? categoryName)
+	{
+		navigation.NavigateTo($"{navigation.BaseUri}articles?categoryName={categoryName}");
+	}
 }

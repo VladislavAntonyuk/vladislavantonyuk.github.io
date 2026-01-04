@@ -50,9 +50,10 @@
 								    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
 								    @article.Created.ToString("dd MMMM yyyy")
 							    </MudText>
-							    <MudText>
-								    <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small"/>
-								    @article.CategoryName
+							    <MudText Align="Align.End">
+								    <MudNavLink
+									    OnClick="() => FilterCategory(article.CategoryName)"
+									    Icon="@Icons.Material.Outlined.Tag">@article.CategoryName</MudNavLink>
 							    </MudText>
 						    </MudStack>
 					    </MudCardContent>

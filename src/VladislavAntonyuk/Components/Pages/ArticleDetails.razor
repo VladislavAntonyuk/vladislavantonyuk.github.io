@@ -28,20 +28,25 @@ else
 	    {
 		    <MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
 	    }
+
 	    <MudText Typo="Typo.h1" Align="Align.Center">@article.Name</MudText>
+
 	    <MudStack Row="true" Justify="Justify.SpaceBetween">
 		    <MudText>
 			    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
 			    @article.Created.ToString("dd MMMM yyyy")
 		    </MudText>
+
 		    <MudHidden Breakpoint="Breakpoint.Xs">
 			    <MudStack Row="true">
 				    <ShareButtons Url="@url" />
 			    </MudStack>
 		    </MudHidden>
-		    <MudText Align="Align.End">
-			    <MudIcon Icon="@Icons.Material.Filled.Tag" Size="Size.Small" />
-			    @article.CategoryName
+
+			<MudText Align="Align.End">
+			    <MudNavLink
+				    OnClick="() => FilterCategory(article.CategoryName)"
+					Icon="@Icons.Material.Outlined.Tag">@article.CategoryName</MudNavLink>
 		    </MudText>
 	    </MudStack>
 	    <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">

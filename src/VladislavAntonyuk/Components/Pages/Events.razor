@@ -14,18 +14,18 @@
 <EventsNavigationComponent>
 	<ChildContent Context="events">
 		<MudTimeline>
-			@foreach (var @event in events.OrderByDescending(e => e.Date))
+			@foreach (var (index, @event) in events.OrderByDescending(e => e.Date).Index())
 			{
 				var url = urlCreator.Encode("events", @event.Name);
 				<MudTimelineItem Color="Color.Secondary" Icon="@Icons.Material.Filled.EventAvailable">
 					<ItemOpposite>
-						<MudStack Spacing="0" AlignItems="AlignItems.End">
+						<MudStack Spacing="0" AlignItems="@(index % 2 == 0 ? AlignItems.End : AlignItems.Start)">
 							@if (@event.Date is not null)
 							{
 								<MudText Typo="Typo.body1" Align="Align.Center">
 									<MudChip T="string"
-									         Text="@(@event.Date.ToString())"
-									         Color="Color.Secondary"/>
+											 Text="@(@event.Date.ToString())"
+											 Color="Color.Secondary" />
 								</MudText>
 							}
 
