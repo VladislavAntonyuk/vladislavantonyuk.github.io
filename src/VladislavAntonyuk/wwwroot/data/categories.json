@@ -411,6 +411,54 @@
 				"description": "Discover how Maestro can elevate your .NET MAUI app testing with declarative flows, cross-platform support, and visual test creation.",
 				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, testing, xUnit, Appium, cross-platform development, Maestro",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/68/68.png"
+			},
+			{
+				"id": 70,
+				"created": "2025-11-12",
+				"name": "Loading MudBlazor components dynamically at runtime in .NET MAUI",
+				"description": "Learn how to dynamically load and use MudBlazor components in your .NET MAUI application at runtime, enhancing flexibility and customization.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, MudBlazor, dynamic loading, runtime components",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/70/70.png"
+			},
+			{
+				"id": 71,
+				"created": "2025-12-22",
+				"name": "Converting Word documents to PDF on mobile devices",
+				"description": "Explore the performance and challenges of converting Word documents to PDF on mobile devices using .NET MAUI, comparing libraries like Aspose.Words, Syncfusion DocIO, and Spire.Doc.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Word to PDF, performance, mobile, Aspose.Words, Syncfusion DocIO, Spire.Doc",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/71/71.png"
+			},
+			{
+				"id": 72,
+				"created": "2026-01-11",
+				"name": "Keeping your .NET MAUI background tasks alive when the user force quits the app",
+				"description": "Explore the performance and challenges of keeping .NET MAUI background tasks alive when the user force quits the app.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, background tasks, performance, mobile",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/72/72.png"
+			},
+			{
+				"id": 73,
+				"created": "2026-02-14",
+				"name": "Persistent secure folder access in .NET MAUI",
+				"description": "Explore the performance and challenges of persistent, secure folder access in .NET MAUI.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, folder access, performance, mobile",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/73/73.png"
+			},
+			{
+				"id": 74,
+				"created": "2026-03-11",
+				"name": "State Desynchronization between .NET and JavaScript",
+				"description": "Explore the performance and challenges of state desynchronization between C# and JavaScript in .NET MAUI Blazor applications.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, state desynchronization, C#, JavaScript",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/74/74.png"
+			},
+			{
+				"id": 75,
+				"created": "2026-04-10",
+				"name": "Optimizing Large CSV Data Processing with ReadOnlySpan and Memory Efficient Parsing",
+				"description": "Explore the performance and challenges of optimizing large CSV data processing with ReadOnlySpan and memory-efficient parsing in .NET MAUI Blazor applications.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, CSV, parsing, performance, memory, ReadOnlySpan",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/75/75.png"
 			}
 		]
 	},
