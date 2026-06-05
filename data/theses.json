@@ -1,0 +1,92 @@
+﻿[
+	{
+		"id": 1,
+		"name": "Microkernel architecture у розробці сучасних мобільних додатків",
+		"link": "http://www.tsatu.edu.ua/vmf/wp-content/uploads/sites/17/cict2020-1.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Сучасні інформаційні системи та технології: тези доповідей III Всеукраїнської науково-практичної інтернет-конференції студентів, аспірантів та молодих вчених. Херсон",
+		"pages": "96-97",
+		"date": 2020
+	},
+	{
+		"id": 2,
+		"name": "Жестова взаємодія як засіб прискорення роботи користувача з комп’ютером",
+		"link": "http://repository.dnu.dp.ua:1100/upload/1c39b5f616fadcdd4da0a7142df2742cTezi-2021.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Проблеми прикладної математики та інформаційних технологій: тези доповідей наукової конференції за підсумками науково-дослідної роботи ДНУ за 2020 рік",
+		"pages": "7",
+		"date": 2021
+	},
+	{
+		"id": 3,
+		"name": "Використання ідеї асоціативного мислення людини у програмному забезпеченні",
+		"link": "https://zcit.kubg.edu.ua/index.php/journal/issue/download/9/20",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Інформаційні технології – 2021: тези доповідей VІІІ Всеукраїнської науково-практичної онлайн конференції молодих науковців, Київ",
+		"pages": "112-114",
+		"date": 2021
+	},
+	{
+		"id": 4,
+		"name": "Порівняльна характеристика систем автоматизації програмного забезпечення у розробці власного додатку",
+		"link": "http://mpzis.dnu.dp.ua/wp-content/uploads/2021/11/mpzis_2021.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Математичне та програмне забезпечення інтелектуальних систем (МПЗІС-2021): тези доповідей XIX міжнародної науково-практичної конференції, Дніпро",
+		"pages": "5-6",
+		"date": 2021
+	},
+	{
+		"id": 5,
+		"name": "Нова архітектура у .NET MAUI як еволюція XAMARIN.FORMS",
+		"link": "https://kntu.net.ua/index.php/ukr/content/download/93825/537598/file/CICT2021.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Сучасні інформаційні системи та технології: матеріали IV Всеукраїнської науково-практичної інтернет-конференції студентів, аспірантів та молодих вчених, Херсон",
+		"pages": "11-12",
+		"date": 2021
+	},
+	{
+		"id": 6,
+		"name": "Автоматизація аналізу та форматування коду",
+		"link": "https://zcit.kubg.edu.ua/index.php/journal/issue/download/10/19",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Інформаційні технології – 2022: тези доповідей ІХ Всеукраїнської науково-практичної конференції молодих науковців, Київ",
+		"pages": "7-9",
+		"date": 2022
+	},
+	{
+		"id": 7,
+		"name": "Використання візуальних елементів керування для покращення взаємодії користувача",
+		"link": "https://www.dstu.dp.ua/uni/downloads/zbirka_konf_pm.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Проблеми математичного моделювання: тези доповідей всеукраїнської науково-методичної конференції, Кам’янське",
+		"pages": "69-70",
+		"date": 2022
+	},
+	{
+		"id": 8,
+		"name": "Можливості використання програмного продукту «Draw & GO» у навчальному процесі",
+		"link": "http://mpzis.dnu.dp.ua/wp-content/uploads/2022/12/MPZIS-2022-1.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Математичне та програмне забезпечення інтелектуальних систем (МПЗІС-2022): тези доповідей XX міжнародної науково-практичної конференції, Дніпро",
+		"pages": "15-16",
+		"date": 2022
+	},
+	{
+		"id": 9,
+		"name": "Застосування стенографії для захисту програм від несанкціонованого доступу",
+		"link": "https://sci.ldubgd.edu.ua/jspui/bitstream/123456789/11434/1/IV%20International%20Scientific%20and%20Practical%20Conference.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Інформаційна безпека та інформаційні технології (ІБІТ-2022): тези доповідей IV Міжнародної науково-практичної конференції, Львів",
+		"pages": "140-142",
+		"date": 2022
+	},
+	{
+		"id": 10,
+		"name": "Використання штучного інтелекту у розробці клієнт-орієнтованих додатків",
+		"link": "https://www.eportfolio.kubg.edu.ua/data/conference/9325/document.pdf",
+		"authors": [ "Vladislav Antonyuk", "Maryna Sydorova" ],
+		"journal": "Інформаційні технології – 2023: тези доповідей X Всеукраїнської науково-практичної конференції молодих науковців, Київ",
+		"pages": "5-6",
+		"date": 2023
+	}
+]
