@@ -459,6 +459,14 @@
 				"description": "Explore the performance and challenges of optimizing large CSV data processing with ReadOnlySpan and memory-efficient parsing in .NET MAUI Blazor applications.",
 				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, CSV, parsing, performance, memory, ReadOnlySpan",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/75/75.png"
+			},
+			{
+				"id": 76,
+				"created": "2026-05-30",
+				"name": "Migrating .NET MAUI from Mono and Tuning Mobile Performance",
+				"description": "Explore the performance and challenges of migrating .NET MAUI from Mono and tuning mobile performance.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, Mono, migration, performance, mobile",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/76/76.png"
 			}
 		]
 	},

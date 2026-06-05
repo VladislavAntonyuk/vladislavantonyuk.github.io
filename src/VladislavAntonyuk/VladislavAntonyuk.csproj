@@ -14,6 +14,7 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Migrating-.NET-MAUI-from-Mono-and-Tuning-Mobile-Performance;
 			/articles/Optimizing-Large-CSV-Data-Processing-with-ReadOnlySpan-and-Memory-Efficient-Parsing;
 			/articles/State-Desynchronization-between-.NET-and-JavaScript;
 			/articles/Persistent-secure-folder-access-in-.NET-MAUI;
@@ -92,7 +93,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.0.0" />
+		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.1.0-preview.1" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.8" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.8" />
