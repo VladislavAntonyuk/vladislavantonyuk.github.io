@@ -467,6 +467,22 @@
 				"description": "Explore the performance and challenges of migrating .NET MAUI from Mono and tuning mobile performance.",
 				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, Mono, migration, performance, mobile",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/76/76.png"
+			},
+			{
+				"id": 77,
+				"created": "2026-06-12",
+				"name": "Technical Literature Review of Clean Architecture with .NET",
+				"description": "Explore the principles and benefits of clean architecture with .NET.",
+				"keywords": "dotnet, .net, clean architecture",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/77/77.jpg"
+			},
+			{
+				"id": 78,
+				"created": "2026-07-16",
+				"name": "Building a Zero-Allocation Dashboard with SkiaSharp and C# Markup",
+				"description": "Explore the performance and challenges of building a zero-allocation dashboard with SkiaSharp and C# markup in .NET MAUI.",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, SkiaSharp, dashboard, zero-allocation, C# markup, performance, mobile",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/78/78.png"
 			}
 		]
 	},

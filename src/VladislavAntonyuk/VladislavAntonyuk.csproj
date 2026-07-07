@@ -14,6 +14,8 @@
 			/publications;
 			/projects;
 			/articles;
+			/articles/Building-a-Zero-Allocation-Dashboard-with-SkiaSharp-and-C#-Markup;
+			/articles/Technical-Literature-Review-of-Clean-Architecture-with-.NET;
 			/articles/Migrating-.NET-MAUI-from-Mono-and-Tuning-Mobile-Performance;
 			/articles/Optimizing-Large-CSV-Data-Processing-with-ReadOnlySpan-and-Memory-Efficient-Parsing;
 			/articles/State-Desynchronization-between-.NET-and-JavaScript;
@@ -95,9 +97,9 @@
 	<ItemGroup>
 		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.1.0-preview.1" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.8" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.8" />
-		<PackageReference Include="MudBlazor" Version="9.5.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.9" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.9" />
+		<PackageReference Include="MudBlazor" Version="9.6.0" />
 		<PackageReference Include="MudBlazor.Markdown" Version="9.0.0" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />
 	</ItemGroup>
