@@ -1,6 +1,6 @@
 ### Hi there 👋 I'm Vladislav
 
-I am a Senior software engineer at DataArt, Microsoft MVP, and maintainer of .NET MAUI Community Toolkit.
+I am a .NET Expert at DataArt, Microsoft MVP, PhD, and maintainer of .NET MAUI Community Toolkit.
 
 📫 You can reach me at https://vladislavantonyuk.github.io
 
