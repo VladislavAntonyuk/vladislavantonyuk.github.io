@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using MudBlazor;
 
 public partial class Ads(IJSRuntime jsRuntime) : VladislavAntonyukBaseComponent
 {
@@ -31,7 +32,7 @@ public partial class Ads(IJSRuntime jsRuntime) : VladislavAntonyukBaseComponent
 		await base.OnAfterRenderAsync(firstRender);
 		if (firstRender)
 		{
-			await jsRuntime.InvokeVoidAsync("JsFunctions.initAds");
+			await jsRuntime.InvokeVoidAsyncIgnoreErrors("JsFunctions.initAds");
 		}
 	}
 }

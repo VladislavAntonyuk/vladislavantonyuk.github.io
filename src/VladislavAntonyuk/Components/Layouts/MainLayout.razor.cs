@@ -86,7 +86,6 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 	private void ToggleTheme()
 	{
 		isDarkMode = !isDarkMode;
-		StateHasChanged();
 	}
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)

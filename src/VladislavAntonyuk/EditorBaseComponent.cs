@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
+using MudBlazor;
 
 public class EditorBaseComponent : VladislavAntonyukBaseComponent
 {
@@ -13,9 +14,13 @@ public class EditorBaseComponent : VladislavAntonyukBaseComponent
 
 	protected async Task OnBeforeInternalNavigation(LocationChangingContext context)
 	{
-		if (!ForceNavigation && !await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to navigate?"))
+		if (!ForceNavigation)
 		{
-			context.PreventNavigation();
+			var confirm = await JsRuntime.InvokeAsyncWithErrorHandling<bool>("confirm", "Are you sure you want to navigate?");
+			if (!confirm.value)
+			{
+				context.PreventNavigation();
+			}
 		}
 
 		ForceNavigation = false;

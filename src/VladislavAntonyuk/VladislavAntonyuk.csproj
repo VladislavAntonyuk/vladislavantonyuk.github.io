@@ -3,102 +3,18 @@
 	<PropertyGroup>
 
 		<OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+		<PublishTrimmed>false</PublishTrimmed>
 
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+		<BlazorWasmPrerenderingOutputStyle>AppendHtmlExtension</BlazorWasmPrerenderingOutputStyle>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
-		<BlazorWasmPrerenderingUrlPathToExplicitFetch>
-			/events/.NET-Conf-2025-Ukraine;
-			/events/.NET-Conf-2024-Ukraine;
-			/events/.NET-Conf-2023-Ukraine;
-			/events;
-			/publications;
-			/projects;
-			/articles;
-			/articles/Building-a-Zero-Allocation-Dashboard-with-SkiaSharp-and-Community-Toolkit-MAUI-Markup;
-			/articles/Technical-Literature-Review-of-Clean-Architecture-with-.NET;
-			/articles/Migrating-.NET-MAUI-from-Mono-and-Tuning-Mobile-Performance;
-			/articles/Optimizing-Large-CSV-Data-Processing-with-ReadOnlySpan-and-Memory-Efficient-Parsing;
-			/articles/State-Desynchronization-between-.NET-and-JavaScript;
-			/articles/Persistent-secure-folder-access-in-.NET-MAUI;
-			/articles/Keeping-your-.NET-MAUI-background-tasks-alive-when-the-user-force-quits-the-app;
-			/articles/Converting-Word-documents-to-PDF-on-mobile-devices;
-			/articles/Loading-MudBlazor-components-dynamically-at-runtime-in-.NET-MAUI;
-			/articles/How-to-Reference-a-Class-Library-in-.NET-Aspire;
-			/articles/Take-Your-.NET-MAUI-Testing-to-the-Next-Level-with-Maestro;
-			/articles/Plugin.Maui.Theme-review;
-			/articles/Turn-any-phone-into-an-IP-Camera-in-30-Minutes-using-.NET-MAUI;
-			/articles/Microsoft-Entra-External-ID-authentication-in-.NET-Blazor-WebAssembly-Application;
-			/articles/How-to-Get-the-Active-Window-in-.NET-MAUI;
-			/articles/Prioritizing-Test-Execution-in-xUnit-v3;
-			/articles/Building-Dynamic-UI-with-Decision-Logic-in-.NET-MAUI-XAML;
-			/articles/Efficiently-Writing-Excel-Files-with-Optimized-Memory-Usage;
-			/articles/Nesting-.NET-MAUI-.xaml-Files-in-Visual-Studio-Code;
-			/articles/Free-offline-AI-in-.NET-MAUI-Application;
-			/articles/Leveraging-Free-AI-with-Ollama-in-.NET-Aspire;
-			/articles/Azure-Active-Directory-authentication-in-.NET-Aspire-Distributed-Application;
-			/articles/Various-methods-for-barcode-scanning-in-.NET-MAUI;
-			/articles/Simplifying-.NET-MAUI-App-Development-with-Debugging-and-Monitoring-Tools;
-			/articles/.NET-MAUI-CollectionView-with-Staggered-Layout;
-			/articles/Choose-the-right-framework-for-your-next-application;
-			/articles/Targeting-Specific-Runtimes-for-Platform-Tests;
-			/articles/Testing-.NET-MAUI-Application-using-Appium-and-xUnit;
-			/articles/Effortless-Android-Library-Binding;
-			/articles/Creating-CalendarView-with-.NET-MAUI-Handler-architecture;
-			/articles/Mastering-Composite-Controls-in-.NET-MAUI.-Building-a-TabView-from-Scratch;
-			/articles/Microsoft-Identity-Platform-Authentication-in-Blazor-Web-Application;
-			/articles/Adding-Application-Insights-to-.NET-MAUI-Application;
-			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-2.-Setup-.NET-MAUI;
-			/articles/.NET-MAUI-Push-Notifications-using-Azure-Notification-Hub.-Part-1.-Setup-Azure-Notification-Hub;
-			/articles/Adding-custom-action-button-to-.NET-MAUI-Shell-TabBar;
-			/articles/Drag-and-Drop-any-content-from-a-.NET-MAUI-application;
-			/articles/Customizing-.NET-MAUI-Shell;
-			/articles/Setting-a-cursor-for-.NET-MAUI-VisualElement;
-			/articles/Real-time-live-tracking-using-.NET-MAUI;
-			/articles/Drag-and-Drop-any-content-to-a-.NET-MAUI-application;
-			/articles/Integrating-captcha-into-a-.NET-MAUI-application;
-			/articles/Dynamic-configuration-in-.NET-MAUI-application;
-			/articles/Creating-Markdown-control-with-.NET-MAUI-Graphics;
-			/articles/AppIcon-Badge-with-.NET-MAUI;
-			/articles/Speech-recognition-with-.NET-MAUI;
-			/articles/Creating-dynamic-floating-action-button;
-			/articles/Customize-map-pins-in-.NET-MAUI;
-			/articles/Prepare-.NET-MAUI-application-with-CommunityToolkit.MAUI-to-release;
-			/articles/Migrate-the-deprecated-OnBackPressed-function-in-.NET-MAUI-Android-application;
-			/articles/Create-custom-animations-using-.NET-MAUI-CommunityToolkit;
-			/articles/Creating-a-bottom-sheet-using-.NET-MAUI;
-			/articles/Extend-.NET-MAUI-application-with-iOS-Extensions;
-			/articles/Secure-.NET-MAUI-application;
-			/articles/Replicate-a-bank-application-UI-using-.NET-MAUI;
-			/articles/Creating-beautiful-image-effects-using-.NET-MAUI;
-			/articles/Creating-a-card-stack-layout-using-.NET-MAUI;
-			/articles/Localize-.NET-MAUI-application;
-			/articles/Interactive-app-tutorial-in-.NET-MAUI;
-			/articles/Built-in-authentication-for-specific-pages-in-Azure-App-Service;
-			/articles/How-to-show-SnackBar-and-Toast-in-.NET-MAUI;
-			/articles/Create-a-gallery-app-using-.NET-MAUI-Blazor;
-			/articles/.NET-MAUI-Multi-Window-support;
-			/articles/Adding-SQLite-to-the-.NET-MAUI-application;
-			/articles/Azure-Active-Directory-authentication-in-.NET-MAUI;
-			/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-4.-UI;
-			/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-3.-Infrastructure;
-			/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-2.-Domain-and-Application;
-			/articles/Onion-architecture-in-the-development-of-cross-platform-applications.-Part-1.-Overview;
-			/articles/The-first-project-with-.NET-MAUI;
-			/articles/Drawing-View-in-Xamarin-Community-Toolkit;
-			/articles/Identity-and-Dynamic-routing-in-Blazor;
-			/articles/Creating-Kanban-Board-using-Xamarin.Forms;
-			/articles/How-to-show-SnackBar-and-Toast-using-Xamarin-Community-Toolkit;
-			/articles/Creating-screen-brightness-service-with-.NET;
-			/articles/Secrets-of-successful-interview;
-			/articles/How-to-automatically-keep-your-code-clean;
-		</BlazorWasmPrerenderingUrlPathToExplicitFetch>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.1.0-preview.1" />
+		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.1.0-preview.6" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.11" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="11.0.0-preview.7.26381.103" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="11.0.0-preview.7.26381.103" />
 		<PackageReference Include="MudBlazor" Version="9.8.0" />
 		<PackageReference Include="MudBlazor.Markdown" Version="9.0.0" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />

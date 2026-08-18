@@ -1,6 +1,6 @@
 Hello! 👋
 
-In the [previous article](https://vladislavantonyuk.github.io/articles/Testing-.NET-MAUI-Application-using-Appium-and-xUnit/), we discussed how to set up and run tests for your .NET MAUI application. The tests are shared for all platforms, but what if you need to test your application against a specific runtime version or environment? Here's how to achieve targeted testing for your platform interactions.
+In the [previous article](./articles/Testing-.NET-MAUI-Application-using-Appium-and-xUnit/), we discussed how to set up and run tests for your .NET MAUI application. The tests are shared for all platforms, but what if you need to test your application against a specific runtime version or environment? Here's how to achieve targeted testing for your platform interactions.
 
 ## Step 1. Define Runtime and platform
 

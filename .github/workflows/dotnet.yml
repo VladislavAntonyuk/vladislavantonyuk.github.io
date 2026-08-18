@@ -14,7 +14,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 10.x
+        dotnet-version: 11.x
     
     - name: Install workloads
       run: dotnet workload install wasm-tools
@@ -26,7 +26,7 @@ jobs:
       run: sed -i 's|public const string BaseUrl = "/";|public const string BaseUrl = "https://vladislavantonyuk.github.io/";|g' src/Shared/Constants.cs
 
     - name: Publish .NET Project
-      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -p:GHPages=true -p:GHPagesBase="https://vladislavantonyuk.github.io/" -o release --nologo
+      run: dotnet publish src/VladislavAntonyuk/VladislavAntonyuk.csproj -p:GHPages=true -p:GHPagesBase="/" -o release --nologo
 
     - name: Generate RSS and Sitemap
       run: |
