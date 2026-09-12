@@ -99,8 +99,8 @@
 	<ItemGroup>
 		<PackageReference Include="BlazorWasmPreRendering.Build" Version="8.1.0-preview.1" />
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="11.0.0-preview.7.26381.103" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="11.0.0-preview.7.26381.103" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="11.0.0-rc.1.26425.128" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="11.0.0-rc.1.26425.128" />
 		<PackageReference Include="MudBlazor" Version="9.9.0" />
 		<PackageReference Include="MudBlazor.Markdown" Version="9.0.0" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />
