@@ -1,7 +1,6 @@
 ﻿namespace VladislavAntonyuk.Components.Pages;
 
 using Microsoft.AspNetCore.Components;
-using MudBlazor;
 using Shared;
 using Shared.Models;
 
@@ -10,16 +9,9 @@ public partial class ArticleDetails(IUrlCreator urlCreator, NavigationManager na
 	private Article? article;
 	private ErrorModel? error;
 	private IReadOnlyCollection<Article> suggestions = [];
-	private readonly MudMarkdownStyling markdownStyle = new();
 
 	[Parameter]
 	public required string Id { get; set; }
-
-	protected override void OnInitialized()
-	{
-		base.OnInitialized();
-		markdownStyle.CodeBlock.Theme = CodeBlockTheme.Vs2015;
-	}
 
 	protected override async Task OnParametersSetAsync()
 	{

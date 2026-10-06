@@ -4,7 +4,7 @@
 
 <PageTitle>@Constants.ProductName</PageTitle>
 
-<MudThemeProvider @ref="mudThemeProvider" @bind-IsDarkMode="isDarkMode" Theme="theme" />
+<MudMarkdownThemeProvider @ref="mudThemeProvider" Theme="theme" @bind-IsDarkMode="isDarkMode" />
 <MudPopoverProvider />
 <ErrorBoundary @ref="errorBoundary">
 	<ChildContent>

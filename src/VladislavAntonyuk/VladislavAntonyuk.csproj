@@ -9,6 +9,7 @@
 		<BlazorWasmPrerenderingOutputStyle>AppendHtmlExtension</BlazorWasmPrerenderingOutputStyle>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
 		<BlazorWasmPrerenderingUrlPathToExplicitFetch>
+			/events/.NET-Conf-2026-Ukraine;
 			/events/.NET-Conf-2025-Ukraine;
 			/events/.NET-Conf-2024-Ukraine;
 			/events/.NET-Conf-2023-Ukraine;
@@ -101,8 +102,8 @@
 		<PackageReference Include="GiscusBlazor" Version="2.3.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="11.0.0-rc.1.26425.128" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="11.0.0-rc.1.26425.128" />
-		<PackageReference Include="MudBlazor" Version="9.9.0" />
-		<PackageReference Include="MudBlazor.Markdown" Version="9.0.0" />
+		<PackageReference Include="MudBlazor" Version="9.11.0" />
+		<PackageReference Include="MudBlazor.Markdown" Version="9.10.0" />
 		<PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />
 	</ItemGroup>
 
