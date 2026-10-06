@@ -8,7 +8,7 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 {
 	private readonly MudTheme theme = new()
 	{
-		PaletteLight = new PaletteLight()
+		PaletteLight = new MudMarkdownPaletteLight()
 		{
 			Primary = "#5F7FFF",
 			PrimaryContrastText = Colors.Shades.White,
@@ -24,8 +24,9 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 			AppbarBackground = "#5F7FFF",
 			AppbarText = Colors.Shades.White,
 			DrawerBackground = "#ffffff",
+			CodeHighlight = MudCodeHighlightThemes.Light.GitHub
 		},
-		PaletteDark = new PaletteDark()
+		PaletteDark = new MudMarkdownPaletteDark()
 		{
 			Primary = "#5F7FFF",
 			PrimaryContrastText = Colors.Shades.White,
@@ -41,6 +42,7 @@ public partial class MainLayout(NavigationManager navigationManager) : LayoutCom
 			AppbarBackground = "#5F7FFF",
 			AppbarText = Colors.Shades.White,
 			DrawerBackground = "#0f172a",
+			CodeHighlight = MudCodeHighlightThemes.Dark.GitHub
 		},
 		Typography = new Typography
 		{
