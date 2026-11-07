@@ -475,6 +475,14 @@
 				"description": "Explore the performance and challenges of building a zero-allocation dashboard with SkiaSharp and Community Toolkit MAUI Markup in .NET MAUI.",
 				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, .NET MAUI, Blazor, SkiaSharp, dashboard, zero-allocation, Community Toolkit MAUI Markup, performance, mobile",
 				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/78/78.gif"
+			},
+			{
+				"id": 79,
+				"created": "2026-10-04",
+				"name": "Extending .NET MAUI to Any Platform",
+				"description": "How to extend .NET MAUI to any platform like Linux, MacOS, tvOS",
+				"keywords": "dotnet, maui, .net, android, ios, maccatalyst, windows, tizen, linux, .NET MAUI, Blazor, extension, platform, performance, mobile",
+				"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/articles/79/79.png"
 			}
 		]
 	},
