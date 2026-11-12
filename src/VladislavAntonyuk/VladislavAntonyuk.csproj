@@ -4,7 +4,7 @@
 
 		<OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
 		<PublishTrimmed>false</PublishTrimmed>
-
+		<StaticWebAssetSpaFallbackEnabled>true</StaticWebAssetSpaFallbackEnabled>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 		<BlazorWasmPrerenderingOutputStyle>IndexHtmlInSubFolders</BlazorWasmPrerenderingOutputStyle>
 		<BlazorWasmPrerenderingDeleteLoadingContents>true</BlazorWasmPrerenderingDeleteLoadingContents>
