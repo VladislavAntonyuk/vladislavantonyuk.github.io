@@ -16,53 +16,51 @@ else
 	var title = $"Vladislav Antonyuk - {@event.Name}";
 	var description = $"Vladislav Antonyuk - {@event.Description}";
 
-	<Head Title="@title" Description="@description" />
+	<Head Title="@title" Description="@description" Image="@(@event.Image)" />
 
-	<div class="article">
+	<article class="article">
 		@if (!string.IsNullOrWhiteSpace(@event.Image))
 		{
-			<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" Fluid="true" />
+			<img class="article-cover" src="@(@event.Image)" alt="@(@event.Name)" />
 		}
 
-		<MudText Typo="Typo.h1" Align="Align.Center">@(@event.Name)</MudText>
+		<header class="article-header">
+			<div class="event-chips">
+				@if (@event.IsUpcoming())
+				{
+					<MudChip T="string" Size="Size.Small" Color="Color.Success" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Bolt">Upcoming</MudChip>
+				}
+				@if (@event.DateLabel() is { } dateLabel)
+				{
+					<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Icon="@Icons.Material.Outlined.CalendarMonth">@dateLabel</MudChip>
+				}
+				@if (!string.IsNullOrEmpty(@event.Location))
+				{
+					var mapUrl = $"https://www.google.com/maps?q={Uri.EscapeDataString(@event.Location)}";
+					<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Color="Color.Primary" Icon="@Icons.Material.Outlined.Place" Href="@mapUrl" Target="_blank">@(@event.Location)</MudChip>
+				}
+				<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Color="Color.Info" Icon="@Icons.Material.Outlined.ConfirmationNumber">@(@event.PriceLabel())</MudChip>
+			</div>
+			<h1 class="article-title">@(@event.Name)</h1>
+			<div class="article-meta">
+				@if (@event.IsUpcoming() && @event.CalendarDataUri(navigationManager.ToAbsolute(url)) is { } calendar)
+				{
+					<MudButton Href="@calendar" download="@(@event.CalendarFileName())" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" StartIcon="@Icons.Material.Outlined.EventAvailable">Add to calendar</MudButton>
+				}
+				else
+				{
+					<span></span>
+				}
+				<div class="article-share">
+					<ShareButtons Url="@url" Title="@(@event.Name)" />
+				</div>
+			</div>
+		</header>
 
-		@if (!string.IsNullOrEmpty(@event.Location))
-		{
-			var mapUrl = $"https://www.google.com/maps?q={Uri.EscapeDataString(@event.Location)}";
-			<MudText Typo="Typo.body1" Align="Align.Center">
-				<MudChip
-					T="string"
-					Href="@mapUrl"
-					Target="_blank"
-					Text="@(@event.Location)"
-					Color="Color.Primary"/>
-			</MudText>
-		}
-
-		@if (@event.Date is not null)
-		{
-			<MudText Typo="Typo.body1" Align="Align.Center">
-				<MudChip T="string"
-				         Text="@(@event.Date.ToString())"
-				         Color="Color.Secondary"/>
-			</MudText>
-		}
-
-		@{
-			var price = $"Price: {@event.Price}";
-		}
-		<MudText Typo="Typo.body1" Align="Align.Center">
-			<MudChip T="string" Text="@price" Color="Color.Info" />
-		</MudText>
-
-		<MudStack Row="true" Justify="Justify.Center">
-			<ShareButtons Url="@url" />
-		</MudStack>
-
-		<MudText Align="Align.Justify">
+		<div class="article-body">
 			<MudMarkdown Value="@(@event.Description.ReplaceLineEndings())" />
-		</MudText>
-	</div>
+		</div>
+	</article>
 }
 
 <Ads Slot="1656353485" />

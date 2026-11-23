@@ -21,80 +21,126 @@
 else
 {
     var url = urlCreator.Encode("articles", article.Name);
-    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image" />
+    <Head Title="@article.Name" Description="@article.Description" Keywords="@article.Keywords" Image="@article.Image"
+          Type="article" PublishedTime="@article.Created" Section="@article.CategoryName" />
+
+    <div class="reading-progress" aria-hidden="true"></div>
 	
-    <div class="article">
+    <article class="article">
 	    @if (!string.IsNullOrWhiteSpace(article.Image))
 	    {
-		    <MudImage Src="@article.Image" Alt="@article.Name" Fluid="true" />
+		    <img class="article-cover" src="@article.Image" alt="@article.Name" />
 	    }
 
-	    <MudText Typo="Typo.h1" Align="Align.Center">@article.Name</MudText>
+	    <header class="article-header">
+		    <MudChip T="string"
+		             Size="Size.Small"
+		             Variant="Variant.Text"
+		             Color="Color.Primary"
+		             Icon="@Icons.Material.Outlined.Tag"
+		             OnClick="() => FilterCategory(article.CategoryName)">@article.CategoryName</MudChip>
+		    <h1 class="article-title">@article.Name</h1>
+		    <div class="article-meta">
+			    <span class="post-meta-date">
+				    <MudIcon Icon="@Icons.Material.Outlined.CalendarMonth" Size="Size.Small" />
+				    @article.Created.ToString("dd MMMM yyyy")
+				    <span class="post-meta-separator">·</span>
+				    <MudIcon Icon="@Icons.Material.Outlined.Schedule" Size="Size.Small" />
+				    @ReadingMinutes(article.Content) min read
+			    </span>
+			    <div class="article-share">
+				    <ShareButtons Url="@url" Title="@article.Name" />
+			    </div>
+		    </div>
+	    </header>
 
-	    <MudStack Row="true" Justify="Justify.SpaceBetween">
-		    <MudText>
-			    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" />
-			    @article.Created.ToString("dd MMMM yyyy")
-		    </MudText>
+	    @if (toc.Count > 0)
+	    {
+		    <details class="article-toc" open>
+			    <summary>
+				    <MudIcon Icon="@Icons.Material.Outlined.FormatListBulleted" Size="Size.Small" />
+				    On this page
+			    </summary>
+			    <ol>
+				    @foreach (var entry in toc)
+				    {
+					    <li class="@(entry.Indented ? "article-toc-sub" : null)">
+						    <a href="@($"{navigation.Uri.Split('#')[0]}#{entry.Id}")" @onclick="() => ScrollTo(entry.Id)" @onclick:preventDefault>@entry.Text</a>
+					    </li>
+				    }
+			    </ol>
+		    </details>
+	    }
 
-		    <MudHidden Breakpoint="Breakpoint.Xs">
-			    <MudStack Row="true">
-				    <ShareButtons Url="@url" />
-			    </MudStack>
-		    </MudHidden>
-
-			<MudText Align="Align.End">
-			    <MudNavLink
-				    OnClick="() => FilterCategory(article.CategoryName)"
-					Icon="@Icons.Material.Outlined.Tag">@article.CategoryName</MudNavLink>
-		    </MudText>
-	    </MudStack>
-	    <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
-		    <MudStack Row="true" Justify="Justify.Center">
-			    <ShareButtons Url="@url" />
-		    </MudStack>
-	    </MudHidden>
-	    <BuyMeACoffee />
-	    <MudText Align="Align.Justify">
+	    <div class="article-body">
 		    <MudMarkdown Value="@article.Content" />
-	    </MudText>
-	    <BuyMeACoffee />
-    </div>
+	    </div>
+	    <div class="article-support">
+		    <BuyMeACoffee />
+	    </div>
+
+	    @if (previousArticle is not null || nextArticle is not null)
+	    {
+		    <nav class="article-pager" aria-label="More articles">
+			    @if (previousArticle is not null)
+			    {
+				    <a class="article-pager-link" href="@urlCreator.Encode("articles", previousArticle.Name)">
+					    <span class="article-pager-label"><MudIcon Icon="@Icons.Material.Filled.ArrowBack" Size="Size.Small" /> Previous</span>
+					    <span class="article-pager-title">@previousArticle.Name</span>
+				    </a>
+			    }
+			    else
+			    {
+				    <span></span>
+			    }
+			    @if (nextArticle is not null)
+			    {
+				    <a class="article-pager-link article-pager-link--next" href="@urlCreator.Encode("articles", nextArticle.Name)">
+					    <span class="article-pager-label">Next <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Size="Size.Small" /></span>
+					    <span class="article-pager-title">@nextArticle.Name</span>
+				    </a>
+			    }
+		    </nav>
+	    }
+    </article>
 }
 
 <Ads Slot="1656353485" />
 
 @if (suggestions.Count > 0)
 {
-	<MudText Typo="Typo.h2">Related:</MudText>
+<section class="related">
+    <h2 class="section-title">Related articles</h2>
 
-    <MudGrid>
+    <MudGrid Spacing="4">
         @foreach (var suggestion in suggestions)
         {
             var url = urlCreator.Encode("articles", suggestion.Name);
             <MudItem xs="12" sm="6">
-				<MudCard Elevation="2" Style="height: 100%">
+				<article class="post-card">
                     @if (!string.IsNullOrWhiteSpace(suggestion.Image))
                     {
-	                    <MudCardMedia Image="@suggestion.Image"
-	                                  Style="background-size: contain" />
+	                    <a href="@url" class="post-card-media" tabindex="-1" aria-hidden="true">
+		                    <img src="@suggestion.Image" alt="@suggestion.Name" loading="lazy" />
+	                    </a>
                     }
-                    <MudCardContent>
-                        <MudText Typo="Typo.body1" Class="truncate">@suggestion.Name</MudText>
-                        <MudText Typo="Typo.body2" Class="truncate-2">@suggestion.Description</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-	                    <MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">Read</MudButton>
-                    </MudCardActions>
-                </MudCard>
+                    <div class="post-card-body">
+	                    <a href="@url" class="post-card-title truncate-2">@suggestion.Name</a>
+	                    <p class="post-card-description truncate-2">@suggestion.Description</p>
+	                    <div class="post-card-actions">
+		                    <MudButton Href="@url" Variant="Variant.Text" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.ArrowForward">Read article</MudButton>
+	                    </div>
+                    </div>
+                </article>
             </MudItem>
         }
     </MudGrid>
+</section>
 }
 
 @if (article is not null)
 {
-    <MudPaper Class="mt-6 pa-4" Elevation="1">
+    <MudPaper Class="comments mt-8 pa-4" Elevation="0" Outlined="true">
         <Giscus Repo="VladislavAntonyuk/vladislavantonyuk.github.io"
                 RepoId="R_kgDOImU4iA"
                 Category="Announcements"

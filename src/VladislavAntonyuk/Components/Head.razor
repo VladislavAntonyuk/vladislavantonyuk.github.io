@@ -5,18 +5,25 @@
 <HeadContent>
 	<meta Name="description" Content="@Description"/>
 	<meta Name="keywords" Content="@Keywords"/>
-	<meta Property="og:type" Content="website"/>
+	<link rel="canonical" href="@PageUrl"/>
+	<meta Property="og:type" Content="@Type"/>
 	<meta Property="og:title" Content="@Title"/>
 	<meta Property="og:description" Content="@Description"/>
-	<meta Property="og:image" Content="@Image"/>
-	<meta Property="og:image:url" Content="@Image"/>
-	<meta Property="og:url" Content="@navigationManager.Uri"/>
+	<meta Property="og:image" Content="@AbsoluteImage"/>
+	<meta Property="og:image:url" Content="@AbsoluteImage"/>
+	<meta Property="og:url" Content="@PageUrl"/>
 	<meta Property="og:site_name" Content="@Constants.ProductName"/>
+	@if (PublishedTime is { } published)
+	{
+		<meta Property="article:published_time" Content="@published.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'")"/>
+	}
+	@if (!string.IsNullOrWhiteSpace(Section))
+	{
+		<meta Property="article:section" Content="@Section"/>
+	}
 
-	<meta Property="twitter:card" Content="summary"/>
-	<meta Property="twitter:site" Content="@Constants.ProductName"/>
-	<meta Property="twitter:description" Content="@Description"/>
-	<meta Property="twitter:image" Content="@Image"/>
-	<meta Property="twitter:image:url" Content="@Image"/>
-	<meta Property="twitter:url" Content="@navigationManager.Uri"/>
+	<meta Name="twitter:card" Content="@(HasCustomImage ? "summary_large_image" : "summary")"/>
+	<meta Name="twitter:title" Content="@Title"/>
+	<meta Name="twitter:description" Content="@Description"/>
+	<meta Name="twitter:image" Content="@AbsoluteImage"/>
 </HeadContent>

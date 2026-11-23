@@ -102,6 +102,21 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 		return randomIds.Select(t => allSuggestions[t]).ToList();
 	}
 
+	public async Task<(Article? Previous, Article? Next)> GetAdjacent(string articleName)
+	{
+		// Newest first, same order as the article list.
+		var articles = await GetArticles();
+		var index = articles.FindIndex(x => x.Name.Equals(articleName, StringComparison.OrdinalIgnoreCase));
+		if (index < 0)
+		{
+			return (null, null);
+		}
+
+		var previous = index + 1 < articles.Count ? articles[index + 1] : null;
+		var next = index > 0 ? articles[index - 1] : null;
+		return (previous, next);
+	}
+
 	public async Task<List<Category>> GetCategories()
 	{
 		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", Options);

@@ -42,7 +42,11 @@ A consumer's project file targeting both iOS and Linux GTK now looks as clean as
 
   <ItemGroup>
     <!-- The community backend NuGet package -->
-    <PackageReference Include="Platform.Maui.Linux.Gtk4" Version="0.6.0" />
+    <PackageReference Include="Microsoft.Maui.Platforms.Linux.Gtk4" Version="0.1.0-preview.14.26567.2" />
+	<PackageReference Include="Microsoft.Maui.Platforms.Linux.Gtk4.Essentials" Version="0.1.0-preview.14.26567.2" />
+	<AssemblyAttribute Include="System.Runtime.Versioning.SupportedOSPlatformAttribute">
+		<_Parameter1>linux</_Parameter1>
+	</AssemblyAttribute>
   </ItemGroup>
 </Project>
 
@@ -194,7 +198,11 @@ Add `net11.0` to your `TargetFrameworks` and set `MauiActiveBackend` to `gtk` fo
 	<ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
 		<!-- Map the 'Platforms/Gtk' directory to the GTK backend -->
 		<MauiPlatformSpecificFolder Include="Platforms\Gtk" TargetPlatformIdentifiers="" BackendIdentity="gtk" ActivationProperty="MauiActiveBackend" ActivationValue="gtk" />
-		<PackageReference Include="Platform.Maui.Linux.Gtk4" Version="0.6.0" />
+		<PackageReference Include="Microsoft.Maui.Platforms.Linux.Gtk4" Version="0.1.0-preview.14.26567.2" />
+		<PackageReference Include="Microsoft.Maui.Platforms.Linux.Gtk4.Essentials" Version="0.1.0-preview.14.26567.2" />
+		<AssemblyAttribute Include="System.Runtime.Versioning.SupportedOSPlatformAttribute">
+			<_Parameter1>linux</_Parameter1>
+		</AssemblyAttribute>
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -210,7 +218,7 @@ Add `net11.0` to your `TargetFrameworks` and set `MauiActiveBackend` to `gtk` fo
 Add a new `MauiProgram.cs` file to the `Platforms/Gtk` folder with the following content:
 
 ```csharp
-using Platform.Maui.Linux.Gtk4.Hosting;
+using Microsoft.Maui.Platforms.Linux.Gtk4.Hosting;
 
 namespace Net11Maui.Linux;
 
@@ -234,9 +242,7 @@ Alternatively, you can also update existing `MauiProgram.cs` in the root of your
 Add a new `Main.cs` file to the `Platforms/Gtk` folder with the following content:
 
 ```csharp
-using Microsoft.Maui.Hosting;
-using Platform.Maui.Linux.Gtk4.Platform;
-using System.Reflection;
+using Microsoft.Maui.Platforms.Linux.Gtk4.Platform;
 using System.Runtime.InteropServices;
 
 namespace Net11Maui.Linux;

@@ -6,8 +6,6 @@ using Shared.Models;
 
 public class EventsNavigationComponent (NavigationManager navigation, IEventsService eventsService): BaseNavigationComponent<Event>(navigation)
 {
-	public override string Title => "Events";
-
 	protected override async Task<PaginatedList<Event>> GetData()
 	{
 		const int pageSize = 10;

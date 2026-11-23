@@ -1,19 +1,29 @@
 ﻿@inherits VladislavAntonyukBaseComponent
 
-<MudIconButton Href='@($"https://twitter.com/intent/tweet?text={Url}#")'
-               Target="_blank"
-               Icon="@Icons.Custom.Brands.Twitter"
-               Size="Size.Large"
-               aria-label="Twitter" />
-
-<MudIconButton Href='@($"https://www.facebook.com/sharer/sharer.php?u={Url}#")'
-               Target="_blank"
-               Icon="@Icons.Custom.Brands.Facebook"
-               Size="Size.Large"
-               aria-label="Facebook" />
-
-<MudIconButton Href='@($"https://www.linkedin.com/cws/share?url={Url}#")'
-               Target="_blank"
-               Icon="@Icons.Custom.Brands.LinkedIn"
-               Size="Size.Large"
-               aria-label="LinkedIn" />
+<MudTooltip Text="Share on X">
+	<MudIconButton Href="@($"https://x.com/intent/post?url={EncodedUrl}&text={EncodedTitle}")"
+				   Target="_blank"
+				   Icon="@XIcon"
+				   Size="Size.Medium"
+				   aria-label="Share on X" />
+</MudTooltip>
+<MudTooltip Text="Share on LinkedIn">
+	<MudIconButton Href="@($"https://www.linkedin.com/sharing/share-offsite/?url={EncodedUrl}")"
+				   Target="_blank"
+				   Icon="@Icons.Custom.Brands.LinkedIn"
+				   Size="Size.Medium"
+				   aria-label="Share on LinkedIn" />
+</MudTooltip>
+<MudTooltip Text="Share on Facebook">
+	<MudIconButton Href="@($"https://www.facebook.com/sharer/sharer.php?u={EncodedUrl}")"
+				   Target="_blank"
+				   Icon="@Icons.Custom.Brands.Facebook"
+				   Size="Size.Medium"
+				   aria-label="Share on Facebook" />
+</MudTooltip>
+<MudTooltip Text="Copy link">
+	<MudIconButton OnClick="CopyLink"
+				   Icon="@Icons.Material.Outlined.Link"
+				   Size="Size.Medium"
+				   aria-label="Copy link" />
+</MudTooltip>

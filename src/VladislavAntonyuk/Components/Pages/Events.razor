@@ -1,58 +1,104 @@
 ﻿@page "/events"
 @using VladislavAntonyuk.Components.Navigation
+@using global::Shared.Models
 @inherits VladislavAntonyukBaseComponent
 
 <Head Title="Vladislav Antonyuk - Events" Description="Vladislav Antonyuk - Events" />
 
-<MudPaper Class="hero" Elevation="0">
-	<MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
-		<MudText Typo="Typo.h3" Align="Align.Center">Events</MudText>
-		<MudText Typo="Typo.body1" Align="Align.Center">Upcoming and past talks, conferences, and meetups.</MudText>
-	</MudStack>
-</MudPaper>
+<PageHero Eyebrow="Speaking"
+		  Title="Events"
+		  Subtitle="Upcoming and past talks, conferences, and meetups." />
 
 <EventsNavigationComponent>
 	<ChildContent Context="events">
-		<MudTimeline>
-			@foreach (var (index, @event) in events.OrderByDescending(e => e.Date).Index())
-			{
-				var url = urlCreator.Encode("events", @event.Name);
-				<MudTimelineItem Color="Color.Secondary" Icon="@Icons.Material.Filled.EventAvailable">
-					<ItemOpposite>
-						<MudStack Spacing="0" AlignItems="@(index % 2 == 0 ? AlignItems.End : AlignItems.Start)">
-							@if (@event.Date is not null)
-							{
-								<MudText Typo="Typo.body1" Align="Align.Center">
-									<MudChip T="string"
-											 Text="@(@event.Date.ToString())"
-											 Color="Color.Secondary" />
-								</MudText>
-							}
-
-							@{
-								var price = $"Price: {@event.Price}";
-							}
-							<MudText Typo="Typo.body1" Align="Align.Center">
-								<MudChip T="string" Text="@price" Color="Color.Info" />
-							</MudText>
-
-						</MudStack>
-					</ItemOpposite>
-					<ItemContent>
-						<MudPaper Class="pa-4" Elevation="1">
-							<MudStack Spacing="1">
-								<MudText Typo="Typo.h3" Class="mb-2">@(@event.Name)</MudText>
-								@if (!string.IsNullOrWhiteSpace(@event.Image))
+		@{
+			var ordered = events.OrderByDescending(e => e.Date).ToList();
+		}
+		@* Two-sided timeline on wide screens, one-sided on phones so cards get the full width. *@
+		<MudHidden Breakpoint="Breakpoint.SmAndDown">
+			<MudTimeline TimelinePosition="TimelinePosition.Alternate">
+				@foreach (var (index, @event) in ordered.Index())
+				{
+					<MudTimelineItem Color="@(@event.IsUpcoming() ? Color.Success : Color.Primary)"
+									 Variant="@(@event.IsUpcoming() ? Variant.Filled : Variant.Outlined)"
+									 Size="Size.Medium">
+						<ItemOpposite>
+							<div class="@(index % 2 == 0 ? "event-opposite event-opposite--end" : "event-opposite")">
+								@if (@event.Date is { } date)
 								{
-									<MudImage Src="@(@event.Image)" Alt="@(@event.Name)" ObjectFit="ObjectFit.ScaleDown" Style="max-height:450px" />
+									<span class="event-opposite-day">@date.ToString("dd MMM")</span>
+									<span class="event-opposite-year">@date.Year</span>
 								}
-
-								<MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">View event details</MudButton>
-							</MudStack>
-						</MudPaper>
-					</ItemContent>
-				</MudTimelineItem>
-			}
-		</MudTimeline>
+							</div>
+						</ItemOpposite>
+						<ItemContent>
+							@EventCard(@event)
+						</ItemContent>
+					</MudTimelineItem>
+				}
+			</MudTimeline>
+		</MudHidden>
+		<MudHidden Breakpoint="Breakpoint.MdAndUp">
+			<MudTimeline TimelinePosition="TimelinePosition.Start">
+				@foreach (var @event in ordered)
+				{
+					<MudTimelineItem Color="@(@event.IsUpcoming() ? Color.Success : Color.Primary)"
+									 Variant="@(@event.IsUpcoming() ? Variant.Filled : Variant.Outlined)"
+									 Size="Size.Small">
+						@EventCard(@event)
+					</MudTimelineItem>
+				}
+			</MudTimeline>
+		</MudHidden>
 	</ChildContent>
 </EventsNavigationComponent>
+
+@code {
+	private RenderFragment EventCard(Event @event) => __builder =>
+	{
+		var url = urlCreator.Encode("events", @event.Name);
+		var upcoming = @event.IsUpcoming();
+		<article class="post-card event-card">
+			@if (!string.IsNullOrWhiteSpace(@event.Image))
+			{
+				<img class="event-card-image" src="@(@event.Image)" alt="@(@event.Name)" loading="lazy" />
+			}
+			<div class="post-card-body">
+				<div class="event-chips">
+					@if (upcoming)
+					{
+						<MudChip T="string" Size="Size.Small" Color="Color.Success" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Bolt">Upcoming</MudChip>
+					}
+					@if (@event.DateLabel() is { } dateLabel)
+					{
+						<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Icon="@Icons.Material.Outlined.CalendarMonth">@dateLabel</MudChip>
+					}
+					@if (!string.IsNullOrWhiteSpace(@event.Location))
+					{
+						<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Icon="@Icons.Material.Outlined.Place">@(@event.Location)</MudChip>
+					}
+					<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Color="Color.Info" Icon="@Icons.Material.Outlined.ConfirmationNumber">@(@event.PriceLabel())</MudChip>
+				</div>
+				<h2 class="post-card-title event-card-title">@(@event.Name)</h2>
+				<div class="post-card-actions event-card-actions">
+					@if (@event.HasRecording())
+					{
+						<MudButton Href="@(@event.RedirectUrl)" Target="_blank" rel="noopener" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" StartIcon="@Icons.Material.Filled.PlayCircle">Watch recording</MudButton>
+					}
+					else if (!string.IsNullOrWhiteSpace(@event.RedirectUrl))
+					{
+						<MudButton Href="@(@event.RedirectUrl)" Target="_blank" rel="noopener" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.OpenInNew">Event page</MudButton>
+					}
+					else
+					{
+						<MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.ArrowForward">Details</MudButton>
+					}
+					@if (upcoming && @event.CalendarDataUri(navigation.ToAbsolute(url)) is { } calendar)
+					{
+						<MudButton Href="@calendar" download="@(@event.CalendarFileName())" Variant="Variant.Text" Color="Color.Primary" Size="Size.Small" StartIcon="@Icons.Material.Outlined.EventAvailable">Add to calendar</MudButton>
+					}
+				</div>
+			</div>
+		</article>
+	};
+}

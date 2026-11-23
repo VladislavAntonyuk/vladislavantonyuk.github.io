@@ -6,8 +6,6 @@ using Shared.Models;
 
 public class ProjectsNavigationComponent(NavigationManager navigation, IProjectsService projectsService) : BaseNavigationComponent<Project>(navigation)
 {
-	public override string Title => "Projects";
-
 	protected override async Task<PaginatedList<Project>> GetData()
 	{
 		const int pageSize = 10;

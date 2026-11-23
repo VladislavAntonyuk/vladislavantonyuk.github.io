@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": ["run", "--project", "src/VladislavAntonyuk/VladislavAntonyuk.csproj", "--launch-profile", "http"],
+      "port": 5049
+    }
+  ]
+}

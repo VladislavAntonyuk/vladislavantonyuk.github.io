@@ -1,10 +1,9 @@
 ﻿@typeparam T
 @inherits VladislavAntonyukBaseComponent
 
-<MudStack Spacing="1" Class="mb-4">
-    <MudText Typo="Typo.h3">@Title</MudText>
+<MudStack Spacing="1" Class="mb-6 search-bar">
 	<MudTextField @bind-Value="SearchFilter"
-	              Placeholder="Search..."
+	              Placeholder="Search…"
 	              Variant="Variant.Outlined"
 	              Adornment="Adornment.Start"
 	              AdornmentAriaLabel="Search"
@@ -30,9 +29,9 @@ else if (data?.TotalCount > 0)
 
 	@if (data.TotalPages > 1)
 	{
-		<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
-			<MudText>Total items: @data.TotalCount</MudText>
-			<MudPagination BoundaryCount="2" MiddleCount="2" Count="@data.TotalPages" Selected="Page" SelectedChanged="SetPage"/>
+		<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center" Class="mt-8" Spacing="1">
+			<MudText Typo="Typo.caption" Class="mud-text-secondary">@data.TotalCount items</MudText>
+			<MudPagination Color="Color.Primary" BoundaryCount="2" MiddleCount="2" Count="@data.TotalPages" Selected="Page" SelectedChanged="SetPage"/>
 		</MudStack>
 	}
 }

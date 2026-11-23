@@ -6,63 +6,56 @@
 
 <Head Title="Vladislav Antonyuk - Articles" Description="Vladislav Antonyuk - Articles"/>
 
-<MudPaper Class="hero" Elevation="0">
-    <MudStack Spacing="2" AlignItems="AlignItems.Center" Justify="Justify.Center">
-        <MudText Typo="Typo.h3" Align="Align.Center">Insights & Articles</MudText>
-        <MudText Typo="Typo.body1" Align="Align.Center">Deep dives into .NET, Blazor, MAUI and modern architecture patterns.</MudText>
-    </MudStack>
-</MudPaper>
+<PageHero Eyebrow="Blog"
+          Title="Insights & Articles"
+          Subtitle="Deep dives into .NET, Blazor, MAUI and modern architecture patterns." />
 
 <ArticlesNavigationComponent>
-    <ChildContent Context="articles">
-	    <MudGrid>
-		    @for (var i = 0; i < articles.Count; i++)
-		    {
-			    var article = articles.ElementAt(i);
-			    var i1 = i;
-			    <MudItem xs="12">
-				    @if (i1 % 4 == 3)
-				    {
-					    <Ads Slot="7356538192" Format="fluid" LayoutKey="-5a+7r-my-rh+29p"/>
-				    }
-			    </MudItem>
+	<ChildContent Context="articles">
+		<MudGrid Spacing="4">
+			@foreach (var (i, article) in articles.Index())
+			{
+				@* First card is featured full width; the rest pair up, with an ad after every two rows. *@
+				var featured = i == 0;
+				@if (i > 1 && (i - 1) % 4 == 0)
+				{
+					<MudItem xs="12">
+						<Ads Slot="7356538192" Format="fluid" LayoutKey="-5a+7r-my-rh+29p"/>
+					</MudItem>
+				}
 
-			    <MudItem xs="12">
-				    @{
-					    var url = urlCreator.Encode("articles", article.Name);
-				    }
-				    <MudCard>
-					    @if (!string.IsNullOrWhiteSpace(article.Image))
-					    {
-						    <MudLink Href="@url">
-							    <MudImage Src="@article.Image"
-							              Style="max-height: 55vh; margin: auto; display: block;"
-							              Fluid="true"
-							              Alt="@article.Name"/>
-						    </MudLink>
-					    }
+				var url = urlCreator.Encode("articles", article.Name);
+				<MudItem xs="12" md="@(featured ? 12 : 6)">
+					<article class="@(featured ? "post-card post-card--featured" : "post-card")">
+						@if (!string.IsNullOrWhiteSpace(article.Image))
+						{
+							<a href="@url" class="post-card-media" tabindex="-1" aria-hidden="true">
+								<img src="@article.Image" alt="@article.Name" loading="lazy" />
+							</a>
+						}
 
-					    <MudCardContent>
-						    <MudText Typo="Typo.h4">@article.Name</MudText>
-						    <MudText>@article.Description</MudText>
-						    <MudStack Row="true" Justify="Justify.SpaceBetween">
-							    <MudText>
-								    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small"/>
-								    @article.Created.ToString("dd MMMM yyyy")
-							    </MudText>
-							    <MudText Align="Align.End">
-								    <MudNavLink
-									    OnClick="() => FilterCategory(article.CategoryName)"
-									    Icon="@Icons.Material.Outlined.Tag">@article.CategoryName</MudNavLink>
-							    </MudText>
-						    </MudStack>
-					    </MudCardContent>
-					    <MudCardActions>
-						    <MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.KeyboardArrowRight">Read</MudButton>
-					    </MudCardActions>
-				    </MudCard>
-			    </MudItem>
-		    }
-	    </MudGrid>
+						<div class="post-card-body">
+							<div class="post-meta">
+								<span class="post-meta-date">
+									<MudIcon Icon="@Icons.Material.Outlined.CalendarMonth" Size="Size.Small"/>
+									@article.Created.ToString("dd MMMM yyyy")
+								</span>
+								<MudChip T="string"
+								         Size="Size.Small"
+								         Variant="Variant.Text"
+								         Color="Color.Primary"
+								         Icon="@Icons.Material.Outlined.Tag"
+								         OnClick="() => FilterCategory(article.CategoryName)">@article.CategoryName</MudChip>
+							</div>
+							<a href="@url" class="post-card-title">@article.Name</a>
+							<p class="post-card-description">@article.Description</p>
+							<div class="post-card-actions">
+								<MudButton Href="@url" Variant="Variant.Text" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.ArrowForward">Read article</MudButton>
+							</div>
+						</div>
+					</article>
+				</MudItem>
+			}
+		</MudGrid>
 	</ChildContent>
 </ArticlesNavigationComponent>

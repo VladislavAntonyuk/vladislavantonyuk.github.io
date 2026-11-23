@@ -1,41 +1,32 @@
 ﻿@inherits VladislavAntonyukBaseComponent
 
-<MudLink Href="https://www.courses.milanjovanovic.tech/a/aff_9044l6t3/external?affcode=1486372_ffmooc4t"
-		 Typo="Typo.h3">
+<MudText Typo="Typo.overline" Class="drawer-subheader">Recommended courses</MudText>
 
-	<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pra_cover_1.png"
-			  Alt="Pragmatic REST APIs"
-			  Fluid="true"
-			  Class="side-image" />
+@foreach (var course in courses)
+{
+	<a class="promo-card" href="@course.Link" target="_blank" rel="noopener sponsored">
+		<img src="@course.Image" alt="@course.Title" loading="lazy" />
+		<span class="promo-card-title">@course.Title</span>
+		<span class="promo-card-description">@course.Description</span>
+	</a>
+}
 
-	Pragmatic REST APIs
-</MudLink>
+@code {
+	private sealed record Course(string Title, string Description, string Image, string Link);
 
-<MudText>Learn how to build production-ready REST APIs using the latest ASP.NET Core features and best practices.</MudText>
-
-<MudLink Href="https://www.courses.milanjovanovic.tech/a/aff_l825rpg0/external?affcode=1486372_ffmooc4t"
-		 Typo="Typo.h3">
-
-	<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/mma_cover_1.png"
-			  Alt="Modular Monolith Architecture"
-			  Fluid="true"
-			  Class="side-image" />
-
-	Modular Monolith Architecture
-</MudLink>
-
-<MudText>This in-depth course will transform the way you build modern systems. You will learn the best practices for applying the Modular Monolith architecture in a real-world scenario. It contains Everything you need to build and scale a modular monolith system.</MudText>
-
-<MudLink Href="https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t"
-		 Typo="Typo.h3"
-		 Class="mt-4">
-
-	<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pca_cover_1.png"
-			  Alt="Pragmatic Clean Architecture"
-			  Fluid="true"
-			  Class="side-image" />
-
-	Pragmatic Clean Architecture
-</MudLink>
-
-<MudText>This comprehensive course will teach you the system I use to ship production-ready applications using Clean Architecture. Learn how to apply the best practices of modern software architecture. It contains Everything You Need To Build Production-Ready Applications With Clean Architecture.</MudText>
+	private static readonly Course[] courses =
+	[
+		new("Pragmatic REST APIs",
+			"Learn how to build production-ready REST APIs using the latest ASP.NET Core features and best practices.",
+			"https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pra_cover_1.png",
+			"https://www.courses.milanjovanovic.tech/a/aff_9044l6t3/external?affcode=1486372_ffmooc4t"),
+		new("Modular Monolith Architecture",
+			"This in-depth course will transform the way you build modern systems. You will learn the best practices for applying the Modular Monolith architecture in a real-world scenario. It contains Everything you need to build and scale a modular monolith system.",
+			"https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/mma_cover_1.png",
+			"https://www.courses.milanjovanovic.tech/a/aff_l825rpg0/external?affcode=1486372_ffmooc4t"),
+		new("Pragmatic Clean Architecture",
+			"This comprehensive course will teach you the system I use to ship production-ready applications using Clean Architecture. Learn how to apply the best practices of modern software architecture. It contains Everything You Need To Build Production-Ready Applications With Clean Architecture.",
+			"https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/misc/pca_cover_1.png",
+			"https://www.courses.milanjovanovic.tech/a/aff_q2snzxhl/external?affcode=1486372_ffmooc4t")
+	];
+}

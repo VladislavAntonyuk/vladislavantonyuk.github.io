@@ -1,0 +1,24 @@
+@inherits VladislavAntonyukBaseComponent
+
+<section class="hero">
+	@if (!string.IsNullOrWhiteSpace(Eyebrow))
+	{
+		<span class="hero-eyebrow">@Eyebrow</span>
+	}
+	<h1 class="hero-title">@Title</h1>
+	@if (!string.IsNullOrWhiteSpace(Subtitle))
+	{
+		<p class="hero-subtitle">@Subtitle</p>
+	}
+</section>
+
+@code {
+	[Parameter, EditorRequired]
+	public required string Title { get; set; }
+
+	[Parameter]
+	public string? Subtitle { get; set; }
+
+	[Parameter]
+	public string? Eyebrow { get; set; }
+}

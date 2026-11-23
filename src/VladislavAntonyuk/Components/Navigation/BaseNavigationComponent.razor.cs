@@ -14,8 +14,6 @@ public abstract partial class BaseNavigationComponent<T>(NavigationManager navig
 	[SupplyParameterFromQuery]
 	public int Page { get; set; }
 
-	public abstract string Title { get; }
-
 	protected abstract Task<PaginatedList<T>> GetData();
 
 	[Parameter]
