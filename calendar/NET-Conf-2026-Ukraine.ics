@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Vladislav Antonyuk//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:event-4@vladislavantonyuk.github.io
+DTSTAMP:20261124T132125Z
+DTSTART:20261217T140000Z
+DTEND:20261217T160000Z
+SUMMARY:.NET Conf 2026 Ukraine
+URL:https://vladislavantonyuk.github.io/events/.NET-Conf-2026-Ukraine/
+DESCRIPTION:https://vladislavantonyuk.github.io/events/.NET-Conf-2026-Ukrai
+ ne/
+LOCATION:Дніпро\, просп. Д.Яворницького\, 19\, НТ
+ У «Дніпровська політехніка»\, 1 корпус\, а
+ уд.94
+END:VEVENT
+END:VCALENDAR
