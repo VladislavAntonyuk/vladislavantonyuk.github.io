@@ -8,7 +8,7 @@ internal class ProjectsService(HttpClient httpClient) : IProjectsService
 {
 	public async Task<List<Project>> Get(string? searchParameter = null)
 	{
-		var projects = await httpClient.GetFromJsonAsync<IEnumerable<Project>>("data/projects.json");
+		var projects = await httpClient.GetFromJsonAsync<IEnumerable<Project>>("data/projects.json", DataJson.Options);
 		if (projects is null)
 		{
 			return [];

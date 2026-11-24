@@ -8,10 +8,14 @@ using Shared.Models;
 
 internal class PublicationsService(HttpClient httpClient) : IPublicationsService
 {
-	private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web)
+	private static readonly JsonSerializerOptions Options = CreateOptions();
+
+	private static JsonSerializerOptions CreateOptions()
 	{
-		Converters = { new JsonStringEnumConverter<JournalCategory>() }
-	};
+		var options = DataJson.Create();
+		options.Converters.Add(new JsonStringEnumConverter<JournalCategory>());
+		return options;
+	}
 
 	public async Task<List<Publication>> GetArticles(string? searchParameter = null, CancellationToken cancellationToken = default)
 	{
@@ -31,7 +35,7 @@ internal class PublicationsService(HttpClient httpClient) : IPublicationsService
 
 	public async Task<List<Thesis>> GetTheses(string? searchParameter = null, CancellationToken cancellationToken = default)
 	{
-		var publications = await httpClient.GetFromJsonAsync<IEnumerable<Thesis>>("data/theses.json", cancellationToken);
+		var publications = await httpClient.GetFromJsonAsync<IEnumerable<Thesis>>("data/theses.json", Options, cancellationToken);
 		if (publications is null)
 		{
 			return [];

@@ -1,17 +1,14 @@
 ﻿namespace VladislavAntonyuk.Services;
 
 using System.Net.Http.Json;
-using System.Text.Json;
 using Shared;
 using Shared.Models;
 
 internal class ArticlesService(HttpClient httpClient) : IArticlesService
 {
-	private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web);
-
 	public async Task<List<Article>> GetArticles(string? categoryName = null, string? searchParameter = null)
 	{
-		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", Options);
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", DataJson.Options);
 		if (categories is null)
 		{
 			return [];
@@ -64,7 +61,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 
 	public async Task<IReadOnlyCollection<Article>> GetSuggestions(string articleName, int limit)
 	{
-		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json");
+		var categories = await httpClient.GetFromJsonAsync<Category[]>("data/categories.json", DataJson.Options);
 		if (categories is null)
 		{
 			return new List<Article>();
@@ -119,7 +116,7 @@ internal class ArticlesService(HttpClient httpClient) : IArticlesService
 
 	public async Task<List<Category>> GetCategories()
 	{
-		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", Options);
+		var categories = await httpClient.GetFromJsonAsync<IEnumerable<Category>>("data/categories.json", DataJson.Options);
 		return categories is null ? [] : categories.ToList();
 	}
 }

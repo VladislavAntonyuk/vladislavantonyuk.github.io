@@ -1,16 +1,15 @@
 ﻿namespace FileGenerator;
 
 using System.Text.Json;
+using Shared;
 using Shared.Models;
 
 internal class ArticlesService(string path)
 {
-	private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web);
-
 	public async Task<List<Article>> GetArticles()
 	{
 		var content = await File.ReadAllTextAsync(path + "categories.json");
-		var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, Options);
+		var categories = JsonSerializer.Deserialize<IEnumerable<Category>>(content, DataJson.Options);
 		if (categories is null)
 		{
 			return [];
