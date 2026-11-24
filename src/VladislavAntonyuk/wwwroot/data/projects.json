@@ -24,7 +24,7 @@
 		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/ai-calendar.png",
 		"link": "https://github.com/VladislavAntonyuk/AICalendar/",
 		"startYear": 2025,
-		"endYear": 9999
+		"endYear": 2026
 	},
 	{
 		"id": 4,
@@ -70,5 +70,14 @@
 		"link": "https://github.com/VladislavAntonyuk/SpeakUp/",
 		"startYear": 2014,
 		"endYear": 2016
-	}
+	},
+	{
+		"id": 9,
+		"name": "Home Management",
+		"description": "The application allows you to manage your home and smart devices, build workflows and communicate with app using AI.",
+		"image": "https://ik.imagekit.io/VladislavAntonyuk/vladislavantonyuk/projects/home-management.png",
+		"link": "https://github.com/VladislavAntonyuk/HomeManagement/",
+		"startYear": 2025,
+		"endYear": 9999
+	},
 ]
