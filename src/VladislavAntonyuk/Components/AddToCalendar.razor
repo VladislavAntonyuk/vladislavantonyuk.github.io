@@ -1,0 +1,47 @@
+@using global::Shared
+@using global::Shared.Models
+@inherits VladislavAntonyukBaseComponent
+@inject NavigationManager Navigation
+@inject IUrlCreator UrlCreator
+@inject IJSRuntime JsRuntime
+
+@if (Event.Date is not null)
+{
+	var pageUrl = Navigation.ToAbsolute(UrlCreator.Encode("events", Event.Name));
+	<MudMenu Label="Add to calendar"
+			 Variant="@ButtonVariant"
+			 Color="Color.Primary"
+			 Size="Size.Small"
+			 StartIcon="@Icons.Material.Outlined.EventAvailable"
+			 EndIcon="@Icons.Material.Filled.ArrowDropDown"
+			 AnchorOrigin="Origin.BottomLeft"
+			 TransformOrigin="Origin.TopLeft"
+			 Dense="true">
+		<ChildContent>
+			@* A real file served as text/calendar: iOS Safari opens its "Add to Calendar" sheet; desktop opens Outlook / Calendar. *@
+			<MudMenuItem OnClick="OpenIcs" Icon="@Icons.Custom.Brands.Apple">Apple Calendar / Outlook (.ics)</MudMenuItem>
+			<MudMenuItem Href="@EventCalendar.GoogleCalendarUrl(Event, pageUrl)" Target="_blank" Icon="@Icons.Custom.Brands.Google">Google Calendar</MudMenuItem>
+			<MudMenuItem Href="@EventCalendar.OutlookUrl(Event, pageUrl)" Target="_blank" Icon="@Icons.Custom.Brands.Microsoft">Outlook.com</MudMenuItem>
+		</ChildContent>
+	</MudMenu>
+}
+
+@code {
+	[Parameter, EditorRequired]
+	public required Event Event { get; set; }
+
+	[Parameter]
+	public Variant ButtonVariant { get; set; } = Variant.Text;
+
+	private async Task OpenIcs()
+	{
+		try
+		{
+			await JsRuntime.InvokeVoidAsync("JsFunctions.navigateExternal", Navigation.ToAbsolute(EventCalendar.FilePath(Event)));
+		}
+		catch (JSException)
+		{
+			Navigation.NavigateTo(EventCalendar.FilePath(Event), forceLoad: true);
+		}
+	}
+}

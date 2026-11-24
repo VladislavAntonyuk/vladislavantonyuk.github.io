@@ -43,9 +43,9 @@ else
 			</div>
 			<h1 class="article-title">@(@event.Name)</h1>
 			<div class="article-meta">
-				@if (@event.IsUpcoming() && @event.CalendarDataUri(navigationManager.ToAbsolute(url)) is { } calendar)
+				@if (@event.IsUpcoming())
 				{
-					<MudButton Href="@calendar" download="@(@event.CalendarFileName())" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" StartIcon="@Icons.Material.Outlined.EventAvailable">Add to calendar</MudButton>
+					<AddToCalendar Event="@(@event)" ButtonVariant="Variant.Filled" />
 				}
 				else
 				{

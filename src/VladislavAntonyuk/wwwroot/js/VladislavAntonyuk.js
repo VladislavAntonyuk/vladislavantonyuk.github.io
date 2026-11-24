@@ -13,6 +13,11 @@
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     },
+    // Full page navigation that bypasses the Blazor router, so the browser handles the response
+    // itself (for example a text/calendar file, which iOS Safari opens in its Add to Calendar sheet).
+    navigateExternal: function (url) {
+        window.location.href = url;
+    },
     initAds: function () {
         try {
             (adsbygoogle = window.adsbygoogle || []).push({});

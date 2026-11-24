@@ -93,9 +93,9 @@
 					{
 						<MudButton Href="@url" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" EndIcon="@Icons.Material.Filled.ArrowForward">Details</MudButton>
 					}
-					@if (upcoming && @event.CalendarDataUri(navigation.ToAbsolute(url)) is { } calendar)
+					@if (upcoming)
 					{
-						<MudButton Href="@calendar" download="@(@event.CalendarFileName())" Variant="Variant.Text" Color="Color.Primary" Size="Size.Small" StartIcon="@Icons.Material.Outlined.EventAvailable">Add to calendar</MudButton>
+						<AddToCalendar Event="@(@event)" />
 					}
 				</div>
 			</div>
